@@ -50,7 +50,27 @@ class Register : AppCompatActivity() {
             val contrasena = txtRegistrarContrasena.text.toString()
             val confirmacionContrasena = txtConfirmacionContrasena.text.toString()
 
-            
+            //Validaciones
+            // Validación: Que no quede ningun campo vacío.
+            if (correo.isEmpty() || contrasena.isEmpty() || confirmacionContrasena.isEmpty()) {
+                Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que el correo electrónico tenga una @ obligatoriamente.
+            if (!correo.matches(".*@.*".toRegex())) {
+                Toast.makeText(this, "Ingrese correo valido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que la contraseña contenga entre 6 y 24 caracteres.
+            if (contrasena.length < 6 || contrasena.length > 24) {
+                Toast.makeText(this, "Ingrese una clave entre 6 y 24 caracteres", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que las contraseña sean las mismas.
+            if (contrasena != confirmacionContrasena) {
+                Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
 
             // Si todas las validaciones pasan, procede con el registro
