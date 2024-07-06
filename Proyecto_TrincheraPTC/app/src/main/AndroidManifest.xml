@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
         <activity
+            android:name=".sopas_card"
+            android:exported="false" />
+        <activity
+            android:name=".MenuSopasActivity2"
+            android:exported="false" />
+        <activity
             android:name=".Register"
             android:exported="false" />
         <activity
