@@ -63,7 +63,7 @@ class Login : AppCompatActivity() {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
                             this@Login,
-                            "Usuario o contraseña incorrectos",
+                            "Usuario o contraseña estan incorrectos",
                             Toast.LENGTH_SHORT
                         ).show()
                         println("contraseña $contrasenaEncriptada")
