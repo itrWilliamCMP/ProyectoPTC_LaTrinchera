@@ -55,12 +55,10 @@ class Login : AppCompatActivity() {
                 val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM USUARIOS3PTC WHERE correoElectronico = ? AND contrasena = ?")!!
                 verificarUsuario.setString(1, txtCorreoElectronico.text.toString())
                 verificarUsuario.setString(2, contrasenaEncriptada)
+                verificarUsuario.executeUpdate()
                 val resultado = verificarUsuario.executeQuery()
                 if (resultado.next()) {
-                    withContext(Dispatchers.Main) {
-                        startActivity(pantallaPrincipal)
-                    }
-
+                    startActivity(pantallaPrincipal)
                 } else {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(
@@ -68,12 +66,14 @@ class Login : AppCompatActivity() {
                             "Usuario o contraseña incorrectos",
                             Toast.LENGTH_SHORT
                         ).show()
+                        println("contraseña $contrasenaEncriptada")
                     }
+
                 }
             }
-
-
         }
+
+
 
         //Botón para ir a la pantalla de registrarse
         btnRegistrarse.setOnClickListener {
@@ -83,3 +83,4 @@ class Login : AppCompatActivity() {
     }
 
 }
+

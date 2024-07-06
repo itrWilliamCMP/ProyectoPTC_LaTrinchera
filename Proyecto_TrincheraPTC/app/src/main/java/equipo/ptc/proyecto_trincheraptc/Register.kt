@@ -39,7 +39,7 @@ class Register : AppCompatActivity() {
         // Función para encriptar la contraseña (corregida)
         fun hashSHA256(contraseniaEscrita: String): String {
             val bytes = MessageDigest.getInstance("SHA-256").digest(contraseniaEscrita.toByteArray())
-            return bytes.joinToString("") { "%02x".format(it) } // Cierra la llave de la función
+            return bytes.joinToString("") { "%02x".format(it) }
         }
 
         //2- Programar los botones
@@ -83,8 +83,7 @@ class Register : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
 
                 //Creo una variable que contenga un PrepareStatement
-                val CreacionDelUsuario =
-                    objConexion?.prepareStatement("INSERT INTO USUARIOS3PTC (UUID_usuario, correoElectronico, contrasena) VALUES (?, ?, ?)")!!
+                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO USUARIOS3PTC (UUID_usuario, correoElectronico, contrasena) VALUES (?, ?, ?)")!!
                 CreacionDelUsuario.setString(1, UUID.randomUUID().toString())
                 CreacionDelUsuario.setString(2, txtRegistrarCorreo.text.toString())
                 CreacionDelUsuario.setString(3, contraseniaEncriptada)
