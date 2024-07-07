@@ -71,7 +71,7 @@
         app:srcCompat="@drawable/barra_busqueda" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvSopas"
         android:layout_width="409dp"
         android:layout_height="332dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-        app:layout_constraintEnd_toStartOf="@+id/editTextText3"
+        app:layout_constraintEnd_toStartOf="@+id/txtBuscarSopas"
         app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -95,9 +95,10 @@
         app:srcCompat="@drawable/lupa" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/txtBuscarSopas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="344dp"
         android:ems="10"
         android:hint="Buscar"
         android:inputType="text"
@@ -107,5 +108,17 @@
         app:layout_constraintStart_toStartOf="@+id/imageView8"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.501" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="67dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.034"
+        app:srcCompat="@drawable/baseline_chevron_left_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
