@@ -83,7 +83,7 @@ class Register : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
 
                 //Creo una variable que contenga un PrepareStatement
-                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO USUARIOS3PTC (UUID_usuario, correoElectronico, contrasena) VALUES (?, ?, ?)")!!
+                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO clientes_PTC (UUID_cliente, correoElectronico, contrasena) VALUES (?, ?, ?)")!!
                 CreacionDelUsuario.setString(1, UUID.randomUUID().toString())
                 CreacionDelUsuario.setString(2, txtRegistrarCorreo.text.toString())
                 CreacionDelUsuario.setString(3, contraseniaEncriptada)

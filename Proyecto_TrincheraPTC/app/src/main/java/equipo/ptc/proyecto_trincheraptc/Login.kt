@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -41,7 +42,7 @@ class Login : AppCompatActivity() {
         btnEntrar.setOnClickListener {
 
 
-            val pantallaPrincipal = Intent(this, MainActivity::class.java)
+            val pantallaPrincipal = Intent(this, Menu_PrincipalActivity::class.java)
             GlobalScope.launch(Dispatchers.IO) {
                 //2- Creo una variable que contenga un PrepareStatement
                 //Se hace un select where el correo y la contraseña sean iguales a
@@ -52,7 +53,7 @@ class Login : AppCompatActivity() {
 
                 val contrasenaEncriptada = hashSHA256(txtContrasena.text.toString())
 
-                val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM USUARIOS3PTC WHERE correoElectronico = ? AND contrasena = ?")!!
+                val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
                 verificarUsuario.setString(1, txtCorreoElectronico.text.toString())
                 verificarUsuario.setString(2, contrasenaEncriptada)
                 verificarUsuario.executeUpdate()

@@ -46,15 +46,17 @@ cod_prodcuto char(20)
  
 
 create table clientes_PTC( 
-id_cliente number PRIMARY KEY, 
+id_cliente number PRIMARY KEY,
+UUID_cliente VARCHAR2(50), 
 cod_clie char(10), 
 nom_clie char(20), 
 ape_clie char(20), 
 tel_clie char(20), 
 dir_entrega varchar2(200), 
 usu_cliente varchar2(15), 
-clave_cliente varchar2(128) 
-); 
+correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
+contrasena VARCHAR2(255) NOT NULL 
+);
 
 create table Empleados_PTC( 
 id_empleado number PRIMARY KEY, 
@@ -123,10 +125,26 @@ entrada number(1),
 salida number(1) 
 ); 
 
+CREATE SEQUENCE CLIENTE
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigClientes12
+BEFORE INSERT ON clientes_PTC
+for EACH ROW
+BEGIN
+SELECT CLIENTE.NEXTVAL INTO : NEW.id_cliente from DUAL;
+END;
+
+select * from clientes_PTC;
 
 
+DROP TABLE CarritoCompra_PTC;
 
 DROP TABLE PEDIDOS_PTC;
 
 DROP TABLE DetallePedidos_PTC;
+
+drop table clientes_ptc;
+
 
