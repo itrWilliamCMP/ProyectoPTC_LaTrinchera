@@ -18,15 +18,15 @@
         android:layout_height="84dp">
 
         <TextView
-            android:id="@+id/tvDescripcion"
+            android:id="@+id/txtnombreCard"
             android:layout_width="124dp"
             android:layout_height="21dp"
 
-            android:text="Sopa de tortilla"
+            android:text="Text"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.779"
+            app:layout_constraintHorizontal_bias="0.75"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.507" />
