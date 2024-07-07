@@ -72,15 +72,12 @@ class Login : AppCompatActivity() {
                 }
             }
         }
-
-
-
-        //Botón para ir a la pantalla de registrarse
-        btnRegistrarse.setOnClickListener {
-            val pantallaRegistrarse = Intent(this, Register::class.java)
-            startActivity(pantallaRegistrarse)
+        //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
+        val btn : Button = findViewById(R.id.btngoogle)
+        btn.setOnClickListener {
+            val Intent: Intent = Intent(this, Menu_PrincipalActivity::class.java)
+            startActivity(Intent)
         }
     }
-
 }
 
