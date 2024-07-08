@@ -19,11 +19,19 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             insets
         }
 
-        val imgMenu = findViewById<ImageView>(R.id.imgMenu)
+           //Cambiar de pantalla entre vector
 
-            imgMenu.setOnClickListener {
+        val imgCarrito = findViewById<ImageView>(R.id.imgCarrito)
+        imgCarrito.setOnClickListener {
                 val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
                 startActivity(pantallaLogin)
+
+                val imgsopas = findViewById<ImageView>(R.id.imgsopas)
+            imgsopas.setOnClickListener {
+                    val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
+                    startActivity(pantallaLogin)
+
+                }
             }
         }
     }
