@@ -2,21 +2,14 @@ create table PEDIDOS_PTC(
 id_pedido number PRIMARY KEY, 
 id_cliente number, 
 id_empleado number, 
-id_carritoCompra number,
-pedido_no number, 
-fechahora_pedido Date, 
-otrosdatos varchar2(200), 
+//id_carritoCompra number,
+fecha_hora_pedido Date, 
+//otrosdatos varchar2(200), 
 total_pedido number(7,2), 
-recibido_rest number(1), 
-enproceso number(1), 
-enviado number(1), 
-entregado number(1), 
-anulado number(1), 
-pagotarjeta number(1), 
-pagoefectivo number(1), 
-comeraqui number(1), 
-llevar number(1), 
-paraenvio number(1), 
+Estado VARCHAR(20) CHECK (Estado IN ('enviado', 'Entregado','Anulado','En proceso')),
+Tipo_Pago VARCHAR(20) CHECK (Estado IN ('Tarjeta', 'Efectivo')),
+Tipo_Pedido VARCHAR(20) CHECK (Estado IN ('Comer aqui', 'Para llevar','Delivery')),
+
 CONSTRAINT FK_id_cliente_cliente1 FOREIGN KEY (id_cliente) REFERENCES clientes_PTC(id_cliente), 
 CONSTRAINT FK_id_empleado_empleado1 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id_empleado)
 ); 
@@ -32,26 +25,14 @@ precio number(7,2),
 CONSTRAINT FK_id_pedido_pedido1 FOREIGN KEY (id_pedido) REFERENCES PEDIDOS_PTC(id_pedido), 
 CONSTRAINT FK_id_producto_producto1 FOREIGN KEY (id_producto) REFERENCES Productos_PTC(id_producto) 
 ); 
-
-
-
-create table Productos_PTC( 
-id_producto number PRIMARY KEY, 
-producto char(20), 
-precioventa number(7,2), 
-existencia number(6), 
-cod_prodcuto char(20) 
-); 
-
  
 
 create table clientes_PTC( 
-id_cliente number PRIMARY KEY,
-UUID_cliente VARCHAR2(50), 
-cod_clie char(10), 
-nom_clie char(20), 
-ape_clie char(20), 
-tel_clie char(20), 
+UUID_cliente VARCHAR2(50) PRIMARY KEY, 
+//cod_clie char(10), 
+nombre_clie varchar2(20), 
+apellido_clie varchar2(20), 
+telefono_clie varchar2(20), 
 dir_entrega varchar2(200), 
 usu_cliente varchar2(15), 
 correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
@@ -60,15 +41,13 @@ contrasena VARCHAR2(255) NOT NULL
 
 create table Empleados_PTC( 
 id_empleado number PRIMARY KEY, 
-cod_empleado char(10), 
-nom_empleado char(20), 
-ape_empleado char(20), 
-user_empleado varchar2(15), 
-clave_empleado varchar2(128) 
+nom_empleado varchar2(20), 
+ape_empleado varchar2(20), 
+usu_empleado varchar2(15), 
+contrasena varchar2(128) 
 ); 
 
  
-
 create table PermisosEmpelado_PTC( 
 id_permisoempl number PRIMARY KEY, 
 id_permiso number, 
@@ -79,31 +58,38 @@ CONSTRAINT FK_id_empleado2 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id
 ); 
 
  
-
 create table Permisos_PTC( 
 id_permiso number PRIMARY KEY, 
 permiso number, 
 motivopermiso char(15) 
 ); 
 
- 
-
 create table Menus_PTC( 
 id_menu Number PRIMARY KEY, 
-cod_menu char(10), 
-descripcionmenu varchar2(100) 
+categoria varchar2(20)
 ); 
 
-create table DetalleMenus_PTC( 
-id_detamenu number PRIMARY KEY, 
-id_menu number, 
-id_producto number, 
-precio number(7,2), 
-CONSTRAINT FK_id_menu_menu1 FOREIGN KEY (id_menu) REFERENCES Menus_PTC(id_menu), 
-CONSTRAINT FK_id_producto_producto3 FOREIGN KEY (id_producto) REFERENCES Productos_PTC(id_producto) 
-); 
+create table Productos_PTC( 
+id_producto number PRIMARY KEY, 
+id_menu Number,
+producto varchar2(20), 
+descripcion varchar2(250),
+precioventa number, 
+stock int,
+//cod_prodcuto char(20)
+CONSTRAINT FK_categoria FOREIGN KEY (id_menu) REFERENCES Menus_PTC(id_menu)); 
 
- 
+
+
+//Tabla de mas
+--create table DetalleMenus_PTC( 
+--id_detamenu number PRIMARY KEY, 
+--id_menu number, 
+--id_producto number,
+--CONSTRAINT FK_categoria FOREIGN KEY (categoria) REFERENCES Menus_PTC(categoria), 
+--CONSTRAINT FK_id_producto FOREIGN KEY (id_producto) REFERENCES Productos_PTC(id_producto) 
+--); 
+
 
 create table DetaMovInventario_PTC( 
 id_detamov number PRIMARY KEY, 
