@@ -7,8 +7,8 @@ fecha_hora_pedido Date,
 //otrosdatos varchar2(200), 
 total_pedido number(7,2), 
 Estado VARCHAR(20) CHECK (Estado IN ('enviado', 'Entregado','Anulado','En proceso')),
-Tipo_Pago VARCHAR(20) CHECK (Estado IN ('Tarjeta', 'Efectivo')),
-Tipo_Pedido VARCHAR(20) CHECK (Estado IN ('Comer aqui', 'Para llevar','Delivery')),
+Tipo_Pago VARCHAR(20) CHECK (Tipo_Pago IN ('Tarjeta', 'Efectivo')),
+Tipo_Pedido VARCHAR(20) CHECK (Tipo_Pedido IN ('Comer aqui', 'Para llevar','Delivery')),
 
 CONSTRAINT FK_id_cliente_cliente1 FOREIGN KEY (id_cliente) REFERENCES clientes_PTC(id_cliente), 
 CONSTRAINT FK_id_empleado_empleado1 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id_empleado)

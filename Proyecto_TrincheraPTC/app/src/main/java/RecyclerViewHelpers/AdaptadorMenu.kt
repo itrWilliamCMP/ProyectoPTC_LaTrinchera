@@ -18,6 +18,6 @@ class AdaptadorMenu(private var Datos: List<tbMenu>) : RecyclerView.Adapter<View
 
     override fun onBindViewHolder(holder: ViewHolderMenu, position: Int) {
         val tbMenu = Datos[position]
-        holder.txtNombreCard.text = tbMenu.categoria
+        holder.txtCardMenu.text = tbMenu.categoria
     }
 }

@@ -83,13 +83,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvComida"
-        android:layout_width="309dp"
-        android:layout_height="260dp"
+        android:layout_width="315dp"
+        android:layout_height="416dp"
         android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintHorizontal_bias="0.281"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.142" />
 
     <ImageView
         android:id="@+id/imageView14"
@@ -183,17 +185,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.052"
         app:srcCompat="@drawable/baseline_account_circle_24" />
-
-    <ImageView
-        android:id="@+id/imgsopas"
-        android:layout_width="278dp"
-        android:layout_height="145dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.285"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851"
-        app:srcCompat="@drawable/sopas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

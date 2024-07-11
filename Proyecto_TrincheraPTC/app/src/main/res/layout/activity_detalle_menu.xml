@@ -19,16 +19,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cuadro_menu" />
 
+
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="244dp"
-        android:layout_height="234dp"
-        android:layout_marginTop="52dp"
+        android:layout_width="214dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/imagen_sopa" />
+        tools:srcCompat="@tools:sample/avatars" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -44,11 +45,11 @@
         app:srcCompat="@drawable/cuadro_negro" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtDetalleMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="272dp"
-        android:text="Sopas"
+        android:text="text"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,11 +99,10 @@
         android:id="@+id/txtBuscarSopas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="344dp"
         android:ems="10"
         android:hint="Buscar"
         android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imageView8"
         app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="@+id/imageView8"
@@ -120,5 +120,6 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.034"
         app:srcCompat="@drawable/baseline_chevron_left_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
