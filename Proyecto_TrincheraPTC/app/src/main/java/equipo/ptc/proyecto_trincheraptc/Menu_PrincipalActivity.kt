@@ -49,10 +49,9 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
             while (resultSet.next()) {
                 val id_menu = resultSet.getInt("id_menu")
-                val nombre_categoria = resultSet.getString("nombre_categoria")
                 val categoria = resultSet.getString("categoria")
 
-                val valoresjuntos = tbMenu(id_menu, nombre_categoria, categoria)
+                val valoresjuntos = tbMenu(id_menu, categoria)
 
                 listaComida.add(valoresjuntos)
             }

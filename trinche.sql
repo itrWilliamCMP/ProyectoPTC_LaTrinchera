@@ -66,7 +66,8 @@ motivopermiso char(15)
 
 create table Menus_PTC( 
 id_menu Number PRIMARY KEY, 
-categoria varchar2(20)
+categoria varchar2(20),
+imagen_categoria varchar2(250)
 ); 
 
 create table Productos_PTC( 
@@ -76,8 +77,10 @@ producto varchar2(20),
 descripcion varchar2(250),
 precioventa number, 
 stock int,
+imagen_comida varchar2(250),
 //cod_prodcuto char(20)
-CONSTRAINT FK_categoria FOREIGN KEY (id_menu) REFERENCES Menus_PTC(id_menu)); 
+CONSTRAINT FK_categoria FOREIGN KEY (id_menu) REFERENCES Menus_PTC(id_menu)
+); 
 
 
 
