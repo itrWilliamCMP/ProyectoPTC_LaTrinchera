@@ -25,6 +25,7 @@
             android:layout_width="53dp"
             android:layout_height="18dp"
             android:hint="Nombre"
+            android:textColor="#F2B66D"
             app:layout_constraintBottom_toTopOf="@+id/tvPrecio"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.416"
@@ -38,6 +39,7 @@
             android:layout_height="18dp"
 
             android:hint="Precio"
+            android:textColor="#F2B66D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.455"
@@ -47,18 +49,18 @@
 
         <TextView
             android:id="@+id/tvPrecioCantidad"
-            android:layout_width="51dp"
-            android:layout_height="19dp"
+            android:layout_width="45dp"
+            android:layout_height="23dp"
             android:gravity="center"
 
             android:hint="0"
             android:textColor="#F2B66D"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.906"
+            app:layout_constraintHorizontal_bias="0.923"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.769" />
+            app:layout_constraintVertical_bias="0.737" />
 
         <ImageView
             android:id="@+id/ivSuma"
@@ -101,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="0"
+            android:text="‎ "
             app:layout_constraintBottom_toTopOf="@+id/tvPrecioCantidad"
             app:layout_constraintEnd_toStartOf="@+id/ivResta"
             app:layout_constraintStart_toEndOf="@+id/ivSuma"
