@@ -24,10 +24,10 @@
             android:name=".Menu_PrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalleMenu_card"
+            android:name=".sopas_card"
             android:exported="false" />
         <activity
-            android:name=".DetalleMenuActivity2"
+            android:name=".MenuSopasActivity"
             android:exported="false" />
         <activity
             android:name=".Register"
@@ -47,6 +47,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

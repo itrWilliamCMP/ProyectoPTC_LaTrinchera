@@ -1,6 +1,8 @@
 package equipo.ptc.proyecto_trincheraptc
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,5 +18,27 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val imgMenuOutline = findViewById<ImageView>(R.id.imgMenuOutline)
+        imgMenuOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgSopas = findViewById<ImageView>(R.id.imgSopas)
+        imgSopas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
+        imgBaseSopas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
     }
+
+
+
 }

@@ -5,15 +5,448 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/fondo"
+    tools:context=".MainActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.858"
+                app:srcCompat="@drawable/estrella_5" />
+
+            <ImageView
+                android:id="@+id/imgEstSopas"
+                android:layout_width="221dp"
+                android:layout_height="213dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.838"
+                app:srcCompat="@drawable/estrella10" />
+
+            <ImageView
+                android:id="@+id/imgBaseSopas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.239"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.82"
+                app:srcCompat="@drawable/basemandala" />
+
+            <ImageView
+                android:id="@+id/img11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.022"
+                app:srcCompat="@drawable/estrella_5" />
+
+            <ImageView
+                android:id="@+id/imgEstBurritos"
+                android:layout_width="221dp"
+                android:layout_height="213dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.126"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.021"
+                app:srcCompat="@drawable/estrella10" />
+
+            <ImageView
+                android:id="@+id/imgBaseBurritos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.239"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.06"
+                app:srcCompat="@drawable/basemandala" />
+
+            <ImageView
+                android:id="@+id/imgBurritos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseBurritos"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseBurritos"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseBurritos"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseBurritos"
+                app:srcCompat="@drawable/burritos" />
+
+            <ImageView
+                android:id="@+id/imgPlaceBurritos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.173"
+                app:srcCompat="@drawable/placenomcomida" />
+
+            <TextView
+                android:id="@+id/tvBurritos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:text="Burritos"
+                android:textColor="#262626"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPlaceBurritos"
+                app:layout_constraintEnd_toEndOf="@+id/imgPlaceBurritos"
+                app:layout_constraintHorizontal_bias="0.31"
+                app:layout_constraintStart_toStartOf="@+id/imgPlaceBurritos"
+                app:layout_constraintTop_toTopOf="@+id/imgPlaceBurritos"
+                app:layout_constraintVertical_bias="0.16000003" />
+
+            <ImageView
+                android:id="@+id/imgPlaceSopas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.885"
+                app:srcCompat="@drawable/placenomcomida" />
+
+            <ImageView
+                android:id="@+id/imgPlaceQuesadillas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.528"
+                app:srcCompat="@drawable/placenomcomida" />
+
+            <ImageView
+                android:id="@+id/img5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.645"
+                app:srcCompat="@drawable/estrella_5_2" />
+
+            <ImageView
+                android:id="@+id/imgEstTacos"
+                android:layout_width="221dp"
+                android:layout_height="213dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.957"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.629"
+                app:srcCompat="@drawable/estrella10" />
+
+            <ImageView
+                android:id="@+id/imgBaseTacos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.81"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.629"
+                app:srcCompat="@drawable/basemandala" />
+
+            <ImageView
+                android:id="@+id/img15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.032"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.436"
+                app:srcCompat="@drawable/estrella_5" />
+
+            <ImageView
+                android:id="@+id/imgEstQuesadillas"
+                android:layout_width="221dp"
+                android:layout_height="213dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.121"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.429"
+                app:srcCompat="@drawable/estrella10" />
+
+            <ImageView
+                android:id="@+id/imgBaseQuesadillas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.239"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.44"
+                app:srcCompat="@drawable/basemandala" />
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.232"
+                app:srcCompat="@drawable/estrella_5_2" />
+
+            <ImageView
+                android:id="@+id/imgEstTortas"
+                android:layout_width="221dp"
+                android:layout_height="213dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.957"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.224"
+                app:srcCompat="@drawable/estrella10" />
+
+            <ImageView
+                android:id="@+id/imgBaseTortas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.817"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.25"
+                app:srcCompat="@drawable/basemandala" />
+
+            <ImageView
+                android:id="@+id/imgPlaceTacos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.706"
+                app:srcCompat="@drawable/placenomcomida2" />
+
+            <ImageView
+                android:id="@+id/imgPlaceTortas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.356"
+                app:srcCompat="@drawable/placenomcomida2" />
+
+            <ImageView
+                android:id="@+id/imgTortas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseTortas"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseTortas"
+                app:layout_constraintHorizontal_bias="0.468"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseTortas"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseTortas"
+                app:layout_constraintVertical_bias="0.491"
+                app:srcCompat="@drawable/tortas" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1300dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="267dp" />
+
+            <ImageView
+                android:id="@+id/imgQuesadillas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseQuesadillas"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseQuesadillas"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseQuesadillas"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseQuesadillas"
+                app:srcCompat="@drawable/quesadillas" />
+
+            <ImageView
+                android:id="@+id/imgTacos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseTacos"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseTacos"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseTacos"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseTacos"
+                app:srcCompat="@drawable/tacos" />
+
+            <ImageView
+                android:id="@+id/imgSopas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseSopas"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseSopas"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseSopas"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseSopas"
+                app:srcCompat="@drawable/sopas" />
+
+            <TextView
+                android:id="@+id/tvTortas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:text="Tortas"
+                android:textColor="#262626"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPlaceTortas"
+                app:layout_constraintEnd_toEndOf="@+id/imgPlaceTortas"
+                app:layout_constraintHorizontal_bias="0.59"
+                app:layout_constraintStart_toStartOf="@+id/imgPlaceTortas"
+                app:layout_constraintTop_toTopOf="@+id/imgPlaceTortas"
+                app:layout_constraintVertical_bias="0.18" />
+
+            <TextView
+                android:id="@+id/tvQuesadillas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:text="Quesadillas"
+                android:textColor="#292929"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPlaceQuesadillas"
+                app:layout_constraintEnd_toEndOf="@+id/imgPlaceQuesadillas"
+                app:layout_constraintHorizontal_bias="0.22"
+                app:layout_constraintStart_toStartOf="@+id/imgPlaceQuesadillas"
+                app:layout_constraintTop_toTopOf="@+id/imgPlaceQuesadillas"
+                app:layout_constraintVertical_bias="0.16000003" />
+
+            <TextView
+                android:id="@+id/tvTacos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:text="Tacos"
+                android:textColor="#292929"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPlaceTacos"
+                app:layout_constraintEnd_toEndOf="@+id/imgPlaceTacos"
+                app:layout_constraintHorizontal_bias="0.57"
+                app:layout_constraintStart_toStartOf="@+id/imgPlaceTacos"
+                app:layout_constraintTop_toTopOf="@+id/imgPlaceTacos"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <TextView
+                android:id="@+id/tvSopas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sora_bold"
+                android:text="Sopas"
+                android:textColor="#262626"
+                app:layout_constraintBottom_toBottomOf="@+id/imgPlaceSopas"
+                app:layout_constraintEnd_toEndOf="@+id/imgPlaceSopas"
+                app:layout_constraintHorizontal_bias="0.346"
+                app:layout_constraintStart_toStartOf="@+id/imgPlaceSopas"
+                app:layout_constraintTop_toTopOf="@+id/imgPlaceSopas"
+                app:layout_constraintVertical_bias="0.12" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <View
+        android:id="@+id/navbar1"
+        android:layout_width="355dp"
+        android:layout_height="95dp"
+        android:background="@drawable/navbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.957" />
+
+    <ImageView
+        android:id="@+id/imgCarritoOutline"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916"
+        app:srcCompat="@drawable/compraoutline" />
+
+    <ImageView
+        android:id="@+id/imgPrincipal"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.167"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916"
+        app:srcCompat="@drawable/principalfillled" />
+
+    <ImageView
+        android:id="@+id/imgMenuOutline"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.916"
+        app:srcCompat="@drawable/menuoutline" />
+
+    <ImageView
+        android:id="@+id/imgUserOutline"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.917"
+        app:srcCompat="@drawable/useroutline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

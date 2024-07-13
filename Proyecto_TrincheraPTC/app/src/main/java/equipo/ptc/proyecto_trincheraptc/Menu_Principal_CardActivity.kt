@@ -22,14 +22,14 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
         val imgMenuPrincipal = findViewById<ImageView>(R.id.imgAdelante)
 
         imgMenuPrincipal.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, DetalleMenuActivity2::class.java)
+            val pantallaDetalleMenu = Intent(this, MenuSopasActivity::class.java)
             startActivity(pantallaDetalleMenu)
         }
 
         val txtCardMenu = findViewById<TextView>(R.id.txtCardMenu)
 
         imgMenuPrincipal.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, DetalleMenuActivity2::class.java)
+            val pantallaDetalleMenu = Intent(this, MenuSopasActivity::class.java)
             startActivity(pantallaDetalleMenu)
         }
     }

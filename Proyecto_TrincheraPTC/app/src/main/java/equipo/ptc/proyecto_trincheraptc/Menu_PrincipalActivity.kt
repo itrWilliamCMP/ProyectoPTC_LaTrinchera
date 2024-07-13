@@ -28,8 +28,8 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             insets
         }
 
-        //Cambiar de pantalla entre vector
-        val imgCarrito = findViewById<ImageView>(R.id.imgCarrito)
+           //Cambiar de pantalla entre vector
+        val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
         imgCarrito.setOnClickListener {
             val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
@@ -63,7 +63,12 @@ class Menu_PrincipalActivity : AppCompatActivity() {
                 val adapter = AdaptadorMenu(categoriasDB)
                 rcvComida.adapter = adapter
             }
+
+        }
+        val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
+        imgPrincipalOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, MainActivity::class.java)
+            startActivity(pantallaLogin)
         }
     }
-
 }

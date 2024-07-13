@@ -10,13 +10,15 @@
 
     <EditText
         android:id="@+id/txtCorreoElectronico"
-        android:layout_width="226dp"
-        android:layout_height="63dp"
-        android:background="@drawable/cuadro_decorativo1"
+        android:layout_width="354dp"
+        android:layout_height="41dp"
+        android:background="@drawable/campooutline"
         android:ems="10"
-        android:hint="    Correo Electronico"
+        android:fontFamily="@font/source_sans_pro_black"
         android:inputType="text"
+        android:textColor="#262626"
         android:textColorHint="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
@@ -26,39 +28,46 @@
 
     <Button
         android:id="@+id/btnRegistrarse"
-        android:layout_width="230dp"
-        android:layout_height="63dp"
-        android:text="¡Registrarme ahora!"
-        android:textSize="16sp"
+        android:layout_width="355dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFC072"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:text="Registrarse"
+        android:textColor="#262626"
+        android:textSize="22sp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.975" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¿No tienes una cuenta? ¡Registrate ahora!"
-        android:textSize="18sp"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="¿No tienes una cuenta? Regístrate."
+        android:textColor="#EA986A"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+        app:layout_constraintVertical_bias="0.858" />
 
     <EditText
         android:id="@+id/txtContrasena"
-        android:layout_width="222dp"
-        android:layout_height="59dp"
-        android:background="@drawable/cuadro_decorativo1"
+        android:layout_width="354dp"
+        android:layout_height="41dp"
+        android:background="@drawable/campooutline"
         android:ems="10"
-        android:hint="    Contraseña"
+        android:fontFamily="@font/source_sans_pro_black"
         android:inputType="textPassword"
+        android:textColor="#262626"
         android:textColorHint="@color/black"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
@@ -68,28 +77,91 @@
 
     <Button
         android:id="@+id/btngoogle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Inicio con google"
-        android:textSize="20sp"
+        android:layout_width="355dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFC072"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:text="Continuar con google"
+        android:textColor="#262626"
+        android:textSize="22sp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.765" />
+        app:layout_constraintVertical_bias="0.795" />
 
     <Button
         android:id="@+id/btnEntrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entrar"
-        android:textSize="24sp"
+        android:layout_width="355dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#FFC072"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:shadowColor="#000000"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="Continuar"
+        android:textColor="#262626"
+        android:textSize="22sp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683"
-        />
+        app:layout_constraintVertical_bias="0.683" />
+
+    <ImageView
+        android:id="@+id/imageVie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538"
+        app:srcCompat="@drawable/camponombre" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.431"
+        app:srcCompat="@drawable/camponombre" />
+
+    <TextView
+        android:id="@+id/tvEMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="E-Mail"
+        android:textColor="#80000000"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.799" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="Contraseña"
+        android:textColor="#80000000"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="@+id/imageView9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536" />
 </androidx.constraintlayout.widget.ConstraintLayout>
