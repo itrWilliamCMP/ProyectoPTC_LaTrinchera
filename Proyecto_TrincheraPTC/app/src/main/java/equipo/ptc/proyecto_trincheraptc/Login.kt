@@ -50,7 +50,7 @@ class Login : AppCompatActivity() {
         btnEntrar.setOnClickListener {
 
 
-            val pantallaPrincipal = Intent(this, Menu_PrincipalActivity::class.java)
+            val pantallaPrincipal = Intent(this, MainActivity::class.java)
             CoroutineScope(Dispatchers.IO).launch {
                 //2- Creo una variable que contenga un PrepareStatement
                 //Se hace un select where el correo y la contraseña sean iguales a
@@ -101,7 +101,7 @@ class Login : AppCompatActivity() {
         //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
         val btn : Button = findViewById(R.id.btngoogle)
         btn.setOnClickListener {
-            val Intent: Intent = Intent(this, Menu_PrincipalActivity::class.java)
+            val Intent: Intent = Intent(this, MainActivity::class.java)
             startActivity(Intent)
         }
     }

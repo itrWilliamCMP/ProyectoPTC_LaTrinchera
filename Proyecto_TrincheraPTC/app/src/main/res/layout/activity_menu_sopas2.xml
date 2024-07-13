@@ -12,7 +12,6 @@
         android:id="@+id/imageView2"
         android:layout_width="432dp"
         android:layout_height="293dp"
-        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,19 +28,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/imagen_sopa" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="420dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="664dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/cuadro_negro" />
 
     <TextView
         android:id="@+id/textView"
