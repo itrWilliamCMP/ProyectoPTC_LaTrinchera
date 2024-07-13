@@ -24,7 +24,7 @@
             android:name=".sopas_card"
             android:exported="false" />
         <activity
-            android:name=".MenuSopasActivity2"
+            android:name=".MenuSopasActivity"
             android:exported="false" />
         <activity
             android:name=".Register"

@@ -79,7 +79,7 @@
         android:hint="Buscar"
         android:inputType="text"
         android:textAlignment="center"
-        android:textColor="#F2B66D"
+        android:textColor="#262626"
         android:textColorHint="#F2B66D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

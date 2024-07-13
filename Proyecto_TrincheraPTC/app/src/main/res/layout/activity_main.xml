@@ -29,7 +29,7 @@
                 app:srcCompat="@drawable/estrella_5" />
 
             <ImageView
-                android:id="@+id/img22"
+                android:id="@+id/imgEstSopas"
                 android:layout_width="221dp"
                 android:layout_height="213dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
                 app:srcCompat="@drawable/estrella10" />
 
             <ImageView
-                android:id="@+id/img23"
+                android:id="@+id/imgBaseSopas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -321,13 +321,13 @@
                 app:srcCompat="@drawable/tacos" />
 
             <ImageView
-                android:id="@+id/imageView20"
+                android:id="@+id/imgSopas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="@+id/img23"
-                app:layout_constraintEnd_toEndOf="@+id/img23"
-                app:layout_constraintStart_toStartOf="@+id/img23"
-                app:layout_constraintTop_toTopOf="@+id/img23"
+                app:layout_constraintBottom_toBottomOf="@+id/imgBaseSopas"
+                app:layout_constraintEnd_toEndOf="@+id/imgBaseSopas"
+                app:layout_constraintStart_toStartOf="@+id/imgBaseSopas"
+                app:layout_constraintTop_toTopOf="@+id/imgBaseSopas"
                 app:srcCompat="@drawable/sopas" />
 
             <TextView

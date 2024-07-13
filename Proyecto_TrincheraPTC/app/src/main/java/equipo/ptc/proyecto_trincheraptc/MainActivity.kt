@@ -25,6 +25,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
+        val imgSopas = findViewById<ImageView>(R.id.imgSopas)
+        imgSopas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
+        imgBaseSopas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
     }
 
 
