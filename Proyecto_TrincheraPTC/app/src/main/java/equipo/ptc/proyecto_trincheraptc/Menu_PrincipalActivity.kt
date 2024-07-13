@@ -25,5 +25,10 @@ class Menu_PrincipalActivity : AppCompatActivity() {
                 val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
                 startActivity(pantallaLogin)
             }
+        val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
+        imgPrincipalOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, MainActivity::class.java)
+            startActivity(pantallaLogin)
         }
     }
+}
