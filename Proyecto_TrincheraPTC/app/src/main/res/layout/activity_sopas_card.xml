@@ -3,14 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="130dp"
-    app:cardBackgroundColor="#E7D7D0"
-
-    app:cardCornerRadius="20dp"
-    app:cardElevation="5dp"
+    android:layout_width="355dp"
+    android:layout_height="110dp"
+    android:backgroundTint="#E7D7D0"
+    app:cardCornerRadius="15dp"
+    app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true"
-    app:contentPadding="15dp"
+    app:contentPadding="8dp"
     tools:context=".sopas_card">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +21,9 @@
             android:layout_width="124dp"
             android:layout_height="21dp"
 
+            android:fontFamily="@font/source_sans_pro_black"
             android:text="Text"
+            android:textColor="#262626"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -33,15 +34,15 @@
 
         <ImageView
             android:id="@+id/flecha"
-            android:layout_width="58dp"
-            android:layout_height="61dp"
+            android:layout_width="22dp"
+            android:layout_height="43dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.948"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.521"
-            tools:srcCompat="@drawable/icarrow_forward" />
+            app:layout_constraintVertical_bias="0.512"
+            tools:srcCompat="@drawable/fsiguiente" />
 
         <ImageView
             android:id="@+id/imageView3"

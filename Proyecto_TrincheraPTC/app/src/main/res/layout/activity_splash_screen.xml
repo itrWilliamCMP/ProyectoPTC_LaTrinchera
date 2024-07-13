@@ -11,7 +11,7 @@
         android:id="@+id/view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/cuadro_decorativo2"
+        android:background="#E7D7D0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,13 +21,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="442dp"
-        android:layout_height="771dp"
+        android:layout_width="313dp"
+        android:layout_height="608dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396"
-        app:srcCompat="@mipmap/trinchera" />
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
