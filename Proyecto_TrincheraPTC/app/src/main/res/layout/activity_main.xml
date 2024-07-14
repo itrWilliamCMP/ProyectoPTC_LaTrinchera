@@ -438,7 +438,7 @@
         app:srcCompat="@drawable/menuoutline" />
 
     <ImageView
-        android:id="@+id/imgUserOutline"
+        android:id="@+id/imgPerfilOutline"
         android:layout_width="50dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"

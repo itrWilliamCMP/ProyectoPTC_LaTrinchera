@@ -144,7 +144,7 @@
         app:srcCompat="@drawable/back1" />
 
     <ImageView
-        android:id="@+id/imageView11"
+        android:id="@+id/imgPlatillo"
         android:layout_width="224dp"
         android:layout_height="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -153,6 +153,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.168"
-        app:srcCompat="@tools:sample/avatars[0]" />
+        app:srcCompat="@drawable/sopas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

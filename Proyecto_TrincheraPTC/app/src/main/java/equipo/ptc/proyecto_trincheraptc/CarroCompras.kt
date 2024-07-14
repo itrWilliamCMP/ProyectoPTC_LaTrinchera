@@ -1,5 +1,7 @@
 package equipo.ptc.proyecto_trincheraptc
 
+import Modelo.tbProductos
+import RecyclerViewHelpers.AdaptadorCarroCompras
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -7,12 +9,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import equipo.ptc.proyecto_trincheraptc.databinding.ActivityCarroComprasBinding
 
-class MainActivity : AppCompatActivity() {
+
+class CarroCompras : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCarroComprasBinding
+    private lateinit var adapter: AdaptadorCarroCompras
+
+    var carroCompras = ArrayList<tbProductos>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_carro_compras)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -25,9 +35,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
-        val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
-        imgCarrito.setOnClickListener {
-            val pantallaLogin = Intent(this, CarroCompras::class.java)
+        val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
+        imgPrincipalOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, MainActivity::class.java)
             startActivity(pantallaLogin)
         }
 
@@ -36,21 +46,11 @@ class MainActivity : AppCompatActivity() {
             val pantallaLogin = Intent(this, Perfil::class.java)
             startActivity(pantallaLogin)
         }
-
-        val imgSopas = findViewById<ImageView>(R.id.imgSopas)
-        imgSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaLogin)
-        }
-
-        val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
-        imgBaseSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaLogin)
+        fun setupRecyclerView() {
+            binding.rvListaCarro.layoutManager = LinearLayoutManager(this)
+            adapter = AdaptadorCarroCompras(binding.TvTotal, carroCompras)
+            binding.rvListaCarro.adapter = adapter
         }
 
     }
-
-
-
 }

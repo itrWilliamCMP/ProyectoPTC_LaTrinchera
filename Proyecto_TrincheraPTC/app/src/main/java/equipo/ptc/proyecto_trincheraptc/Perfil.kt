@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class Perfil : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_perfil)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -25,32 +25,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
+        val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
+        imgPrincipalOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, MainActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
         val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
         imgCarrito.setOnClickListener {
             val pantallaLogin = Intent(this, CarroCompras::class.java)
             startActivity(pantallaLogin)
         }
 
-        val imgPerfilOutline = findViewById<ImageView>(R.id.imgPerfilOutline)
-        imgPerfilOutline.setOnClickListener {
-            val pantallaLogin = Intent(this, Perfil::class.java)
-            startActivity(pantallaLogin)
-        }
-
-        val imgSopas = findViewById<ImageView>(R.id.imgSopas)
-        imgSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaLogin)
-        }
-
-        val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
-        imgBaseSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaLogin)
-        }
-
     }
-
-
-
 }

@@ -31,7 +31,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
            //Cambiar de pantalla entre vector
         val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
         imgCarrito.setOnClickListener {
-            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
+            val pantallaLogin = Intent(this, CarroCompras::class.java)
             startActivity(pantallaLogin)
         }
 
@@ -45,7 +45,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             val statement = objConexion?.createStatement()
             val resultSet = statement?.executeQuery("SELECT * FROM Menus_PTC")!!
 
-            val listaComida = mutableListOf<tbMenu>()
+            val Datos = mutableListOf<tbMenu>()
 
             while (resultSet.next()) {
                 val id_menu = resultSet.getInt("id_menu")
@@ -53,14 +53,14 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
                 val valoresjuntos = tbMenu(id_menu, categoria)
 
-                listaComida.add(valoresjuntos)
+                Datos.add(valoresjuntos)
             }
-            return listaComida
+            return Datos
         }
         CoroutineScope(Dispatchers.IO).launch {
-            val categoriasDB = obtenerCategorias()
+            val Datos = obtenerCategorias()
             withContext(Dispatchers.Main){
-                val adapter = AdaptadorMenu(categoriasDB)
+                val adapter = AdaptadorMenu(Datos)
                 rcvComida.adapter = adapter
             }
 
@@ -68,6 +68,12 @@ class Menu_PrincipalActivity : AppCompatActivity() {
         val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
         imgPrincipalOutline.setOnClickListener {
             val pantallaLogin = Intent(this, MainActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgPerfilOutline = findViewById<ImageView>(R.id.imgPerfilOutline)
+        imgPerfilOutline.setOnClickListener {
+            val pantallaLogin = Intent(this, Perfil::class.java)
             startActivity(pantallaLogin)
         }
     }
