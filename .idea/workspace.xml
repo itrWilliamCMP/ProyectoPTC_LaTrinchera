@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e8026d8-698a-4ef0-9256-bdcb07c915a5" name="Changes" comment="" />
+    <list default="true" id="5e8026d8-698a-4ef0-9256-bdcb07c915a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompra/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompra/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarritoCompra/app/src/main/res/layout/activity_carro_compras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarritoCompra/app/src/main/res/layout/activity_carro_compras.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,10 +20,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2j9p544rBDPXtYcAufLAbq1iMGg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -34,7 +38,7 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "gabriel",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/gaboq/OneDrive/Escritorio/ProyectoPTC_LaTrinchera/CarritoCompra"
+    "last_opened_file_path": "C:/Users/gaboq/OneDrive/Escritorio/ProyectoPTC_LaTrinchera/Proyecto_TrincheraPTC"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
