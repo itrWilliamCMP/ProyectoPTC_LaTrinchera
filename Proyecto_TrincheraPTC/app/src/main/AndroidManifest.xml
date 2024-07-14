@@ -24,10 +24,10 @@
             android:name=".Menu_PrincipalActivity"
             android:exported="false" />
         <activity
-            android:name=".sopas_card"
+            android:name=".producto_card"
             android:exported="false" />
         <activity
-            android:name=".MenuSopasActivity"
+            android:name=".MenuCategoriaActivity"
             android:exported="false" />
         <activity
             android:name=".Register"

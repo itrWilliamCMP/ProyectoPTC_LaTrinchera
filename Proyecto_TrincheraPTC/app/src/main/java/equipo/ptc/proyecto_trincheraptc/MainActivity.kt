@@ -27,13 +27,13 @@ class MainActivity : AppCompatActivity() {
 
         val imgSopas = findViewById<ImageView>(R.id.imgSopas)
         imgSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaLogin)
         }
 
         val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
         imgBaseSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuSopasActivity::class.java)
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaLogin)
         }
 
