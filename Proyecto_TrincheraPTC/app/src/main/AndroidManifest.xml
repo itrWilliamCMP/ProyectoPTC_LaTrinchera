@@ -15,6 +15,7 @@
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
         <activity
+
             android:name=".CarroCompraCard"
             android:exported="false" />
         <activity
@@ -22,6 +23,9 @@
             android:exported="false" />
         <activity
             android:name=".Perfil"
+            android:exported="false" />
+        <activity
+            android:name=".Pantalla_pago"
             android:exported="false" />
         <activity
             android:name=".ProductoActivity"
