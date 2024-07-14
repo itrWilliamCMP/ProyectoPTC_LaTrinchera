@@ -37,7 +37,7 @@ class ProductoActivity : AppCompatActivity() {
         txtPrecio.text = precioventa
 
         imgRegresar.setOnClickListener {
-            val pantallaDetalleMenus = Intent(this, MenuSopasActivity::class.java)
+            val pantallaDetalleMenus = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaDetalleMenus)
         }
     }

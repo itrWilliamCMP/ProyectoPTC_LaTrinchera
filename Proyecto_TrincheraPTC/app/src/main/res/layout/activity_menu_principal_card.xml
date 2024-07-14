@@ -11,7 +11,7 @@
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="15dp"
-    tools:context=".sopas_card">
+    tools:context=".producto_card">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
