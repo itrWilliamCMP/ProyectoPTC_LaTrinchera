@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
         <activity
+            android:name=".Pantalla_pago"
+            android:exported="false" />
+        <activity
             android:name=".ProductoActivity"
             android:exported="false" />
         <activity
