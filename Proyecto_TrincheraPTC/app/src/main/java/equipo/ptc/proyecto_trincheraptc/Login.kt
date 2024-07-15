@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -37,7 +38,7 @@ class Login : AppCompatActivity() {
         val btnGoogle = findViewById<Button>(R.id.btngoogle)
 
         if (txtCorreoElectronico == null || txtContrasena == null || btnEntrar == null || btnRegistrarse == null || btnGoogle == null) {
-            Log.e("Login", "Uno o más elementos de la interfaz no se encuentran en el layout.")
+            Log.e("Login", "Uno o más elementos no se han ingresado como se debe")
             return
         }
         //2- Programar los botones
@@ -47,24 +48,6 @@ class Login : AppCompatActivity() {
             val correo = txtCorreoElectronico.text.toString()
             val contrasena = txtContrasena.text.toString()
 
-
-            //Validaciones
-            // Validación: Que no quede ningun campo vacío.
-
-            // Validación: Que el correo electrónico tenga una @ obligatoriamente.
-            if (!correo.matches(".*@.*".toRegex())) {
-                Toast.makeText(this, "Ingrese correo valido", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            // Validación: Que la contraseña contenga entre 6 y 24 caracteres.
-            if (contrasena.length < 6 || contrasena.length > 24) {
-                Toast.makeText(
-                    this,
-                    "Ingrese una clave entre 6 y 24 caracteres",
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
 
 
             fun hashSHA256(input: String): String {
@@ -99,8 +82,7 @@ class Login : AppCompatActivity() {
 
                     val contrasenaEncriptada = hashSHA256(txtContrasena.text.toString())
 
-                    val verificarUsuario =
-                        objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
+                    val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
                     verificarUsuario.setString(1, txtCorreoElectronico.text.toString())
                     verificarUsuario.setString(2, contrasenaEncriptada)
                     verificarUsuario.executeUpdate()
@@ -121,12 +103,12 @@ class Login : AppCompatActivity() {
                 }
             }
 
-            btnRegistrarse.setOnClickListener {
+            btnRegistrarse.setOnClickListener{
                 val intent = Intent(this, Register::class.java)
                 startActivity(intent)
             }
             //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
-            val btn: Button = findViewById(R.id.btngoogle)
+            val btn : Button = findViewById(R.id.btngoogle)
             btn.setOnClickListener {
                 val Intent: Intent = Intent(this, MainActivity::class.java)
                 startActivity(Intent)
