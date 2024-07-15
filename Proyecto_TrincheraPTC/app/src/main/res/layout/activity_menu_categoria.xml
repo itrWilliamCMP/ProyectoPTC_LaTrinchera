@@ -20,11 +20,11 @@
 
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvNomCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_black"
-        android:text="Sopas"
+        android:text="TextView"
         android:textColor="#262626"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +100,7 @@
 
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvSopas"
+                android:id="@+id/rvMenuCategoria"
                 android:layout_width="406dp"
                 android:layout_height="1014dp"
                 app:layout_constraintBottom_toTopOf="@+id/textView9"

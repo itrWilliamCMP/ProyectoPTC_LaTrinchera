@@ -17,7 +17,7 @@
         android:layout_height="84dp">
 
         <TextView
-            android:id="@+id/txtnombreCard"
+            android:id="@+id/tvNombreProducto"
             android:layout_width="124dp"
             android:layout_height="21dp"
 
@@ -45,11 +45,11 @@
             tools:srcCompat="@drawable/fsiguiente" />
 
         <ImageView
-            android:id="@+id/imgAdelante"
+            android:id="@+id/ivImagenCategoria"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/txtnombreCard"
+            app:layout_constraintEnd_toStartOf="@+id/tvNombreProducto"
             app:layout_constraintHorizontal_bias="0.081"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

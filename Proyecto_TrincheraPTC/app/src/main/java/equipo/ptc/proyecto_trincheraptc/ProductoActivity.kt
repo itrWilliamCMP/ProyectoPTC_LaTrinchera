@@ -22,8 +22,8 @@ class ProductoActivity : AppCompatActivity() {
 
         val txtProducto = findViewById<TextView>(R.id.txtProducto)
         val txtCantidad = findViewById<TextView>(R.id.txtCantidad)
-        val txtDescripcion = findViewById<TextView>(R.id.txtDescripcion)
-        val txtPrecio = findViewById<TextView>(R.id.txtPrecio)
+        val txtDescripcion = findViewById<TextView>(R.id.tvDescripcion)
+        val txtPrecio = findViewById<TextView>(R.id.tvPrecioDetalle)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
 
         val producto = intent.getStringExtra("producto")

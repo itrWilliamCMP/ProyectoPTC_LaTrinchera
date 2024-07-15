@@ -47,7 +47,7 @@
         app:srcCompat="@drawable/back1" />
 
     <ImageView
-        android:id="@+id/imageView16"
+        android:id="@+id/ivImagenCategoria"
         android:layout_width="292dp"
         android:layout_height="184dp"
         android:layout_marginTop="144dp"
@@ -126,7 +126,7 @@
         app:layout_constraintVertical_bias="0.517" />
 
     <TextView
-        android:id="@+id/txtDescripcion"
+        android:id="@+id/tvDescripcion"
         android:layout_width="353dp"
         android:layout_height="128dp"
         android:fontFamily="@font/source_sans_pro_semibold"
@@ -140,7 +140,7 @@
 
 
     <TextView
-        android:id="@+id/txtPrecio"
+        android:id="@+id/tvPrecioDetalle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_bold"

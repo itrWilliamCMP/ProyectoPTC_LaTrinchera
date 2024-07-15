@@ -19,16 +19,14 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val imgMenuPrincipal = findViewById<ImageView>(R.id.imgAdelante)
-
+        val imgMenuPrincipal = findViewById<ImageView>(R.id.ivImagenCategoria)
         imgMenuPrincipal.setOnClickListener {
             val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaDetalleMenu)
         }
 
-        val txtCardMenu = findViewById<TextView>(R.id.txtCardMenu)
-
-        imgMenuPrincipal.setOnClickListener {
+        val txtCardMenu = findViewById<TextView>(R.id.tvNombreCategoria)
+        txtCardMenu.setOnClickListener {
             val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaDetalleMenu)
         }
