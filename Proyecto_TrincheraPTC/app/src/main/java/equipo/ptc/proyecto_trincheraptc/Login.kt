@@ -39,70 +39,98 @@ class Login : AppCompatActivity() {
         if (txtCorreoElectronico == null || txtContrasena == null || btnEntrar == null || btnRegistrarse == null || btnGoogle == null) {
             Log.e("Login", "Uno o más elementos de la interfaz no se encuentran en el layout.")
             return
-            }
-
-        fun hashSHA256(input: String): String {
-            val bytes = MessageDigest.getInstance("SHA-256").digest(input.toByteArray())
-            return bytes.joinToString("") { "%02x".format(it) }
         }
-
-        //2- Se programa los botones
+        //2- Programar los botones
+        //Al darle clic al boton se hace un insert a la base con los valores que escribe el usuario
         btnEntrar.setOnClickListener {
+            // obtengo los valores ingresados por el usuario.
+            val correo = txtCorreoElectronico.text.toString()
+            val contrasena = txtContrasena.text.toString()
 
 
-            val pantallaPrincipal = Intent(this, MainActivity::class.java)
-            CoroutineScope(Dispatchers.IO).launch {
-                //2- Creo una variable que contenga un PrepareStatement
-                //Se hace un select where el correo y la contraseña sean iguales a
-                //los que el usuario escribe
-                //Si el select encuentra un resultado es por que el usuario y contraseña si están
-                //en la base de datos, si se equivoca al escribir algo, no encontrará nada el select
-                val objConexion = ClaseConexion().cadenaConexion()
+            //Validaciones
+            // Validación: Que no quede ningun campo vacío.
 
-                //Verificación de error en la conexión a la BD
-                if (objConexion == null) {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@Login,
-                            "Usuario o contraseña incorrecta",
-                            Toast.LENGTH_SHORT
-                        ).show()
+            // Validación: Que el correo electrónico tenga una @ obligatoriamente.
+            if (!correo.matches(".*@.*".toRegex())) {
+                Toast.makeText(this, "Ingrese correo valido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que la contraseña contenga entre 6 y 24 caracteres.
+            if (contrasena.length < 6 || contrasena.length > 24) {
+                Toast.makeText(
+                    this,
+                    "Ingrese una clave entre 6 y 24 caracteres",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+
+            fun hashSHA256(input: String): String {
+                val bytes = MessageDigest.getInstance("SHA-256").digest(input.toByteArray())
+                return bytes.joinToString("") { "%02x".format(it) }
+            }
+
+            //2- Se programa los botones
+            btnEntrar.setOnClickListener {
+
+
+                val pantallaPrincipal = Intent(this, MainActivity::class.java)
+                CoroutineScope(Dispatchers.IO).launch {
+                    //2- Creo una variable que contenga un PrepareStatement
+                    //Se hace un select where el correo y la contraseña sean iguales a
+                    //los que el usuario escribe
+                    //Si el select encuentra un resultado es por que el usuario y contraseña si están
+                    //en la base de datos, si se equivoca al escribir algo, no encontrará nada el select
+                    val objConexion = ClaseConexion().cadenaConexion()
+
+                    //Verificación de error en la conexión a la BD
+                    if (objConexion == null) {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@Login,
+                                "Usuario o contraseña incorrecta",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        return@launch
                     }
-                    return@launch
-                }
 
-                val contrasenaEncriptada = hashSHA256(txtContrasena.text.toString())
+                    val contrasenaEncriptada = hashSHA256(txtContrasena.text.toString())
 
-                val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
-                verificarUsuario.setString(1, txtCorreoElectronico.text.toString())
-                verificarUsuario.setString(2, contrasenaEncriptada)
-                verificarUsuario.executeUpdate()
-                val resultado = verificarUsuario.executeQuery()
-                if (resultado.next()) {
-                    startActivity(pantallaPrincipal)
-                } else {
-                    withContext(Dispatchers.Main) {
-                        Toast.makeText(
-                            this@Login,
-                            "Usuario o contraseña estan incorrectos",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        println("contraseña $contrasenaEncriptada")
+                    val verificarUsuario =
+                        objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
+                    verificarUsuario.setString(1, txtCorreoElectronico.text.toString())
+                    verificarUsuario.setString(2, contrasenaEncriptada)
+                    verificarUsuario.executeUpdate()
+                    val resultado = verificarUsuario.executeQuery()
+                    if (resultado.next()) {
+                        startActivity(pantallaPrincipal)
+                    } else {
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@Login,
+                                "Usuario o contraseña estan incorrectos",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            println("contraseña $contrasenaEncriptada")
+                        }
+
                     }
-
                 }
             }
-        }
 
-        btnRegistrarse.setOnClickListener{
-            val intent = Intent(this, Register::class.java)
-            startActivity(intent)
-        }
-        //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
-        val btn : Button = findViewById(R.id.btngoogle)
-        btn.setOnClickListener {
-            val Intent: Intent = Intent(this, MainActivity::class.java)
-            startActivity(Intent)
+            btnRegistrarse.setOnClickListener {
+                val intent = Intent(this, Register::class.java)
+                startActivity(intent)
+            }
+            //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
+            val btn: Button = findViewById(R.id.btngoogle)
+            btn.setOnClickListener {
+                val Intent: Intent = Intent(this, MainActivity::class.java)
+                startActivity(Intent)
+            }
         }
     }
 }
