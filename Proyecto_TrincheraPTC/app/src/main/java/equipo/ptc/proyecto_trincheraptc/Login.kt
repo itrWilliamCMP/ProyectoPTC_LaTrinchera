@@ -6,16 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ReportFragment.Companion.reportFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.security.MessageDigest
@@ -40,7 +37,25 @@ class Login : AppCompatActivity() {
         if (txtCorreoElectronico == null || txtContrasena == null || btnEntrar == null || btnRegistrarse == null || btnGoogle == null) {
             Log.e("Login", "Uno o más elementos no se han ingresado como se debe")
             return
+
         }
+        btnRegistrarse.setOnClickListener{
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+        }
+        //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
+        val btn : Button = findViewById(R.id.btngoogle)
+
+        btn.setOnClickListener {
+            val Intent: Intent = Intent(this, MainActivity::class.java)
+            startActivity(Intent)
+        }
+
+
+
+
+
+
         //2- Programar los botones
         //Al darle clic al boton se hace un insert a la base con los valores que escribe el usuario
         btnEntrar.setOnClickListener {
@@ -50,15 +65,28 @@ class Login : AppCompatActivity() {
 
 
 
+
+            if (!correo.matches(".@.".toRegex())) {
+                Toast.makeText(this, "Ingrese correo valido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que la contraseña contenga entre 6 y 24 caracteres.
+            if (contrasena.length < 6 || contrasena.length > 24) {
+                Toast.makeText(
+                    this,
+                    "Ingrese una clave entre 6 y 24 caracteres",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+
             fun hashSHA256(input: String): String {
                 val bytes = MessageDigest.getInstance("SHA-256").digest(input.toByteArray())
                 return bytes.joinToString("") { "%02x".format(it) }
             }
-
             //2- Se programa los botones
             btnEntrar.setOnClickListener {
-
-
                 val pantallaPrincipal = Intent(this, MainActivity::class.java)
                 CoroutineScope(Dispatchers.IO).launch {
                     //2- Creo una variable que contenga un PrepareStatement
@@ -80,6 +108,7 @@ class Login : AppCompatActivity() {
                         return@launch
                     }
 
+
                     val contrasenaEncriptada = hashSHA256(txtContrasena.text.toString())
 
                     val verificarUsuario = objConexion?.prepareStatement("SELECT * FROM clientes_PTC WHERE correoElectronico = ? AND contrasena = ?")!!
@@ -99,19 +128,9 @@ class Login : AppCompatActivity() {
                             println("contraseña $contrasenaEncriptada")
                         }
 
+
                     }
                 }
-            }
-
-            btnRegistrarse.setOnClickListener{
-                val intent = Intent(this, Register::class.java)
-                startActivity(intent)
-            }
-            //Botón para ir a la pantalla inicial (Mientras no haya registro con google)
-            val btn : Button = findViewById(R.id.btngoogle)
-            btn.setOnClickListener {
-                val Intent: Intent = Intent(this, MainActivity::class.java)
-                startActivity(Intent)
             }
         }
     }
