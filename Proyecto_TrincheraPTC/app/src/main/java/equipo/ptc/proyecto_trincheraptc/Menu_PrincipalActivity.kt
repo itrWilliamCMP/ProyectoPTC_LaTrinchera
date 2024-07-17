@@ -61,31 +61,30 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
-        //fun obtenerCategorias(): List<tbMenu> {
-          //  val objConexion = ClaseConexion().cadenaConexion()
+        fun obtenerCategorias(): List<tbMenu> {
+            val objConexion = ClaseConexion().cadenaConexion()
 
-            //val statement = objConexion?.createStatement()
-            //val resultSet = statement?.executeQuery("SELECT * FROM Menus_PTC")!!
+            val statement = objConexion?.createStatement()
+            val resultSet = statement?.executeQuery("SELECT * FROM Menus_PTC")!!
+             val Datos = mutableListOf<tbMenu>()
 
-//            val Datos = mutableListOf<tbMenu>()
+            while (resultSet.next()) {
+                val id_menu = resultSet.getInt("id_menu")
+                val categoria = resultSet.getString("categoria")
 
-  //          while (resultSet.next()) {
-    //            val id_menu = resultSet.getInt("id_menu")
-      //          val categoria = resultSet.getString("categoria")
+               val valoresjuntos = tbMenu(id_menu, categoria)
 
-        //        val valoresjuntos = tbMenu(id_menu, categoria)
+                Datos.add(valoresjuntos)
+            }
+            return Datos
+       }
+        CoroutineScope(Dispatchers.IO).launch {
+            val Datos = obtenerCategorias()
+            withContext(Dispatchers.Main){
+                val adapter = AdaptadorMenu(Datos)
+                rcvComida.adapter = adapter
+            }
 
-          //      Datos.add(valoresjuntos)
-            //}
-           // return Datos
-       // }
-       // CoroutineScope(Dispatchers.IO).launch {
-         //   val Datos = obtenerCategorias()
-           // withContext(Dispatchers.Main){
-             //   val adapter = AdaptadorMenu(Datos)
-               // rcvComida.adapter = adapter
-          //  }
-
-       // }
+        }
     }
 }
