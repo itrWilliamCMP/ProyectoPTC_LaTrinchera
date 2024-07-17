@@ -40,15 +40,6 @@ class Menu_PrincipalActivity : AppCompatActivity() {
         val rcvComida = findViewById<RecyclerView>(R.id.rvComidaCategoria)
         rcvComida.layoutManager = GridLayoutManager(this, 2)
 
-        val categorias = listOf(
-            ComidaCategoria("Tacos", R.drawable.tacos),
-            ComidaCategoria("Tortas", R.drawable.tortas),
-            ComidaCategoria("Quesadillas", R.drawable.quesadillas),
-            ComidaCategoria("Sopas", R.drawable.sopas),
-            ComidaCategoria("Chiles", R.drawable.chiles),
-            ComidaCategoria("Burritos", R.drawable.burritos)
-        )
-
         val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
         imgPrincipalOutline.setOnClickListener {
             val pantallaLogin = Intent(this, MainActivity::class.java)
