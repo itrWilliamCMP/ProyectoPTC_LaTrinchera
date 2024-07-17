@@ -2,20 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".CarroComprasActivity">
+    tools:context=".CarroCompras">
 
     <ScrollView
         android:id="@+id/scrollView4"
-        android:layout_width="408dp"
-        android:layout_height="271dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="411dp"
+        android:layout_height="426dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,8 +60,29 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.629"
+        app:layout_constraintVertical_bias="0.674"
         app:srcCompat="@drawable/cuadro_de_ventas" />
+
+    <Button
+        android:id="@+id/btnPago"
+        android:layout_width="360dp"
+        android:layout_height="73dp"
+        android:backgroundTint="#B31018"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:shadowColor="#000000"
+        android:shadowDy="9"
+        android:text="Proceder a pago"
+        android:textColor="#F28E13"
+        android:textSize="24dp"
+        app:cornerRadius="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.074"
+        app:strokeColor="#673134"
+        app:strokeWidth="1dp" />
 
     <TextView
         android:id="@+id/tvSubTotal"
@@ -159,27 +182,6 @@
         app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="@+id/imageView6"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-    <Button
-        android:id="@+id/btnPago"
-        android:layout_width="360dp"
-        android:layout_height="73dp"
-        android:backgroundTint="#B31018"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:shadowColor="#000000"
-        android:shadowDy="9"
-        android:text="Proceder a pago"
-        android:textColor="#F28E13"
-        android:textSize="24dp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.0"
-        app:strokeColor="#673134"
-        app:strokeWidth="1dp" />
 
     <View
         android:id="@+id/navbar1"
