@@ -4,6 +4,7 @@ import Modelo.tbProductos
 import RecyclerViewHelpers.AdaptadorCarroCompras
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,12 @@ class CarroCompras : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val btnPago = findViewById<Button>(R.id.btnPago)
+        btnPago.setOnClickListener {
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
+            startActivity(pantallaLogin)
         }
 
         val imgMenuOutline = findViewById<ImageView>(R.id.imgMenuOutline)
