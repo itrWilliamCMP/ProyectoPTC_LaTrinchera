@@ -1,3 +1,79 @@
+create table clientes_PTC( 
+id_cliente VARCHAR2(50) PRIMARY KEY, 
+//cod_clie char(10), 
+nombre_clie varchar2(20), 
+apellido_clie varchar2(20), 
+telefono_clie varchar2(20), 
+dir_entrega varchar2(200), 
+usu_cliente varchar2(15), 
+correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
+contrasena VARCHAR2(255) NOT NULL 
+);
+
+CREATE SEQUENCE clientes
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigClientes
+BEFORE INSERT ON clientes_PTC
+for EACH ROW
+BEGIN
+SELECT clientes.NEXTVAL INTO : NEW.id_cliente from DUAL;
+END; 
+
+create table Empleados_PTC( 
+id_empleado number PRIMARY KEY, 
+nom_empleado varchar2(20), 
+ape_empleado varchar2(20), 
+usu_empleado varchar2(15), 
+contrasena varchar2(128) 
+); 
+
+CREATE SEQUENCE empleados
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigEmpleados
+BEFORE INSERT ON Empleados_PTC
+for EACH ROW
+BEGIN
+SELECT empleados.NEXTVAL INTO : NEW.id_empleado from DUAL;
+END; 
+
+create table Menus_PTC( 
+id_menu Number PRIMARY KEY, 
+categoria varchar2(20),
+imagen_categoria varchar2(250)
+); 
+
+CREATE SEQUENCE menus
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigMenus
+BEFORE INSERT ON Menus_PTC
+for EACH ROW
+BEGIN
+SELECT id_menu.NEXTVAL INTO : NEW.id_menu from DUAL;
+END; 
+
+create table Permisos_PTC( 
+id_permiso number PRIMARY KEY, 
+permiso number, 
+motivopermiso char(15) 
+); 
+
+CREATE SEQUENCE permisos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigPermisos
+BEFORE INSERT ON Permisos_PTC
+for EACH ROW
+BEGIN
+SELECT permisos.NEXTVAL INTO : NEW.id_permiso from DUAL;
+END;
+
 create table PEDIDOS_PTC( 
 id_pedido number PRIMARY KEY, 
 id_cliente number, 
@@ -14,7 +90,16 @@ CONSTRAINT FK_id_cliente_cliente1 FOREIGN KEY (id_cliente) REFERENCES clientes_P
 CONSTRAINT FK_id_empleado_empleado1 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id_empleado)
 ); 
 
- 
+CREATE SEQUENCE pedidos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigPedidos
+BEFORE INSERT ON PEDIDOS_PTC
+for EACH ROW
+BEGIN
+SELECT pedidos.NEXTVAL INTO : NEW.id_pedido from DUAL;
+END; 
 
 create table DetallePedidos_PTC( 
 id_detapedido number PRIMARY KEY, 
@@ -25,29 +110,18 @@ precio number(7,2),
 CONSTRAINT FK_id_pedido_pedido1 FOREIGN KEY (id_pedido) REFERENCES PEDIDOS_PTC(id_pedido), 
 CONSTRAINT FK_id_producto_producto1 FOREIGN KEY (id_producto) REFERENCES Productos_PTC(id_producto) 
 ); 
- 
 
-create table clientes_PTC( 
-UUID_cliente VARCHAR2(50) PRIMARY KEY, 
-//cod_clie char(10), 
-nombre_clie varchar2(20), 
-apellido_clie varchar2(20), 
-telefono_clie varchar2(20), 
-dir_entrega varchar2(200), 
-usu_cliente varchar2(15), 
-correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
-contrasena VARCHAR2(255) NOT NULL 
-);
+CREATE SEQUENCE detalle
+START WITH 1
+INCREMENT BY 1;
 
-create table Empleados_PTC( 
-id_empleado number PRIMARY KEY, 
-nom_empleado varchar2(20), 
-ape_empleado varchar2(20), 
-usu_empleado varchar2(15), 
-contrasena varchar2(128) 
-); 
+CREATE TRIGGER TrigDetalle
+BEFORE INSERT ON DetallePedidos_PTC
+for EACH ROW
+BEGIN
+SELECT detalle.NEXTVAL INTO : NEW.id_detapedido from DUAL;
+END; 
 
- 
 create table PermisosEmpelado_PTC( 
 id_permisoempl number PRIMARY KEY, 
 id_permiso number, 
@@ -57,18 +131,16 @@ CONSTRAINT FK_id_permiso1 FOREIGN KEY (id_permiso) REFERENCES Permisos_PTC(id_pe
 CONSTRAINT FK_id_empleado2 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id_empleado) 
 ); 
 
- 
-create table Permisos_PTC( 
-id_permiso number PRIMARY KEY, 
-permiso number, 
-motivopermiso char(15) 
-); 
+CREATE SEQUENCE permisosemp
+START WITH 1
+INCREMENT BY 1;
 
-create table Menus_PTC( 
-id_menu Number PRIMARY KEY, 
-categoria varchar2(20),
-imagen_categoria varchar2(250)
-); 
+CREATE TRIGGER TrigPermisosEmp
+BEFORE INSERT ON PermisosEmpelado_PTC
+for EACH ROW
+BEGIN
+SELECT permisosemp.NEXTVAL INTO : NEW.id_permisoemp1 from DUAL;
+END; 
 
 create table Productos_PTC( 
 id_producto number PRIMARY KEY, 
@@ -82,7 +154,16 @@ imagen_comida varchar2(250),
 CONSTRAINT FK_categoria FOREIGN KEY (id_menu) REFERENCES Menus_PTC(id_menu)
 ); 
 
+CREATE SEQUENCE productos
+START WITH 1
+INCREMENT BY 1;
 
+CREATE TRIGGER TrigProductos
+BEFORE INSERT ON Productos_PTC
+for EACH ROW
+BEGIN
+SELECT productos.NEXTVAL INTO : NEW.id_producto from DUAL;
+END; 
 
 //Tabla de mas
 --create table DetalleMenus_PTC( 
@@ -103,7 +184,16 @@ CONSTRAINT FK_id_movinv_movinv1 FOREIGN KEY (id_movinv) REFERENCES MovsInventari
 CONSTRAINT FK_id_producto_producto4 FOREIGN KEY (id_producto) REFERENCES Productos_PTC(id_producto) 
 ); 
 
- 
+ CREATE SEQUENCE detamov
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER TrigDetaMov
+BEFORE INSERT ON DetaMovInventario_PTC
+for EACH ROW
+BEGIN
+SELECT detamov.NEXTVAL INTO : NEW.id_detamov from DUAL;
+END; 
 
 create table MovsInventario_PTC( 
 id_movinv number PRIMARY KEY, 
@@ -114,15 +204,15 @@ entrada number(1),
 salida number(1) 
 ); 
 
-CREATE SEQUENCE CLIENTE
+CREATE SEQUENCE inventario
 START WITH 1
 INCREMENT BY 1;
 
-CREATE TRIGGER TrigClientes12
-BEFORE INSERT ON clientes_PTC
+CREATE TRIGGER TrigMovinv
+BEFORE INSERT ON MovsInventario_PTC
 for EACH ROW
 BEGIN
-SELECT CLIENTE.NEXTVAL INTO : NEW.id_cliente from DUAL;
+SELECT inventario.NEXTVAL INTO : NEW.id_movinv from DUAL;
 END;
 
 select * from clientes_PTC;
