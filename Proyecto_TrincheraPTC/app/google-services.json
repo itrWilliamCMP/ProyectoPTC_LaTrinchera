@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "275474972785",
+    "project_id": "fir-ptc-d4b8a",
+    "storage_bucket": "fir-ptc-d4b8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275474972785:android:3c998ad3ecf7cba0689bd0",
+        "android_client_info": {
+          "package_name": "equipo.ptc.proyecto_trincheraptc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTnwhqumLMtxT8BERb9PI1FSkiR2ERXOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
