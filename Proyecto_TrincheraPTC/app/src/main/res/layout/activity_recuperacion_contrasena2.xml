@@ -35,25 +35,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.469" />
 
-    <Button
-        android:id="@+id/btnRecup2Continuar"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#FFC072"
-        android:fontFamily="@font/source_sans_pro_semibold"
-        android:shadowColor="#000000"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:text="Continuar"
-        android:textColor="#262626"
-        android:textSize="22sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933" />
-
     <ImageView
         android:id="@+id/imageView25"
         android:layout_width="110dp"
@@ -127,14 +108,15 @@
         app:srcCompat="@drawable/cuadrocodigo" />
 
     <EditText
-        android:id="@+id/txtRecuperacion1"
+        android:id="@+id/code1"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
+        android:inputType="text|textCapCharacters"
+
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"
@@ -147,14 +129,15 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <EditText
-        android:id="@+id/txtRecuperacion2"
+        android:id="@+id/code2"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
+        android:inputType="text|textCapCharacters"
+
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"
@@ -167,14 +150,15 @@
         app:layout_constraintVertical_bias="0.375" />
 
     <EditText
-        android:id="@+id/txtRecuperacion3"
+        android:id="@+id/code3"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
+        android:inputType="text|textCapCharacters"
+
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"
@@ -187,14 +171,15 @@
         app:layout_constraintVertical_bias="0.406" />
 
     <EditText
-        android:id="@+id/txtRecuperacion4"
+        android:id="@+id/code4"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
+        android:inputType="text|textCapCharacters"
+
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"
@@ -206,14 +191,15 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <EditText
-        android:id="@+id/txtRecuperacion5"
+        android:id="@+id/code5"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
+        android:inputType="text|textCapCharacters"
+
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"
@@ -225,14 +211,14 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <EditText
-        android:id="@+id/txtRecuperacion6"
+        android:id="@+id/code6"
         android:layout_width="73dp"
         android:layout_height="78dp"
         android:background="#E6D6CF"
         android:ems="10"
+        android:inputType="text|textCapCharacters"
         android:fontFamily="@font/source_sans_pro_black"
         android:hint="-"
-        android:inputType="text"
         android:maxLength="1"
         android:textAlignment="center"
         android:textColor="#262626"

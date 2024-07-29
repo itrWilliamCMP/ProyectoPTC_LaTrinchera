@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +35,12 @@ class Login : AppCompatActivity() {
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
         val btnGoogle = findViewById<Button>(R.id.btngoogle)
+        val tvRecuperacionContrasena = findViewById<TextView>(R.id.tvRecuperacionContrasena)
+
+        tvRecuperacionContrasena.setOnClickListener {
+            val intent = Intent(this, RecuperacionContrasena::class.java)
+            startActivity(intent)
+        }
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, Register::class.java)
