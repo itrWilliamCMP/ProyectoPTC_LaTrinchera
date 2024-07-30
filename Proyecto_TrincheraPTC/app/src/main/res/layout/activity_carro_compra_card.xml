@@ -16,7 +16,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tvPrecioDetalle"
+        android:id="@+id/TxtFalta"
         android:layout_width="match_parent"
         android:layout_height="84dp"
         android:background="#E7D7D0">

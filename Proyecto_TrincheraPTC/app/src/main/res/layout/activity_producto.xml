@@ -73,7 +73,7 @@
         app:layout_constraintVertical_bias="0.55777" />
 
     <TextView
-        android:id="@+id/txtProductoCategoria"
+        android:id="@+id/NombreCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_black"
@@ -140,7 +140,7 @@
 
 
     <TextView
-        android:id="@+id/tvPrecioDetalle"
+        android:id="@+id/TxtFalta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_bold"

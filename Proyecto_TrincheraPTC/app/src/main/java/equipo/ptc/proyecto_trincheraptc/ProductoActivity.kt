@@ -2,7 +2,6 @@ package equipo.ptc.proyecto_trincheraptc
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -24,7 +23,7 @@ class ProductoActivity : AppCompatActivity() {
         val txtProducto = findViewById<TextView>(R.id.txtProducto)
         val txtCantidad = findViewById<TextView>(R.id.txtCantidad)
         val txtDescripcion = findViewById<TextView>(R.id.tvDescripcion)
-        val txtPrecio = findViewById<TextView>(R.id.tvPrecioDetalle)
+        val txtPrecio = findViewById<TextView>(R.id.TxtFalta)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
 
         val producto = intent.getStringExtra("producto")
