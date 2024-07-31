@@ -19,7 +19,7 @@ class AdaptadorMenuCategorias (
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombreProducto)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
         val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenCategoria)
-        val tvPrecio: TextView = itemView.findViewById(R.id.tvPrecioDetalle)
+        val tvPrecio: TextView = itemView.findViewById(R.id.TxtFalta)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
