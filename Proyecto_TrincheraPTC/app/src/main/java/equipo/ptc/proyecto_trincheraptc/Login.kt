@@ -52,10 +52,10 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        btnGoogle.setOnClickListener {
-//            val pantallamenu = Intent(this, MainActivity::class.java)
-//            startActivity(pantallamenu)
-//        }
+        btnGoogle.setOnClickListener {
+            val pantallamenu = Intent(this, MainActivity::class.java)
+            startActivity(pantallamenu)
+        }
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, Register::class.java)

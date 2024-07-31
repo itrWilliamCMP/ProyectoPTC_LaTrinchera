@@ -28,18 +28,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
-<<<<<<< HEAD
 
-=======
         <activity
             android:name=".ConfirmacionEntrega"
             android:exported="false" />
         <activity
             android:name=".ErrorEntrega"
             android:exported="false" />
-        <activity
-            android:name=".ErrorDeEntrega"
-            android:exported="false" />
+
         <activity
             android:name=".MenuRepartidor2"
             android:exported="false" />
@@ -55,7 +51,6 @@
         <activity
             android:name=".RecuperacionContrasena"
             android:exported="false" />
->>>>>>> e70882fbb18efdc0c64abd5f6518f269f0f1af65
         <activity
             android:name=".CarroCompraCard"
             android:exported="false" />

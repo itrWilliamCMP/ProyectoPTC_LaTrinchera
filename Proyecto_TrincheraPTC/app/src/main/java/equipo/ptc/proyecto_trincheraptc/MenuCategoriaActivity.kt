@@ -1,6 +1,5 @@
 package equipo.ptc.proyecto_trincheraptc
 
-
 import Modelo.ClaseConexion
 import Modelo.MenuComidas
 import Modelo.tbMenu
@@ -15,7 +14,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
 
 class MenuCategoriaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,36 +30,40 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvMenuCategoria)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        fun obtenerCategorias(): List<tbProductos> {
-            val objConexion = ClaseConexion().cadenaConexion()
+        val id_producto = intent.getIntArrayExtra("id_producto")
+        val id_menu = intent.getIntArrayExtra("id_menu")
+        val producto = intent.getStringExtra("producto")
+        val descripcion = intent.getStringExtra("descripcion")
+        val precioventa = intent.getStringExtra("precioventa")
+        val stock = intent.getStringExtra("stock")
 
-            val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT * FROM Productos_PTC")!!
-            val Datos = mutableListOf<tbProductos>()
 
-            while (resultSet.next()) {
-                val id_producto = resultSet.getInt("id_producto")
-                val id_menu = resultSet.getInt("id_menu")
-                val producto = resultSet.getString("producto")
-                val descripcion = resultSet.getString("descripcion")
-                val precioventa = resultSet.getInt("precioventa")
-                val stock = resultSet.getInt("stock")
-
-                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock)
-
-                Datos.add(valoresjuntos)
-            }
-            return Datos
+//        fun obtenerCategorias(): List<tbProductos> {
+//            val objConexion = ClaseConexion().cadenaConexion()
+//
+//            val statement = objConexion?.createStatement()
+//            val resultSet = statement?.executeQuery("SELECT * FROM Productos_PTC")!!
+//            val Datos = mutableListOf<tbProductos>()
+//
+//            while (resultSet.next()) {
+//                val id_producto = resultSet.getInt("id_producto")
+//                val id_menu = resultSet.getInt("id_menu")
+//                val producto = resultSet.getString("producto")
+//                val descripcion = resultSet.getString("descripcion")
+//                val precioventa = resultSet.getInt("precioventa")
+//                val stock = resultSet.getInt("stock")
+//                val imagen_comida = resultSet.getString("imagen_comida")
+//
+//                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock)
+//
+//                Datos.add(valoresjuntos)
+//            }
+//            return Datos
 
 
 //        val adapter = AdaptadorMenuCategorias(comidas)
 //        recyclerView.adapter = adapter
 
-            val imgBackSopas = findViewById<ImageView>(R.id.imgBackSopas)
-            imgBackSopas.setOnClickListener {
-                val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
-                startActivity(pantallaLogin)
-            }
         }
     }
-}
+

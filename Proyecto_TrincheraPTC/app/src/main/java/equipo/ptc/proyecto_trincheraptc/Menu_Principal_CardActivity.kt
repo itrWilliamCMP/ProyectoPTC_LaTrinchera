@@ -26,7 +26,6 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
 
     val uuid = UUID.randomUUID().toString()
 
-    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,20 +35,5 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val imgMenuPrincipal = findViewById<ImageView>(R.id.ivImagenCategoria)
-        imgMenuPrincipal.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaDetalleMenu)
-        }
-
-        val txtCardMenu = findViewById<TextView>(R.id.tvNombreCategoria)
-        txtCardMenu.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaDetalleMenu)
-        }
-
-        ivImagenCategoria = findViewById(R.id.ivImagenCategoria)
-        val tvNombreCategoria = findViewById<TextView>(R.id.tvNombreCategoria)
     }
 }

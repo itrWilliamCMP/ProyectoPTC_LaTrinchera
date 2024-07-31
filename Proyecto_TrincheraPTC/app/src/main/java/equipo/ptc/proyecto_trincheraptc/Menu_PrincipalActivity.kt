@@ -23,7 +23,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Menu_PrincipalActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -81,7 +80,6 @@ class Menu_PrincipalActivity : AppCompatActivity() {
                 val adapter = AdaptadorMenu(Datos)
                 rcvComida.adapter = adapter
             }
-
         }
     }
 }
