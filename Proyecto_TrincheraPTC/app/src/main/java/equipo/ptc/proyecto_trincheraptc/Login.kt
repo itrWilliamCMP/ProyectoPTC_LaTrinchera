@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.CoroutineScope
@@ -34,6 +36,11 @@ class Login : AppCompatActivity() {
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
         val btnGoogle = findViewById<Button>(R.id.btngoogle)
+
+//        btnGoogle.setOnClickListener {
+//            val pantallamenu = Intent(this, MainActivity::class.java)
+//            startActivity(pantallamenu)
+//        }
 
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, Register::class.java)
@@ -79,5 +86,8 @@ private fun hashPassword(password: String): String {
     val digest = md.digest(bytes)
     return digest.fold("", { str, it -> str + "%02x".format(it) })
 }
+
+
+
 
 

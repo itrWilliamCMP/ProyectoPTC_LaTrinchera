@@ -1,7 +1,9 @@
 package equipo.ptc.proyecto_trincheraptc
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -24,6 +26,7 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
 
     val uuid = UUID.randomUUID().toString()
 
+    @SuppressLint("MissingInflatedId", "CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
