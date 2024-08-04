@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/baseline_star_24" />
 
     <ImageView
-        android:id="@+id/imageView17"
+        android:id="@+id/imgCambioDeContrasena"
         android:layout_width="105dp"
         android:layout_height="103dp"
         app:layout_constraintBottom_toBottomOf="parent"

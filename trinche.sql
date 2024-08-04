@@ -1,13 +1,10 @@
 create table clientes_PTC( 
-id_cliente VARCHAR2(50) PRIMARY KEY, 
-//cod_clie char(10), 
+id_cliente NUMBER PRIMARY KEY, 
 nombre_clie varchar2(20), 
-apellido_clie varchar2(20), 
 telefono_clie varchar2(20), 
-dir_entrega varchar2(200), 
-usu_cliente varchar2(15), 
 correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
-contrasena VARCHAR2(255) NOT NULL 
+contrasena VARCHAR2(255),
+direccion_entrega VARCHAR2(300)
 );
 
 CREATE SEQUENCE clientes
