@@ -40,7 +40,7 @@ class Perfil : AppCompatActivity() {
         }
 
         // Obtener el ID del cliente del intent
-        val id_cliente = intent.getIntExtra("id_cliente", 41)
+        val id_cliente = intent.getIntExtra("id_cliente", -1)
 
 
         currentClientId = id_cliente
