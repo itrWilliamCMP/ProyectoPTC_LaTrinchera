@@ -171,6 +171,8 @@ class Register : AppCompatActivity() {
         val txtConfirmacionContrasena = findViewById<EditText>(R.id.txtConfimacionContrasena)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
+        val txtRegistrarApellido = findViewById<EditText>(R.id.txtRegistrarApellido)
+        val txtRegistrarDireccion = findViewById<EditText>(R.id.txtRegistrarDireccion)
 
         btnGaleria.setOnClickListener {
             checkStoragePermission()
@@ -226,11 +228,14 @@ class Register : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
 
                 //Creo una variable que contenga un PrepareStatement
-                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO clientes_PTC (id_cliente, nombre_clie, correoElectronico, contrasena, imagen_usuario) VALUES (?, ?, ?, ?, ?)")!!
+                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO clientes_PTC (id_cliente, nombre_clie, correoElectronico, contrasena, imagen_cliente, apellido_clie, dir_entrega) VALUES (?, ?, ?, ?, ?, ?, ?)")!!
                 CreacionDelUsuario.setString(1, UUID.randomUUID().toString())
                 CreacionDelUsuario.setString(2, txtRegistrarNombre.text.toString())
                 CreacionDelUsuario.setString(3, txtRegistrarCorreo.text.toString())
                 CreacionDelUsuario.setString(4, contraseniaEncriptada)
+                CreacionDelUsuario.setString(5, miPath)
+                CreacionDelUsuario.setString(6, txtRegistrarApellido.text.toString())
+                CreacionDelUsuario.setString(7, txtRegistrarDireccion.text.toString())
                 CreacionDelUsuario.executeUpdate()
 
                 withContext(Dispatchers.Main) {
