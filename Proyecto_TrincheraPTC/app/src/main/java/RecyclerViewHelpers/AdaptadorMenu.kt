@@ -1,6 +1,7 @@
 package RecyclerViewHelpers
 
 import Modelo.tbMenu
+import Modelo.tbProductos
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -27,12 +28,13 @@ class AdaptadorMenu(private var Datos: List<tbMenu>) : RecyclerView.Adapter<View
         holder.itemView.setOnClickListener {
             val context = holder.itemView.context
             val pantallaDetalle = Intent(context, MenuCategoriaActivity::class.java)
-            pantallaDetalle.getIntArrayExtra("id_producto")
-            pantallaDetalle.getIntArrayExtra("id_menu")
-            pantallaDetalle.getStringExtra("producto")
-            pantallaDetalle.getStringExtra("descripcion")
-            pantallaDetalle.getStringExtra("precioventa")
-            pantallaDetalle.getIntArrayExtra("stock")
+//            pantallaDetalle.putExtra("id_producto")
+            pantallaDetalle.putExtra("id_menu", tbMenu.id_menu)
+            pantallaDetalle.putExtra("categoria", tbMenu.categoria)
+//            pantallaDetalle.putExtra("producto")
+//            pantallaDetalle.putExtra("descripcion")
+//            pantallaDetalle.putExtra("precioventa")
+//            pantallaDetalle.putExtra("stock")
             context.startActivity(pantallaDetalle)
         }
     }
