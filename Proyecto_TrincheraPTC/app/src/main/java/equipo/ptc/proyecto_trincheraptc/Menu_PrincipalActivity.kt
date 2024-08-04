@@ -3,6 +3,7 @@ package equipo.ptc.proyecto_trincheraptc
 import Modelo.ClaseConexion
 import Modelo.ComidaCategoria
 import Modelo.tbMenu
+import Modelo.tbProductos
 import RecyclerViewHelpers.AdaptadorMenu
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -62,21 +63,21 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
             val statement = objConexion?.createStatement()
             val resultSet = statement?.executeQuery("SELECT * FROM Menus_PTC")!!
-             val Datos = mutableListOf<tbMenu>()
+            val Datos = mutableListOf<tbMenu>()
 
             while (resultSet.next()) {
                 val id_menu = resultSet.getInt("id_menu")
                 val categoria = resultSet.getString("categoria")
 
-               val valoresjuntos = tbMenu(id_menu, categoria)
+                val valoresjuntos = tbMenu(id_menu, categoria)
 
                 Datos.add(valoresjuntos)
             }
             return Datos
-       }
+        }
         CoroutineScope(Dispatchers.IO).launch {
             val Datos = obtenerCategorias()
-            withContext(Dispatchers.Main){
+            withContext(Dispatchers.Main) {
                 val adapter = AdaptadorMenu(Datos)
                 rcvComida.adapter = adapter
             }
