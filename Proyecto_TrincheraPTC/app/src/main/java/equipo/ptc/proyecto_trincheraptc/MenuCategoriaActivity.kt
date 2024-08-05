@@ -85,8 +85,8 @@ class MenuCategoriaActivity : AppCompatActivity() {
 
         val imgBackSopas = findViewById<ImageView>(R.id.imgBackSopas)
         imgBackSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
-            startActivity(pantallaLogin)
+            val MainActivity = Intent(this, MainActivity::class.java)
+            startActivity(MainActivity)
         }
     }
 }

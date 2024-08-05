@@ -14,7 +14,7 @@ class ClaseConexion {
 
             return connection
         }catch (e: Exception){
-            println("este es el error:$e")
+            println("Este es el error:$e")
             return null
         }
     }

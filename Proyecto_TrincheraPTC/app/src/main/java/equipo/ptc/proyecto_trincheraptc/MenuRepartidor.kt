@@ -20,5 +20,14 @@ class MenuRepartidor : AppCompatActivity() {
             insets
         }
 
+        val PerfilRepartidor1 = findViewById<ImageView>(R.id.PerfilRepartidor1)
+        PerfilRepartidor1.setOnClickListener {
+
+            val MenuRepartidor2 = Intent(this, MenuRepartidor2::class.java)
+            startActivity(MenuRepartidor2)
+
+
+
+        }
     }
 }

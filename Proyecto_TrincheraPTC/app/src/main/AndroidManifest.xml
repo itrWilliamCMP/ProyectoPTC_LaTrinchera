@@ -35,9 +35,6 @@
             android:name=".ErrorEntrega"
             android:exported="false" />
         <activity
-            android:name=".ErrorDeEntrega"
-            android:exported="false" />
-        <activity
             android:name=".MenuRepartidor2"
             android:exported="false" />
         <activity

@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/EnviosPendientes2"
+        android:id="@+id/PerfilRepartidor2"
         android:layout_width="34dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +75,7 @@
         app:srcCompat="@drawable/fsiguiente" />
 
     <ImageView
-        android:id="@+id/imageView30"
+        android:id="@+id/PerfilRepartidor1"
         android:layout_width="34dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
         app:srcCompat="@drawable/fsiguiente" />
 
     <ImageView
-        android:id="@+id/imageView31"
+        android:id="@+id/PerfilRepartidor3"
         android:layout_width="34dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,7 +99,7 @@
         app:srcCompat="@drawable/fsiguiente" />
 
     <ImageView
-        android:id="@+id/imageView32"
+        android:id="@+id/PerfilRepartidor4"
         android:layout_width="34dp"
         android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
