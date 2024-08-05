@@ -82,7 +82,7 @@
             android:name=".Menu_Principal_CardActivity"
             android:exported="false" />
         <activity
-            android:name=".Menu_PrincipalActivity"
+            android:name=".Perfil"
             android:exported="false" />
         <activity
             android:name=".producto_card"
@@ -100,7 +100,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Perfil"
+            android:name=".Menu_PrincipalActivity"
             android:exported="true">
 
             <intent-filter>
