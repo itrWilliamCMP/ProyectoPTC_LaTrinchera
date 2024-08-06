@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,13 @@ class RecuperacionContrasena2 : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val imgRecup2Atras = findViewById<ImageView>(R.id.imgRecup2Atras)
+        imgRecup2Atras.setOnClickListener {
+
+            val recuperacionContrasena = Intent(this, RecuperacionContrasena::class.java)
+            startActivity(recuperacionContrasena)
         }
 
         code1 = findViewById(R.id.code1)

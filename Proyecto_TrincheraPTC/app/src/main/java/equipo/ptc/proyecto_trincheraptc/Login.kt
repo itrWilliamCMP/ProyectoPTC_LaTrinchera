@@ -28,7 +28,6 @@ class Login : AppCompatActivity() {
 
         val btn: Button = findViewById(R.id.btngoogle)
         btn.setOnClickListener {
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }

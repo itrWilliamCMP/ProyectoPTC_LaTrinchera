@@ -1,6 +1,8 @@
 package equipo.ptc.proyecto_trincheraptc
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -17,7 +19,11 @@ class MenuRepartidor2 : AppCompatActivity() {
             insets
         }
 
+        val Regresar1 = findViewById<ImageView>(R.id.Regresar1)
+        Regresar1.setOnClickListener {
 
-
+            val MenuRepartidor = Intent(this, MenuRepartidor::class.java)
+            startActivity(MenuRepartidor)
+        }
     }
 }
