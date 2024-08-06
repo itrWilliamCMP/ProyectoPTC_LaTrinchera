@@ -4,14 +4,18 @@ import Modelo.ClaseConexion
 import Modelo.ComidaCategoria
 import Modelo.tbMenu
 import RecyclerViewHelpers.AdaptadorMenu
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -29,6 +33,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             insets
         }
 
+
         //Cambiar de pantalla entre vector
         val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
         imgCarrito.setOnClickListener {
@@ -38,7 +43,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
 
         val rcvComida = findViewById<RecyclerView>(R.id.rvComidaCategoria)
-        rcvComida.layoutManager = GridLayoutManager(this, 2)
+        rcvComida.layoutManager = LinearLayoutManager(this)
 
         val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
         imgPrincipalOutline.setOnClickListener {
@@ -75,7 +80,6 @@ class Menu_PrincipalActivity : AppCompatActivity() {
                 val adapter = AdaptadorMenu(Datos)
                 rcvComida.adapter = adapter
             }
-
         }
     }
 }

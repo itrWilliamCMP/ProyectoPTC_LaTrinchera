@@ -26,6 +26,8 @@ class ProductoActivity : AppCompatActivity() {
         val txtPrecio = findViewById<TextView>(R.id.TxtFalta)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
 
+        val id_producto = intent.getIntArrayExtra("id_producto")
+        val id_menu = intent.getIntArrayExtra("id_menu")
         val producto = intent.getStringExtra("producto")
         val stock = intent.getStringExtra("stock")
         val descripcion = intent.getStringExtra("descripcion")

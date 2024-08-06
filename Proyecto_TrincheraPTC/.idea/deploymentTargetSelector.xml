@@ -4,6 +4,21 @@
     <selectionStates>
       <SelectionState runConfigName="PTC">
         <option name="selectionMode" value="DROPDOWN" />
+<<<<<<< HEAD
+        <DropdownSelection timestamp="2024-07-31T19:19:58.760317500Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\rgalv\.android\avd\Copy_of_Pixel_8_API_31.avd" />
+=======
+        <DropdownSelection timestamp="2024-07-31T21:57:26.263958100Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\willi\.android\avd\Pixel_8_Pro_API_30.avd" />
+>>>>>>> master
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
       </SelectionState>
     </selectionStates>
   </component>
