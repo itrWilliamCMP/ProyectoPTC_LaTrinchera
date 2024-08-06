@@ -38,32 +38,33 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val stock = intent.getStringExtra("stock")
 
 
-//        fun obtenerCategorias(): List<tbProductos> {
-//            val objConexion = ClaseConexion().cadenaConexion()
-//
-//            val statement = objConexion?.createStatement()
-//            val resultSet = statement?.executeQuery("SELECT * FROM Productos_PTC")!!
-//            val Datos = mutableListOf<tbProductos>()
-//
-//            while (resultSet.next()) {
-//                val id_producto = resultSet.getInt("id_producto")
-//                val id_menu = resultSet.getInt("id_menu")
-//                val producto = resultSet.getString("producto")
-//                val descripcion = resultSet.getString("descripcion")
-//                val precioventa = resultSet.getInt("precioventa")
-//                val stock = resultSet.getInt("stock")
-//                val imagen_comida = resultSet.getString("imagen_comida")
-//
-//                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock)
-//
-//                Datos.add(valoresjuntos)
-//            }
-//            return Datos
+        fun obtenerCategorias(): List<tbProductos> {
+            val objConexion = ClaseConexion().cadenaConexion()
 
+            val statement = objConexion?.createStatement()
+            val resultSet = statement?.executeQuery("SELECT * FROM Productos_PTC")!!
+            val Datos = mutableListOf<tbProductos>()
 
-//        val adapter = AdaptadorMenuCategorias(comidas)
-//        recyclerView.adapter = adapter
+            while (resultSet.next()) {
+               val id_producto = resultSet.getInt("id_producto")
+                val id_menu = resultSet.getInt("id_menu")
+                val producto = resultSet.getString("producto")
+                val descripcion = resultSet.getString("descripcion")
+                val precioventa = resultSet.getInt("precioventa")
+                val stock = resultSet.getInt("stock")
+                val imagen_comida = resultSet.getString("imagen_comida")
+
+                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock)
+
+                Datos.add(valoresjuntos)
+            }
+          return Datos
+
+        val adapter = AdaptadorMenuCategorias(tbProductos)
+        recyclerView.adapter = adapter
 
         }
     }
+
+}
 

@@ -43,7 +43,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
 
         val rcvComida = findViewById<RecyclerView>(R.id.rvComidaCategoria)
-        rcvComida.layoutManager = LinearLayoutManager(this)
+        rcvComida.layoutManager = GridLayoutManager(this, 2)
 
         val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
         imgPrincipalOutline.setOnClickListener {
