@@ -66,7 +66,21 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             // Manejo de nulos para resultSet
             if (resultSet != null) {
                 while (resultSet.next()) {
-                    // ... (código para procesar los resultados) ...
+                    val id_menu = resultSet.getInt("id_menu")
+                    val categoria = resultSet.getString("categoria")
+                    val id_producto = resultSet.getInt("id_producto")
+                    val producto = resultSet.getString("producto")
+                    val descripcion = resultSet.getString("descripcion")
+                    val precioventa = resultSet.getDouble("precioventa")
+                    val stock = resultSet.getInt("stock")
+                    val imagen_categoria =resultSet.getString("imagen_categoria")
+                    val imagen_producto = resultSet.getString("imagen_comida")
+
+                    val valoresjuntos = tbMenuConProductos(
+                        id_menu, categoria, id_producto, producto, descripcion,
+                        precioventa, stock, imagen_categoria, imagen_producto
+                    )
+                    datos.add(valoresjuntos)
                 }
             } else {
                 // Maneja el caso en que no hay resultados
@@ -83,7 +97,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
                     rcvComida.adapter = adapter
                 } else {
                     // Manejar el caso en que no hay datos, por ejemplo, mostrando un mensaje al usuario
-                     Toast.makeText(this@Menu_PrincipalActivity, "No se encontraron datos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@Menu_PrincipalActivity, "No se encontraron datos", Toast.LENGTH_SHORT).show()
                     println("No se encontraron datos")
                 }
             }
