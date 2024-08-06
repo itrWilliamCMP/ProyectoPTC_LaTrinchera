@@ -33,7 +33,6 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvMenuCategoria)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
         val id_menu = intent.getIntExtra("id_menu", 0)
         val categoria = intent.getStringExtra("nombre_menu")
         val id_producto = intent.getIntExtra("id_producto", 0)
@@ -44,12 +43,7 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val imagen_categoria = intent.getStringExtra("imagen_categoria")
         val imagen_producto = intent.getStringExtra("nombre_categoria")
 
-
-
-
-
-
-
+//        tvNombreProducto.text = producto
 
         //
         fun obtenerCategorias(): List<tbMenuConProductos> {
