@@ -30,17 +30,17 @@ class AdaptadorDetalleMenu(private var Datos: List<tbProductos> ): RecyclerView.
         }
 
 //Enviar parametros a ProductoActivity
-//        holder.itemView.setOnClickListener {
-//            val context = holder.itemView.context
-//            val pantallaDetalle = Intent(context, ProductoActivity::class.java)
-//            pantallaDetalle.getIntArrayExtra("id_producto")
-//            pantallaDetalle.getIntArrayExtra("id_menu")
-//            pantallaDetalle.getStringExtra("producto")
-//            pantallaDetalle.getStringExtra("descripcion")
-//            pantallaDetalle.getStringExtra("precioventa")
-//            pantallaDetalle.getIntArrayExtra("stock")
-//            context.startActivity(pantallaDetalle)
-//        }
+       holder.itemView.setOnClickListener {
+           val context = holder.itemView.context
+            val pantallaDetalle = Intent(context, ProductoActivity::class.java)
+            pantallaDetalle.getIntArrayExtra("id_producto")
+           pantallaDetalle.getIntArrayExtra("id_menu")
+           pantallaDetalle.getStringExtra("producto")
+            pantallaDetalle.getStringExtra("descripcion")
+            pantallaDetalle.getStringExtra("precioventa")
+            pantallaDetalle.getIntArrayExtra("stock")
+            context.startActivity(pantallaDetalle)
+        }
 
     }
 }

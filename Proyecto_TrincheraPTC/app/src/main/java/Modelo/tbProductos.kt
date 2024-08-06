@@ -6,5 +6,7 @@ data class tbProductos(
     val producto: String,
     val descripcion: String,
     val precioventa: Number,
-    val stock: Int
+    val stock: Int,
+    val imagen_comida: String,
+    val imagen_producto: String
 )

@@ -1,17 +1,9 @@
 package equipo.ptc.proyecto_trincheraptc
 
 import Modelo.ClaseConexion
-import Modelo.MenuComidas
-import Modelo.tbMenu
 import Modelo.tbProductos
 import RecyclerViewHelpers.AdaptadorDetalleMenu
-import RecyclerViewHelpers.AdaptadorMenu
-import RecyclerViewHelpers.AdaptadorMenuCategorias
-import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -67,9 +59,9 @@ class MenuCategoriaActivity : AppCompatActivity() {
                 val descripcion = resultSet.getString("descripcion")
                 val precioventa = resultSet.getInt("precioventa")
                 val stock = resultSet.getInt("stock")
-                val imagen_comida = resultSet.getString("imagen_comida")
-
-                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock)
+                val imagen_categoria = resultSet.getString("imagen_categoria")
+                val imagen_producto = resultSet.getString("imagen_producto")
+                val valoresjuntos = tbProductos(id_producto, id_menu, producto, descripcion, precioventa, stock, imagen_categoria,imagen_producto)
 
                 Datos.add(valoresjuntos)
             }

@@ -70,7 +70,7 @@
             android:name=".Menu_Principal_CardActivity"
             android:exported="false" />
         <activity
-            android:name=".Menu_PrincipalActivity"
+            android:name=".splash_screen"
             android:exported="false" />
         <activity
             android:name=".producto_card"
@@ -88,7 +88,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".splash_screen"
+            android:name=".Menu_PrincipalActivity"
             android:exported="true">
 
             <intent-filter>

@@ -1,21 +1,16 @@
 package equipo.ptc.proyecto_trincheraptc
 
 import Modelo.ClaseConexion
-import Modelo.ComidaCategoria
-import Modelo.tbMenu
-import Modelo.tbProductos
+import Modelo.tbMenuConProductos
 import RecyclerViewHelpers.AdaptadorMenu
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageView
-import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
@@ -24,7 +19,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Menu_PrincipalActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?)  {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_principal)
@@ -58,28 +53,39 @@ class Menu_PrincipalActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
-        fun obtenerCategorias(): List<tbMenu> {
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+        fun obtenerCategoriasConProductos(): List<tbMenuConProductos> {
             val objConexion = ClaseConexion().cadenaConexion()
-
             val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT * FROM Menus_PTC")!!
-            val Datos = mutableListOf<tbMenu>()
+            val resultSet = statement?.executeQuery(" SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
 
-            while (resultSet.next()) {
-                val id_menu = resultSet.getInt("id_menu")
-                val categoria = resultSet.getString("categoria")
+            val datos = mutableListOf<tbMenuConProductos>()
 
-                val valoresjuntos = tbMenu(id_menu, categoria)
-
-                Datos.add(valoresjuntos)
+            // Manejo de nulos para resultSet
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    // ... (código para procesar los resultados) ...
+                }
+            } else {
+                // Maneja el caso en que no hay resultados
+                println("La consulta no devolvió resultados.")
             }
-            return Datos
+
+            return datos
         }
         CoroutineScope(Dispatchers.IO).launch {
-            val Datos = obtenerCategorias()
-            withContext(Dispatchers.Main) {
-                val adapter = AdaptadorMenu(Datos)
-                rcvComida.adapter = adapter
+            val datos = obtenerCategoriasConProductos() // Obtener datos en un hilo de fondo
+            withContext(Dispatchers.Main) { // Volver al hilo principal para actualizar la UI
+                if (datos.isNotEmpty()) { // Verificar si hay datos antes de crear el adaptador
+                    val adapter = AdaptadorMenu(datos)
+                    rcvComida.adapter = adapter
+                } else {
+                    // Manejar el caso en que no hay datos, por ejemplo, mostrando un mensaje al usuario
+                     Toast.makeText(this@Menu_PrincipalActivity, "No se encontraron datos", Toast.LENGTH_SHORT).show()
+                    println("No se encontraron datos")
+                }
             }
         }
     }
