@@ -6,5 +6,5 @@ import androidx.recyclerview.widget.RecyclerView
 import equipo.ptc.proyecto_trincheraptc.R
 
 class ViewHolderDetalleMenu(view: View): RecyclerView.ViewHolder(view) {
-    val txtNombreCard = view.findViewById<TextView>(R.id.tvNombreProducto)
+    val tvNombreProducto = view.findViewById<TextView>(R.id.tvNombreProducto)
 }

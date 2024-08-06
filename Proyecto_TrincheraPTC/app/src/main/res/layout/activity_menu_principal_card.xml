@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     app:cardBackgroundColor="#E7D7D0"
@@ -42,8 +42,8 @@
 
         <TextView
             android:id="@+id/tvNombreCategoria"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="93dp"
+            android:layout_height="23dp"
             android:fontFamily="@font/source_sans_pro_black"
             android:text="text"
             android:textAlignment="center"
@@ -51,10 +51,10 @@
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.27"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivImagenCategoria"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintVertical_bias="0.593" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

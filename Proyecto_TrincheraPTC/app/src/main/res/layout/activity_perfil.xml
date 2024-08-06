@@ -21,42 +21,6 @@
         app:srcCompat="@drawable/rectanguloperfil" />
 
     <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="385dp"
-        android:layout_height="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.823"
-        app:srcCompat="@drawable/config" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="385dp"
-        android:layout_height="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484"
-        app:srcCompat="@drawable/infopersonal" />
-
-    <ImageView
-        android:id="@+id/imageView12"
-        android:layout_width="385dp"
-        android:layout_height="112dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.384"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.654"
-        app:srcCompat="@drawable/metodospago" />
-
-    <ImageView
         android:id="@+id/imageView10"
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -68,7 +32,7 @@
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
-        android:id="@+id/tvNomUsuarioPerfil"
+        android:id="@+id/txtNomUsuarioPerfil"
         android:layout_width="149dp"
         android:layout_height="88dp"
         android:fontFamily="@font/source_sans_pro_bold"
@@ -84,7 +48,7 @@
         app:layout_constraintVertical_bias="0.687" />
 
     <TextView
-        android:id="@+id/tvCorreoPerfil"
+        android:id="@+id/txtCorreoPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_bold"
@@ -155,5 +119,41 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.926"
         app:srcCompat="@drawable/menuoutline" />
+
+    <ImageView
+        android:id="@+id/imgCambioDeContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.637"
+        app:srcCompat="@mipmap/cambio_clave" />
+
+    <ImageView
+        android:id="@+id/imgDireccion_entrega"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784"
+        app:srcCompat="@mipmap/direccion_entrega" />
+
+    <ImageView
+        android:id="@+id/imgInformacion_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.484"
+        app:srcCompat="@mipmap/informacion_personal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
