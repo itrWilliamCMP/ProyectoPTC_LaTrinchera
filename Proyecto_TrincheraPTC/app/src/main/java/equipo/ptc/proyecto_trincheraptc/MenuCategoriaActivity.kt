@@ -3,6 +3,7 @@ package equipo.ptc.proyecto_trincheraptc
 import Modelo.ClaseConexion
 import Modelo.tbMenuConProductos
 import RecyclerViewHelpers.AdaptadorMenu
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,12 +20,13 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MenuCategoriaActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_categoria)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.rvMenuCategoria)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cardViewCategoria)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
