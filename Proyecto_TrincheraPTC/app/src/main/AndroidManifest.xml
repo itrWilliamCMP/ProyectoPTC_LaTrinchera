@@ -40,7 +40,13 @@
             android:exported="false" />
         <activity
             android:name=".splash_screen"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ConfirmacionEntrega"
             android:exported="false" />
@@ -82,7 +88,7 @@
             android:name=".Menu_Principal_CardActivity"
             android:exported="false" />
         <activity
-            android:name=".Perfil"
+            android:name=".Menu_PrincipalActivity"
             android:exported="false" />
         <activity
             android:name=".producto_card"
@@ -100,15 +106,8 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Menu_PrincipalActivity"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".Perfil"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

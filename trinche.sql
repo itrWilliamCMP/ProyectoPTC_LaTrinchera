@@ -49,7 +49,6 @@ CREATE TABLE PEDIDOS_PTC(
     CONSTRAINT FK_id_empleado_empleado1 FOREIGN KEY (id_empleado) REFERENCES Empleados_PTC(id_empleado) 
 );
 
-
 create table DetallePedidos_PTC( 
 id_detapedido number PRIMARY KEY, 
 id_pedido number, 
@@ -232,7 +231,7 @@ END;
 
 
 
-
+select * from Detalle_Productos_PTC ;
 
 INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Tacos', 'antojitos.jpg');
 INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Tortas', 'platos_fuertes.jpg');
@@ -240,11 +239,36 @@ INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Burritos', 'postr
 INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Chiles', 'bebidas.jpg');
 
 
-INSERT INTO Detalle_Productos_PTC ( producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'Tacos al Pastor', 'Tacos de carne de cerdo adobada con pi?a y cebolla', 3.00, 50, 'tacos_al_pastor.jpg');
-INSERT INTO Detalle_Productos_PTC ( producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'Tacos de pollo', 'Tacos de pollo muy buenos', 2.50, 30, 'jpg');
-INSERT INTO Detalle_Productos_PTC (  producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'Torta de milanesa', 'Torta de pan rellena de milanesa de pollo o res, con aguacate y jitomate', 4.50, 20, 'torta_milanesa.jpg');
-INSERT INTO Detalle_Productos_PTC (  producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'Torta de pollo', 'Torta de pollo, cubierto con salsa de nuez y granada', 10.00, 10, 'Torta.jpg');
-INSERT INTO Detalle_Productos_PTC ( producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'Buriitos', 'Burritos para el burro', 3.50, 25, 'burro.jpg');
-INSERT INTO Detalle_Productos_PTC ( producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 'burrito de carne', 'Burrito de carne para el burro', 2.00, 40, 'b.jpg');
-INSERT INTO Detalle_Productos_PTC ( producto, descripcion, precioventa, stock, imagen_comida) VALUES ('Chile', 'Chile con jugo de lim?n y licor de naranja', 5.00, 15, 'chile.jpg');
+INSERT INTO Detalle_Productos_PTC ( id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES (  1,'Tacos al Pastor', 'Tacos de carne de cerdo adobada con pi?a y cebolla', 3.00, 50, 'tacos_al_pastor.jpg');
+INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 2,'Tacos de pollo', 'Tacos de pollo muy buenos', 2.50, 30, 'jpg');
+INSERT INTO Detalle_Productos_PTC (  id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 3,'Torta de milanesa', 'Torta de pan rellena de milanesa de pollo o res, con aguacate y jitomate', 4.50, 20, 'torta_milanesa.jpg');
+INSERT INTO Detalle_Productos_PTC ( id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES ( 4,'Torta de pollo', 'Torta de pollo, cubierto con salsa de nuez y granada', 10.00, 10, 'Torta.jpg');
+INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES (5, 'Buriitos', 'Burritos para el burro', 3.50, 25, 'burro.jpg');
+INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES (6, 'burrito de carne', 'Burrito de carne para el burro', 2.00, 40, 'b.jpg');
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES (7,'Chile', 'Chile con jugo de lim?n y licor de naranja', 5.00, 15, 'chile.jpg');
 
+
+commit;
+
+
+Select id_menu from Menus_PTC;
+        
+        
+ SELECT Menus_PTC.id_menu,
+ Menus_PTC.categoria,
+ Detalle_Productos_PTC.id_producto,
+ Detalle_Productos_PTC.producto, 
+ Detalle_Productos_PTC.descripcion, 
+ Detalle_Productos_PTC.precioventa,
+ Detalle_Productos_PTC.stock,
+ Menus_PTC.imagen_categoria,
+ Detalle_Productos_PTC.imagen_comida 
+ FROM Menus_PTC
+ INNER JOIN Detalle_Productos_PTC
+ ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu
+ ;
+ 
+ DELETE FROM Detalle_Productos_PTC
+WHERE ID_MENU IS NULL;
+
+        
