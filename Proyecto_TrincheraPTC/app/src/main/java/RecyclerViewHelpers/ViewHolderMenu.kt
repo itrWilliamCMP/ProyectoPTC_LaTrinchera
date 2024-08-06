@@ -6,5 +6,5 @@ import androidx.recyclerview.widget.RecyclerView
 import equipo.ptc.proyecto_trincheraptc.R
 
 class ViewHolderMenu(view: View): RecyclerView.ViewHolder(view) {
-    val txtCardMenu = view.findViewById<TextView>(R.id.tvNombreCategoria)
+    val tvNombreCategoria = view.findViewById<TextView>(R.id.tvNombreCategoria)
 }

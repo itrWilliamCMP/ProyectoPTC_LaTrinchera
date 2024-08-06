@@ -28,15 +28,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
+
         <activity
             android:name=".ConfirmacionEntrega"
             android:exported="false" />
         <activity
             android:name=".ErrorEntrega"
             android:exported="false" />
-        <activity
-            android:name=".ErrorDeEntrega"
-            android:exported="false" />
+
         <activity
             android:name=".MenuRepartidor2"
             android:exported="false" />
@@ -71,7 +70,7 @@
             android:name=".Menu_Principal_CardActivity"
             android:exported="false" />
         <activity
-            android:name=".Menu_PrincipalActivity"
+            android:name=".splash_screen"
             android:exported="false" />
         <activity
             android:name=".producto_card"
@@ -89,8 +88,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".splash_screen"
+            android:name=".Menu_PrincipalActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

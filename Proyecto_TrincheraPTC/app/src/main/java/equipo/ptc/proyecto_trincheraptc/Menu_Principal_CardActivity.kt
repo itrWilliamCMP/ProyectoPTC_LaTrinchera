@@ -1,7 +1,9 @@
 package equipo.ptc.proyecto_trincheraptc
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -33,20 +35,5 @@ class Menu_Principal_CardActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val imgMenuPrincipal = findViewById<ImageView>(R.id.ivImagenCategoria)
-        imgMenuPrincipal.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaDetalleMenu)
-        }
-
-        val txtCardMenu = findViewById<TextView>(R.id.tvNombreCategoria)
-        txtCardMenu.setOnClickListener {
-            val pantallaDetalleMenu = Intent(this, MenuCategoriaActivity::class.java)
-            startActivity(pantallaDetalleMenu)
-        }
-
-        ivImagenCategoria = findViewById(R.id.ivImagenCategoria)
-        val tvNombreCategoria = findViewById<TextView>(R.id.tvNombreCategoria)
     }
 }

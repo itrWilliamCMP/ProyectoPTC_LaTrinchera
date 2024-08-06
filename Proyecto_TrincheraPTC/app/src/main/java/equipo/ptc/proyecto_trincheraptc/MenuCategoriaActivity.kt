@@ -1,26 +1,32 @@
 package equipo.ptc.proyecto_trincheraptc
 
-
-import Modelo.MenuComidas
-import RecyclerViewHelpers.AdaptadorMenuCategorias
-import android.content.Intent
+import Modelo.ClaseConexion
+import Modelo.tbMenuConProductos
+import RecyclerViewHelpers.AdaptadorMenu
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MenuCategoriaActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_categoria)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cardViewCategoria)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -29,64 +35,71 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvMenuCategoria)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val comidaNombre = intent.getStringExtra("comidaNombre")
+        val id_menu = intent.getIntExtra("id_menu", 0)
+        val categoria = intent.getStringExtra("nombre_menu")
+        val id_producto = intent.getIntExtra("id_producto", 0)
+        val producto = intent.getStringExtra("producto")
+        val descripcion = intent.getStringExtra("descripcion")
+        val precioventa = intent.getIntExtra("precioventa",0 )
+        val stock = intent.getIntExtra("stock",0)
+        val imagen_categoria = intent.getStringExtra("imagen_categoria")
+        val imagen_producto = intent.getStringExtra("nombre_categoria")
 
-        val comidas: List<MenuComidas> = when (comidaNombre) {
-            "Tacos" -> listOf(
-                MenuComidas("Tacos al pastor", "Los tacos al pastor son un platillo icónico de " +
-                        "la gastronomía mexicana, especialmente popular en la Ciudad de México. " +
-                        "Este platillo consiste en tortillas de maíz rellenas de carne de cerdo adobada, que se " +
-                        "cocina en un trompo vertical", R.drawable.tacos_al_pastor, 3.50),
-                MenuComidas("Tacos de bistec", "Los tacos de bistec son un platillo típico de " +
-                        "la cocina mexicana que consiste en tortillas, generalmente de maíz, rellenas de carne de " +
-                        "res (bistec) picada o en tiras, cocinada a la parrilla o en una plancha. Este platillo es " +
-                        "una de las variantes más populares de los tacos debido a su sabor jugoso y su preparación " +
-                        "sencilla.", R.drawable.tacos_de_bistec, 3.50),
-                MenuComidas("Tacos de lengua", "Los tacos de lengua son un tipo de taco en la " +
-                        "cocina mexicana que utiliza lengua de res cocida como el ingrediente principal. Este tipo de " +
-                        "taco es muy apreciado por su textura suave y su sabor único, y es una de las muchas variantes " +
-                        "de tacos que se encuentran en la rica tradición culinaria de México.", R.drawable.tacos_de_lengua, 4.50),
-                MenuComidas("Tacos de conchita pibil", "Los tacos de cochinita pibil " +
-                        "son un platillo tradicional de la cocina mexicana, específicamente de la región " +
-                        "de Yucatán. Estos tacos consisten en tortillas de maíz o harina rellenas de cochinita " +
-                        "pibil, que es carne de cerdo marinada en achiote y otros condimentos, envuelta en " +
-                        "hojas de plátano y cocida lentamente.", R.drawable.tacos_de_bistec, 3.00),
-                MenuComidas("Tacos de conchita pibil", "Los tacos de cochinita pibil " +
-                        "son un platillo tradicional de la cocina mexicana, específicamente de la región " +
-                        "de Yucatán. Estos tacos consisten en tortillas de maíz o harina rellenas de cochinita " +
-                        "pibil, que es carne de cerdo marinada en achiote y otros condimentos, envuelta en " +
-                        "hojas de plátano y cocida lentamente.", R.drawable.tacos_de_bistec, 3.00)
-            )
-            "Tortas" -> listOf(
-                MenuComidas("Torta de carne", "Una torta de carne de res mexicana es un " +
-                        "platillo tradicional de la gastronomía mexicana que consiste en un sándwich hecho " +
-                        "con un bolillo o telera (tipos de pan), relleno principalmente de carne de res y " +
-                        "acompañado de una variedad de ingredientes y salsas.", R.drawable.torta_de_carne, 3.50),
-                MenuComidas("Torta de pollo", "Una torta de pollo mexicana es un tipo de " +
-                        "sándwich popular en México que consiste en un pan tipo bolillo o telera, relleno de " +
-                        "pollo cocido y desmenuzado, acompañado de una variedad de ingredientes y aderezos que " +
-                        "pueden incluir aguacate, jitomate, cebolla, chiles, mayonesa, entre otros. Es una opción " +
-                        "rápida y sabrosa para el desayuno, almuerzo o cena.", R.drawable.torta_de_pollo, 3.50),
-                MenuComidas("Torta de birria", "La torta de birria es una combinacion de " +
-                        "guiso de cordero y pan de la cocina mexicana, una deliciosa y reconfortante opción p" +
-                        "ara el desayuno, el almuerzo o la cena. Se trata de un sándwich hecho con pan bolillo o " +
-                        "telera, relleno de guiso de carne de cordero, lechuga, cebolla y " +
-                        "queso.", R.drawable.torta_de_birria, 4.50),
-                MenuComidas("Torta de jamon", "La torta de jamón es un clásico de la cocina " +
-                        "mexicana, una deliciosa y reconfortante opción para el desayuno, el almuerzo o la cena. " +
-                        "Se trata de un sándwich hecho con pan bolillo o telera, relleno de lonchas de jamón, " +
-                        "queso, cebolla, tocino y tomate.", R.drawable.torta_de_jamon, 3.00)
-            )
-            else -> emptyList()
+//        tvNombreProducto.text = producto
+
+        //
+        fun obtenerCategorias(): List<tbMenuConProductos> {
+            val objConexion = ClaseConexion().cadenaConexion()
+            val statement = objConexion?.createStatement()
+            val resultSet = statement?.executeQuery(" SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
+
+            val datos = mutableListOf<tbMenuConProductos>()
+
+            // Manejo de nulos para resultSet
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    val id_menu = resultSet.getInt("id_menu")
+                    val categoria = resultSet.getString("categoria")
+                    val id_producto = resultSet.getInt("id_producto")
+                    val producto = resultSet.getString("producto")
+                    val descripcion = resultSet.getString("descripcion")
+                    val precioventa = resultSet.getDouble("precioventa")
+                    val stock = resultSet.getInt("stock")
+                    val imagen_categoria =resultSet.getString("imagen_categoria")
+                    val imagen_producto = resultSet.getString("imagen_comida")
+
+                    val valoresjuntos = tbMenuConProductos(
+                        id_menu, categoria, id_producto, producto, descripcion,
+                        precioventa, stock, imagen_categoria, imagen_producto
+                    )
+                    datos.add(valoresjuntos)
+                }
+            } else {
+                // Maneja el caso en que no hay resultados
+                println("La consulta no devolvió resultados.")
+            }
+
+            return datos
+//        val adapter = AdaptadorMenuCategorias(comidas)
+//        recyclerView.adapter = adapter
+
         }
-
-        val adapter = AdaptadorMenuCategorias(comidas)
-        recyclerView.adapter = adapter
-
-        val imgBackSopas = findViewById<ImageView>(R.id.imgBackSopas)
-        imgBackSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
-            startActivity(pantallaLogin)
+        CoroutineScope(Dispatchers.IO).launch {
+            val datos = obtenerCategorias() // Obtener datos en un hilo de fondo
+            withContext(Dispatchers.Main) { // Volver al hilo principal para actualizar la UI
+                if (datos.isNotEmpty()) { // Verificar si hay datos antes de crear el adaptador
+                    val adapter = AdaptadorMenu(datos)
+                    recyclerView.adapter = adapter
+                } else {
+                    // Manejar el caso en que no hay datos, por ejemplo, mostrando un mensaje al usuario
+                    Toast.makeText(this@MenuCategoriaActivity, "No se encontraron datos", Toast.LENGTH_SHORT).show()
+                    println("No se encontraron datos")
+                }
+            }
         }
     }
 }
+
+
+
+
