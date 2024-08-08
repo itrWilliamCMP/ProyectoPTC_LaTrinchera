@@ -26,7 +26,7 @@ class MenuCategoriaActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_categoria)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.cardViewCategoria)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -50,8 +50,10 @@ class MenuCategoriaActivity : AppCompatActivity() {
         //
         fun obtenerCategorias(): List<tbMenuConProductos> {
             val objConexion = ClaseConexion().cadenaConexion()
-            val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery(" SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
+            val traerCosas = objConexion?.prepareStatement("select * from Detalle_Productos_PTC where id_menu = ?")!!
+            traerCosas.setInt(1, id_menu)
+            val resultSet = traerCosas.executeQuery()
+
 
             val datos = mutableListOf<tbMenuConProductos>()
 
