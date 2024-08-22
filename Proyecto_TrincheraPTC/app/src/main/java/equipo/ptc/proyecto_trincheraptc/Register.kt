@@ -171,7 +171,7 @@ class Register : AppCompatActivity() {
         val txtConfirmacionContrasena = findViewById<EditText>(R.id.txtConfimacionContrasena)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
-        val txtRegistrarApellido = findViewById<EditText>(R.id.txtRegistrarApellido)
+        val txtRegistrarTelefono = findViewById<EditText>(R.id.txtRegistrarTelefono)
         val txtRegistrarDireccion = findViewById<EditText>(R.id.txtRegistrarDireccion)
 
         btnGaleria.setOnClickListener {
@@ -228,15 +228,14 @@ class Register : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
 
                 //Creo una variable que contenga un PrepareStatement
-                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO clientes_PTC (id_cliente, nombre_clie, correoElectronico, contrasena, imagen_cliente, apellido_clie, dir_entrega) VALUES (?, ?, ?, ?, ?, ?, ?)")!!
-                CreacionDelUsuario.setString(1, UUID.randomUUID().toString())
-                CreacionDelUsuario.setString(2, txtRegistrarNombre.text.toString())
-                CreacionDelUsuario.setString(3, txtRegistrarCorreo.text.toString())
-                CreacionDelUsuario.setString(4, contraseniaEncriptada)
-                CreacionDelUsuario.setString(5, miPath)
-                CreacionDelUsuario.setString(6, txtRegistrarApellido.text.toString())
-                CreacionDelUsuario.setString(7, txtRegistrarDireccion.text.toString())
-                CreacionDelUsuario.executeUpdate()
+                val CreacionDelUsuario = objConexion?.prepareStatement("INSERT INTO clientes_PTC (nombre_clie, correoElectronico, contrasena, imagen_clientes, telefono_clie, direccion_entrega) VALUES ( ?, ?, ?, ?, ?, ?)")!!
+                CreacionDelUsuario.setString(1, txtRegistrarNombre.text.toString())
+                CreacionDelUsuario.setString(2, txtRegistrarCorreo.text.toString())
+                CreacionDelUsuario.setString(3, contraseniaEncriptada)
+                CreacionDelUsuario.setString(4, miPath)
+                CreacionDelUsuario.setString(5, txtRegistrarTelefono.text.toString())
+                CreacionDelUsuario.setString(6, txtRegistrarDireccion.text.toString())
+                 CreacionDelUsuario.executeUpdate()
 
                 withContext(Dispatchers.Main) {
                     //Se Abre otra corrutina para mostrar un mensaje y limpiar los campos
