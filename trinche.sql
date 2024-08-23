@@ -1,5 +1,5 @@
 create table clientes_PTC( 
-id_cliente NUMBER PRIMARY KEY, 
+id_cliente NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
 nombre_clie varchar2(20), 
 telefono_clie varchar2(20), 
 correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
