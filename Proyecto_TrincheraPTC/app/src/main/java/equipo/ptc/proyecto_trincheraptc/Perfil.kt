@@ -39,8 +39,10 @@ class Perfil : AppCompatActivity() {
             insets
         }
 
+        val idtraido = Login.idDelCliente
+
         // Obtener el ID del cliente del intent
-        val id_cliente = intent.getIntExtra("id_cliente", -1)
+        val id_cliente = intent.getIntExtra("id_cliente", idtraido.toString().toInt())
 
 
         currentClientId = id_cliente

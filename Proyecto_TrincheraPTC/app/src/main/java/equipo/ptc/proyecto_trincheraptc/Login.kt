@@ -16,15 +16,23 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.security.MessageDigest
 
 class Login : AppCompatActivity() {
+    companion object variablesLogin {
+        lateinit var idDelCliente: String
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
+
+
+
 
         val btn: Button = findViewById(R.id.btngoogle)
         btn.setOnClickListener {
@@ -62,8 +70,29 @@ class Login : AppCompatActivity() {
         }
 
         btnEntrar.setOnClickListener {
+
             val txtCorreo = txtCorreo.text.toString()
             val txtContrasena = hashPassword(txtContrasena.text.toString())
+
+
+
+
+            //traer el id cuando inicia sesion
+            //Hago un select para ver guardar el rol del usuario
+            GlobalScope.launch(Dispatchers.IO) {
+                val objConexion = ClaseConexion().cadenaConexion()
+                val resulSet = objConexion?.prepareStatement("SELECT id_cliente FROM clientes_PTC WHERE correoElectronico = ?")!!
+                resulSet.setString(1, txtCorreo)
+                val resultado = resulSet.executeQuery()
+                if (resultado.next()) {
+                    //Lleno la variable global con el rol del usuario (dependiendo del correo)
+                    idDelCliente = resultado.getString("id_cliente")
+
+                }
+            }
+
+
+
 
             if (txtCorreo.isEmpty() || txtContrasena.isEmpty()){
                 Toast.makeText(this, "Campos incompletos", Toast.LENGTH_SHORT).show()

@@ -294,7 +294,7 @@
                 app:layout_constraintVertical_bias="0.243" />
 
             <EditText
-                android:id="@+id/txtRegistrarApellido"
+                android:id="@+id/txtRegistrarTelefono"
                 android:layout_width="354dp"
                 android:layout_height="41dp"
                 android:background="@drawable/campooutline"
@@ -368,7 +368,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_sans_pro_black"
-                android:text="Apellido"
+                android:text="Teléfono"
                 android:textColor="#80000000"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView999"
