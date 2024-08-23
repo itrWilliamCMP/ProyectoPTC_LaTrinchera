@@ -25,7 +25,6 @@ class Perfil : AppCompatActivity() {
     private lateinit var txtCorreoPerfil: TextView
 
     // Variable para almacenar el ID del cliente actual
-    var currentClientId: Int = 0
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +44,7 @@ class Perfil : AppCompatActivity() {
         val id_cliente = intent.getIntExtra("id_cliente", idtraido.toString().toInt())
 
 
-        currentClientId = id_cliente
+
 
         if (id_cliente != -1) {
             // Obtener los datos del cliente usando corrutinas
@@ -117,7 +116,8 @@ class Perfil : AppCompatActivity() {
     //registra un lanzador de actividad que se utiliza para iniciar otra actividad y recibir un resultado de vuelta.
     private val editarPerfilLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
         // Actualizar datos después de editar
-        getDatosCliente(currentClientId)
+        val idtraido2 = Login.idDelCliente
+        getDatosCliente(idtraido2.toString().toInt())
     }
 
     // Obtener datos del cliente usando corrutinas
