@@ -28,7 +28,7 @@
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="Estos son los envíos pendientes:"
         android:textColor="#F2B66D"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

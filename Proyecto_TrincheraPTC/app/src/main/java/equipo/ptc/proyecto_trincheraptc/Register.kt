@@ -235,7 +235,7 @@ class Register : AppCompatActivity() {
                 CreacionDelUsuario.setString(4, miPath)
                 CreacionDelUsuario.setString(5, txtRegistrarTelefono.text.toString())
                 CreacionDelUsuario.setString(6, txtRegistrarDireccion.text.toString())
-                 CreacionDelUsuario.executeUpdate()
+                CreacionDelUsuario.executeUpdate()
 
                 withContext(Dispatchers.Main) {
                     //Se Abre otra corrutina para mostrar un mensaje y limpiar los campos

@@ -57,7 +57,7 @@
         android:fontFamily="@font/source_sans_pro_black"
         android:text="Contraseña"
         android:textColor="#80000000"
-        android:textSize="11sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
         app:layout_constraintHorizontal_bias="0.488"
@@ -73,12 +73,12 @@
         android:text="Ingrese una nueva contraseña."
         android:textAlignment="center"
         android:textColor="#262626"
-        android:textSize="16sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.488" />
+        app:layout_constraintVertical_bias="0.46" />
 
     <Button
         android:id="@+id/btnRecupContinuar3"
@@ -95,9 +95,9 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.694" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

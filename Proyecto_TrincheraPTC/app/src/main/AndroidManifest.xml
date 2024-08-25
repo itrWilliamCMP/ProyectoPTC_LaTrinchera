@@ -39,10 +39,10 @@
             android:name=".editar_perfil"
             android:exported="false" />
         <activity
-            android:name=".Menu_PrincipalActivity"
-            android:exported="true" >
-
+            android:name=".splash_screen"
+            android:exported="true"  >
         </activity>
+
         <activity
             android:name=".ConfirmacionEntrega"
             android:exported="false" />
@@ -84,7 +84,7 @@
             android:name=".Menu_Principal_CardActivity"
             android:exported="false" />
         <activity
-            android:name=".splash_screen"
+            android:name=".Menu_PrincipalActivity"
             android:exported="false" />
         <activity
             android:name=".producto_card"
