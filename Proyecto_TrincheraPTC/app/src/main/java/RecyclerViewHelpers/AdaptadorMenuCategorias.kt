@@ -16,9 +16,9 @@ class AdaptadorMenuCategorias (
 ) : RecyclerView.Adapter<AdaptadorMenuCategorias.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvNombre: TextView = itemView.findViewById(R.id.tvNombreProducto)
+        val tvNombre: TextView = itemView.findViewById(R.id.TxtNombre_Cliente)
         val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
-        val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenCategoria)
+        val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenClientes)
         val tvPrecio: TextView = itemView.findViewById(R.id.TxtFalta)
     }
 

@@ -8,15 +8,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import equipo.ptc.proyecto_trincheraptc.R
 
-class ViewHolderCategoriaProducto(view: View): RecyclerView.ViewHolder(view) {
+class View_Folder_RepartidorMenu(view: View): RecyclerView.ViewHolder(view) {
 
-    val tvNombreProducto : TextView = view.findViewById(R.id.TxtNombre_Cliente)
-    val ivImagenCategoria : ImageView = view.findViewById(R.id.ivImagenClientes)
+//Mando a llamar elementos de card
+val TxtNombre_Cliente : TextView = view.findViewById(R.id.TxtNombre_Cliente)
+val TxtUbicacion : TextView = view.findViewById(R.id.TxtUbicacion)
+    val ivImagenClientes : ImageView = view.findViewById(R.id.ivImagenClientes)
+
 
     fun render(Datos: tbMenu){
         Glide.with(itemView.context).
         load(Datos.imagen_categoria).
-        into(ivImagenCategoria)
+        into(ivImagenClientes)
     }
 
 }
