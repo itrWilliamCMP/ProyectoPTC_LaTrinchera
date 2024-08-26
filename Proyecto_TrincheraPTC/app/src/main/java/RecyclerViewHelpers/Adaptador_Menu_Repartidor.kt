@@ -4,21 +4,24 @@ import Modelo.tbMenu_Repartidor
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import equipo.ptc.proyecto_trincheraptc.R
 
-// Adaptador_Menu_Repartidor(var Datos: List<tbMenu_Repartidor>): RecyclerView.Adapter<ViewHolder>(){
+class Adaptador_Menu_Repartidor(var Datos: List<tbMenu_Repartidor>) : RecyclerView.Adapter<View_Folder_RepartidorMenu>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): View_Folder_RepartidorMenu {
 
-    //override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-      //  val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_menu_repartidor, parent, false)
-//return ViewHolder(view)
-    //}
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_menu_repartidor, parent, false)
+        return View_Folder_RepartidorMenu(view)
+    }
 
-  //  override fun getItemCount(): Int {
-    //    TODO("Not yet implemented")
- //   }
+    override fun getItemCount(): Int {
+        return Datos.size
+    }
 
-   // override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-  //      TODO("Not yet implemented")
- //   }
-//}
+    override fun onBindViewHolder(holder: View_Folder_RepartidorMenu, position: Int) {
+        //TODO:Aqui programar todos los botones de la card
+    }
+
+
+
+}
