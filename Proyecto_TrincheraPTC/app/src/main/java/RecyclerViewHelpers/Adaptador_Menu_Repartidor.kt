@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import equipo.ptc.proyecto_trincheraptc.R
+import javax.mail.FetchProfile.Item
 
 class Adaptador_Menu_Repartidor(var Datos: List<tbMenu_Repartidor>) : RecyclerView.Adapter<View_Folder_RepartidorMenu>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): View_Folder_RepartidorMenu {
@@ -19,9 +20,9 @@ class Adaptador_Menu_Repartidor(var Datos: List<tbMenu_Repartidor>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: View_Folder_RepartidorMenu, position: Int) {
-        //TODO:Aqui programar todos los botones de la card
+        //Controlar card
+        val item = Datos[position]
+        holder.TxtNombre_Cliente.text = item.nombreCliente
+        holder.TxtUbicacion.text = item.direccion
     }
-
-
-
 }
