@@ -47,7 +47,11 @@
         app:srcCompat="@drawable/back1" />
 
     <ImageView
+<<<<<<< HEAD
         android:id="@+id/ivImagenProducto"
+=======
+        android:id="@+id/ivImagenClientes"
+>>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
         android:layout_width="292dp"
         android:layout_height="184dp"
         android:layout_marginTop="144dp"
@@ -64,7 +68,7 @@
         android:fontFamily="@font/source_sans_pro_black"
         android:text="TextView"
         android:textColor="#262626"
-        android:textSize="16sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"

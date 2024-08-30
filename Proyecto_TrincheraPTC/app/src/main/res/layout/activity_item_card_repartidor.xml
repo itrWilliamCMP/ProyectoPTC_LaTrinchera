@@ -17,15 +17,9 @@
         android:layout_height="84dp">
 
         <TextView
-<<<<<<< HEAD
-            android:id="@+id/tvNombreProducto"
-            android:layout_width="189dp"
-            android:layout_height="26dp"
-=======
             android:id="@+id/TxtNombre_Cliente"
-            android:layout_width="124dp"
-            android:layout_height="21dp"
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
+            android:layout_width="67dp"
+            android:layout_height="32dp"
 
             android:fontFamily="@font/source_sans_pro_black"
             android:text="Text"
@@ -33,10 +27,10 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.635"
+            app:layout_constraintHorizontal_bias="0.707"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.507" />
+            app:layout_constraintVertical_bias="0.25" />
 
         <ImageView
             android:id="@+id/flecha"
@@ -51,25 +45,26 @@
             tools:srcCompat="@drawable/fsiguiente" />
 
         <ImageView
-<<<<<<< HEAD
-            android:id="@+id/ivImagenProducto"
-            android:layout_width="90dp"
-            android:layout_height="84dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tvNombreProducto"
-            app:layout_constraintHorizontal_bias="0.0"
-=======
             android:id="@+id/ivImagenClientes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/TxtNombre_Cliente"
             app:layout_constraintHorizontal_bias="0.081"
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/TxtUbicacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="#262626"
+            android:textSize="14sp"
+            tools:layout_editor_absoluteX="189dp"
+            tools:layout_editor_absoluteY="45dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

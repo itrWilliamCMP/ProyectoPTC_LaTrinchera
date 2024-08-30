@@ -19,7 +19,11 @@ class AdaptadorComidaCategoria(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombreCategoria)
+<<<<<<< HEAD
         val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenProducto)
+=======
+        val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenClientes)
+>>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
