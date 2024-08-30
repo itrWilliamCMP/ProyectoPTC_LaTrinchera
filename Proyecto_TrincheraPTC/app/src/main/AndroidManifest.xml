@@ -28,9 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Proyecto_TrincheraPTC"
         tools:targetApi="31">
-        <activity
-            android:name=".item_Card_Repartidor"
-            android:exported="false" />
+
         <activity
             android:name=".direccion_entrega"
             android:exported="false" />
@@ -42,19 +40,16 @@
             android:exported="false" />
         <activity
             android:name=".splash_screen"
-<<<<<<< HEAD
             android:exported="true" >
 
         </activity>
-=======
-            android:exported="true"></activity>
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
         <activity
             android:name=".ConfirmacionEntrega"
             android:exported="false" />
         <activity
             android:name=".ErrorEntrega"
             android:exported="false" />
+
         <activity
             android:name=".MenuRepartidor2"
             android:exported="false" />
