@@ -18,11 +18,7 @@
         android:layout_height="153dp">
 
         <ImageView
-<<<<<<< HEAD
             android:id="@+id/ivImagenProducto"
-=======
-            android:id="@+id/ivImagenClientes"
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
             android:layout_width="122dp"
             android:layout_height="99dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,11 +53,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@+id/ivImagenProducto"
-=======
-            app:layout_constraintTop_toBottomOf="@+id/ivImagenClientes"
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
             app:layout_constraintVertical_bias="0.593" />
 
 

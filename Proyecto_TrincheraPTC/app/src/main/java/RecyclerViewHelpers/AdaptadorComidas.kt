@@ -23,7 +23,7 @@ class AdaptadorComidas(var Datos: List<dataClassComida>) : RecyclerView.Adapter<
         holder.tvNombreProducto.text = item.Producto
 
         holder.render(item)
-            Glide.with(holder.itemView)
+        Glide.with(holder.itemView)
             .load(item.Imagen_Producto)
             .into(holder.ivImagenProducto)
     }

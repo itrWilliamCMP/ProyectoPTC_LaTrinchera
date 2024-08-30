@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 CREATE TABLE clientes_PTC( 
     id_cliente NUMBER PRIMARY KEY, 
     nombre_clie VARCHAR2(20), 
@@ -7,16 +6,6 @@ CREATE TABLE clientes_PTC(
     contrasena VARCHAR2(255),
     direccion_entrega VARCHAR2(300),
     imagen_Clientes VARCHAR2(250)
-=======
-create table clientes_PTC( 
-id_cliente NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY, 
-nombre_clie varchar2(20), 
-telefono_clie varchar2(20), 
-correoElectronico VARCHAR2(100) NOT NULL UNIQUE,
-contrasena VARCHAR2(255),
-direccion_entrega VARCHAR2(300),
-imagen_Clientes varchar2(250)
->>>>>>> 33784e090d270aff5923600d09c95556d59d8ecb
 );
  
 CREATE TABLE Empleados_PTC( 
@@ -244,4 +233,4 @@ FROM Menus_PTC
 INNER JOIN Detalle_Productos_PTC
 ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu
 ;
-  
+   
