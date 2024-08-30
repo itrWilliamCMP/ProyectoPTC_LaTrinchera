@@ -133,7 +133,7 @@
         app:srcCompat="@drawable/buscar" />
 
     <ImageView
-        android:id="@+id/imgBackSopas"
+        android:id="@+id/imgBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,7 +145,7 @@
         app:srcCompat="@drawable/back1" />
 
     <ImageView
-        android:id="@+id/imgPlatillo"
+        android:id="@+id/imgCategoria"
         android:layout_width="224dp"
         android:layout_height="220dp"
         app:layout_constraintBottom_toBottomOf="parent"
