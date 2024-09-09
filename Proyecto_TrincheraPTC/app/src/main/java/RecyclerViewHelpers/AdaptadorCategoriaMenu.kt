@@ -19,11 +19,13 @@ class AdaptadorCategoriaMenu (private var Datos: List<tbMenu> ): RecyclerView.Ad
     override fun onBindViewHolder(holder: ViewHolderCategoriaProducto, position: Int) {
         val dato = Datos[position]
         holder.tvNombreProducto.text = dato.categoria
+        /*
         holder.render(dato)
         Glide.with(holder.itemView)
             .load(dato.imagen_categoria)
             .circleCrop()
-            .into(holder.ivImagenCategoria)
+            .into(holder.ivImagenProducto)
+            */
     }
 
 

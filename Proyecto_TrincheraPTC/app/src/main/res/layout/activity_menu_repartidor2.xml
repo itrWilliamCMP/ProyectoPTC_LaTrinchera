@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.22" />
 
     <ImageView
-        android:id="@+id/imgPlatillo"
+        android:id="@+id/imgCategoria"
         android:layout_width="436dp"
         android:layout_height="82dp"
         android:layout_marginTop="-10dp"
@@ -199,7 +199,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgPlatillo"
+        app:layout_constraintTop_toTopOf="@+id/imgCategoria"
         app:layout_constraintVertical_bias="0.759"
         app:srcCompat="@drawable/lineaa" />
 
@@ -211,7 +211,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imgPlatillo"
+        app:layout_constraintTop_toTopOf="@+id/imgCategoria"
         app:layout_constraintVertical_bias="0.869"
         app:srcCompat="@drawable/lineaa" />
 

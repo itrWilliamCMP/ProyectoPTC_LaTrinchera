@@ -1,6 +1,6 @@
 package RecyclerViewHelpers
 
-import Modelo.tbMenu
+import Modelo.dataClassComida
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,13 +10,13 @@ import equipo.ptc.proyecto_trincheraptc.R
 
 class ViewHolderCategoriaProducto(view: View): RecyclerView.ViewHolder(view) {
 
-    val tvNombreProducto : TextView = view.findViewById(R.id.TxtNombre_Cliente)
-    val ivImagenCategoria : ImageView = view.findViewById(R.id.ivImagenClientes)
+    val tvNombreProducto : TextView = view.findViewById(R.id.tvNombreProducto)
+    val ivImagenProducto : ImageView = view.findViewById(R.id.ivImagenProducto)
 
-    fun render(Datos: tbMenu){
+    fun render(Datos: dataClassComida){
         Glide.with(itemView.context).
-        load(Datos.imagen_categoria).
-        into(ivImagenCategoria)
+        load(Datos.Imagen_Producto).
+        into(ivImagenProducto)
     }
 
 }

@@ -1,13 +1,16 @@
 package equipo.ptc.proyecto_trincheraptc
 
 import Modelo.ClaseConexion
+import Modelo.dataClassComida
 import Modelo.tbMenu
 import Modelo.tbMenuConProductos
 import RecyclerViewHelpers.AdaptadorCategoriaMenu
+import RecyclerViewHelpers.AdaptadorComidas
 import RecyclerViewHelpers.AdaptadorDetalleMenu
 import RecyclerViewHelpers.AdaptadorMenu
 import RecyclerViewHelpers.AdaptadorMenuCategorias
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,6 +21,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,6 +40,13 @@ class MenuCategoriaActivity : AppCompatActivity() {
             insets
         }
 
+        val back = findViewById<ImageView>(R.id.imgBack)
+        back.setOnClickListener {
+            val pantallaMenuPricipal = Intent(this, Menu_PrincipalActivity::class.java)
+            startActivity(pantallaMenuPricipal)
+        }
+
+
         val recyclerView: RecyclerView = findViewById(R.id.rvMenuCategoria)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -47,17 +58,24 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val precioventa = intent.getIntExtra("precioventa", 0)
         val stock = intent.getIntExtra("stock", 0)
         val imagen_categoria = intent.getStringExtra("imagen_categoria")
-        val imagen_producto = intent.getStringExtra("nombre_categoria")
+        val nombre_categoria = intent.getStringExtra("nombre_categoria")
+
+        val tvNomCategoria = findViewById<TextView>(R.id.tvNomCategoria)
+        tvNomCategoria.text = nombre_categoria
+
+        val imgCat = findViewById<ImageView>(R.id.imgCategoria)
+        Glide.with(imgCat.context).
+        load(imagen_categoria).
+        into(imgCat)
 
         val rvMenuCategoria = findViewById<RecyclerView>(R.id.rvMenuCategoria)
         rvMenuCategoria.layoutManager = LinearLayoutManager(this)
-
         // Verifica que la categoría no sea nula antes de llamar a obtenerCategorias
         categoria?.let {
             CoroutineScope(Dispatchers.IO).launch {
-                val centrosDB = obtenerCategorias(it) // Pasar el valor de categoría
+                val centrosDB = obtenerCategorias(id_menu) // Pasar el valor de categoría
                 withContext(Dispatchers.Main) {
-                    val miAdapter = AdaptadorCategoriaMenu(centrosDB)
+                    val miAdapter = AdaptadorComidas(centrosDB)
                     rvMenuCategoria.adapter = miAdapter
                 }
             }
@@ -66,29 +84,36 @@ class MenuCategoriaActivity : AppCompatActivity() {
         }
     }
 
-    suspend fun obtenerCategorias(categoria: String): List<tbMenu> {
+    suspend fun obtenerCategorias(ID_Menu: Int): List<dataClassComida> {
         return withContext(Dispatchers.IO) {
             val objConexion = ClaseConexion().cadenaConexion()
-            val traerCosas = objConexion?.prepareStatement("SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu where categoria = ?")!!
-            traerCosas.setString(1, categoria) // Establecer el parámetro de categoría
+            val traerCosas = objConexion?.prepareStatement("""
+SELECT     
+    dp.Producto,
+    dp.Imagen_Comida,
+    c.Categoria,
+    c.Imagen_categoria 
+FROM
+    Detalle_Productos_PTC dp
+INNER JOIN
+    Menus_PTC c ON dp.ID_Menu = c.ID_Menu
+WHERE
+    c.ID_Menu = ?
+                    """)!!
+            traerCosas.setInt(1, ID_Menu) // Establecer el parámetro de categoría
             val resultSet = traerCosas.executeQuery()
-            val datos = mutableListOf<tbMenu>()
-
+            val datos = mutableListOf<dataClassComida>()
             if (resultSet != null) {
                 while (resultSet.next()) {
-                    val id_menu = resultSet.getInt("id_menu")
-                    val categoriaResult = resultSet.getString("categoria")
-                    val imagen_categoria = resultSet.getString("imagen_categoria")
-                    val valoresjuntos = tbMenu(
-                        id_menu, categoriaResult, imagen_categoria
-                    )
+                    val producto = resultSet.getString("Producto")
+                    val imagen_comida = resultSet.getString("Imagen_Comida")
+                    val valoresjuntos = dataClassComida(producto, imagen_comida, ID_Menu)
                     datos.add(valoresjuntos)
                 }
             } else {
                 println("La consulta no devolvió resultados.")
             }
-
-            datos
+            return@withContext datos;
         }
     }
 }
