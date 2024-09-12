@@ -32,8 +32,6 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
-
-
         val btn: Button = findViewById(R.id.btngoogle)
         btn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
@@ -70,27 +68,26 @@ class Login : AppCompatActivity() {
         }
 
         btnEntrar.setOnClickListener {
-
             val txtCorreo = txtCorreo.text.toString()
             val txtContrasena = hashPassword(txtContrasena.text.toString())
-
-
-
 
             //traer el id cuando inicia sesion
             //Hago un select para ver guardar el rol del usuario
             GlobalScope.launch(Dispatchers.IO) {
                 val objConexion = ClaseConexion().cadenaConexion()
-                val resulSet = objConexion?.prepareStatement("SELECT id_cliente FROM clientes_PTC WHERE correoElectronico = ?")!!
+                val resulSet =
+                    objConexion?.prepareStatement("SELECT id_cliente FROM clientes_PTC WHERE correoElectronico = ?")!!
                 resulSet.setString(1, txtCorreo)
                 val resultado = resulSet.executeQuery()
                 if (resultado.next()) {
                     //Lleno la variable global con el rol del usuario (dependiendo del correo)
                     idDelCliente = resultado.getString("id_cliente")
-
+                    println("ESTE ES EL ROL DEL USUARIO: $idDelCliente")
                 }
             }
 
+
+            val pantallaprincipal = Intent(this, MainActivity::class.java)
 
 
 
@@ -109,8 +106,8 @@ class Login : AppCompatActivity() {
 
                     if (resultado?.next() == true) {
                         withContext(Dispatchers.IO) {
-                            val intent = Intent(this@Login, MainActivity::class.java)
-                            startActivity(intent)
+
+                            startActivity(pantallaprincipal)
                         }
                     } else {
                         withContext(Dispatchers.Main) {

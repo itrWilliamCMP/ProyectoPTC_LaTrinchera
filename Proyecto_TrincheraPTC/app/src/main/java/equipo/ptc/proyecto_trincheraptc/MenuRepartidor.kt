@@ -3,6 +3,7 @@ package equipo.ptc.proyecto_trincheraptc
 import Modelo.ClaseConexion
 import Modelo.tbMenu_Repartidor
 import RecyclerViewHelpers.AdaptadorMenuCategorias
+import RecyclerViewHelpers.Adaptador_Menu_Repartidor
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -12,7 +13,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MenuRepartidor : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,19 +58,28 @@ class MenuRepartidor : AppCompatActivity() {
                     val contrasena = resultSet.getInt("contrasena")
                     val direccion_entrega = resultSet.getString("direccion_entrega")
 
-                  //val valoresJuntos = tbMenu_Repartidor(uuid, nombre_clie, telefono_clie, correoElectronico, contrasena, direccion_entrega)
+                    val valoresJuntos = tbMenu_Repartidor(
+                        uuid,
+                        nombre_clie,
+                        telefono_clie.toString(),
+                        correoElectronico,
+                        contrasena.toString(),
+                        direccion_entrega
+                    )
 
-              //      listaClientes.add(valoresJuntos)
+                    listaClientes.add(valoresJuntos)
                 }
                 return listaClientes
             }
 
 
             //Asignar adaptador al RecycleView
-          //  corutineScope(Dispatchers.IO).launch {
+            CoroutineScope(Dispatchers.IO).launch {
                 val ClientesDB = obtenerClientes()
-           //     whitContext(Dispatchers.Main) {
-                  //  val adapter = Adaptador(ClientesDB)
+                withContext(Dispatchers.Main) {
+                    val adapter = Adaptador_Menu_Repartidor(ClientesDB)
                 }
             }
         }
+    }
+}

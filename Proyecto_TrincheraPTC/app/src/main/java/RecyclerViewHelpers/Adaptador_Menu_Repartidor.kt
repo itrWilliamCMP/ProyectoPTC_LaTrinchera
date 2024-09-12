@@ -23,6 +23,6 @@ class Adaptador_Menu_Repartidor(var Datos: List<tbMenu_Repartidor>) : RecyclerVi
         //Controlar card
         val item = Datos[position]
         holder.TxtNombre_Cliente.text = item.nombreCliente
-        holder.TxtUbicacion.text = item.direccion
+        holder.TxtUbicacion.text = item.direccionEntrega
     }
 }
