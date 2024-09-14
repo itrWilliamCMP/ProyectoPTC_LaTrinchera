@@ -3,15 +3,12 @@ package equipo.ptc.proyecto_trincheraptc
 import Modelo.ClaseConexion
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.CoroutineScope
@@ -45,11 +42,12 @@ class Login : AppCompatActivity() {
         }
 
         //1- Mandamos a traer a todos los elementos de la vista
-        val txtCorreo = findViewById<EditText>(R.id.txtCorreoElectronico)
+        val txtCorreo = findViewById<EditText>(R.id.txtCorreo)
         val txtContrasena = findViewById<EditText>(R.id.txtContrasena)
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
         val btnGoogle = findViewById<Button>(R.id.btngoogle)
+        val btnLogin_Repartidor = findViewById<Button>(R.id.btn_repartidor)
         val tvRecuperacionContrasena = findViewById<TextView>(R.id.tvRecuperacionContrasena)
 
         tvRecuperacionContrasena.setOnClickListener {
@@ -60,6 +58,11 @@ class Login : AppCompatActivity() {
         btnGoogle.setOnClickListener {
             val pantallamenu = Intent(this, MainActivity::class.java)
             startActivity(pantallamenu)
+        }
+
+        btnLogin_Repartidor.setOnClickListener {
+            val Intent = Intent(this, Login_Repartidor::class.java)
+            startActivity(Intent)
         }
 
         btnRegistrarse.setOnClickListener {
