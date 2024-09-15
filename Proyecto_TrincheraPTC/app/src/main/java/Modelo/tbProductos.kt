@@ -8,5 +8,4 @@ data class tbProductos(
     val precioventa: Number,
     val stock: Int,
     val imagen_comida: String,
-    val imagen_producto: String
 )
