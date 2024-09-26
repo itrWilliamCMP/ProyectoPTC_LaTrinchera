@@ -9,7 +9,7 @@ data class tbMenuConProductos(
     val precioventa: Number,
     val stock: Int,
     val imagen_categoria: String,
-    val imagen_producto: String,
+    val imagen_comida: String,
     ) {
 
 }
