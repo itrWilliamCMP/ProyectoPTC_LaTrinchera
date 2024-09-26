@@ -35,7 +35,7 @@ class AdaptadorDetalleMenu(private var Datos: List<tbMenuConProductos> ): Recycl
             pantallaDetalle.putExtra("precioventa", tbMenuConProductos.precioventa)
             pantallaDetalle.putExtra("stock", tbMenuConProductos.stock)
             pantallaDetalle.putExtra("imagen_categoria", tbMenuConProductos.imagen_categoria)
-            pantallaDetalle.putExtra("imagen_producto", tbMenuConProductos.imagen_producto)
+            pantallaDetalle.putExtra("imagen_producto", tbMenuConProductos.imagen_comida)
             context.startActivity(pantallaDetalle)
         }
     }
