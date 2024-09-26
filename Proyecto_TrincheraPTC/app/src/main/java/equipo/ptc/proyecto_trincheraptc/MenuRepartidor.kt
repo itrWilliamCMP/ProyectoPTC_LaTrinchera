@@ -29,6 +29,33 @@ class MenuRepartidor : AppCompatActivity() {
             insets
         }
 
+        val imgBackR = findViewById<ImageView>(R.id.imgBackR)
+        imgBackR.setOnClickListener {
+            val Login_Repartidor = Intent(this, Login_Repartidor::class.java)
+            startActivity(Login_Repartidor)
+        }
+
+        //Esta es la primer flechita de arriba a abajo
+        val PerfilRepartidor3 = findViewById<ImageView>(R.id.PerfilRepartidor3)
+        PerfilRepartidor3.setOnClickListener {
+            val MenuRepartidor2 = Intent(this, MenuRepartidor2::class.java)
+            startActivity(MenuRepartidor2)
+        }
+
+        val PerfilRepartidor4 = findViewById<ImageView>(R.id.PerfilRepartidor4)
+        PerfilRepartidor4.setOnClickListener {
+            val MenuRepartidor2 = Intent(this, MenuRepartidor2::class.java)
+            startActivity(MenuRepartidor2)
+        }
+
+        val PerfilRepartidor2 = findViewById<ImageView>(R.id.PerfilRepartidor2)
+        PerfilRepartidor2.setOnClickListener {
+            val MenuRepartidor2 = Intent(this, MenuRepartidor2::class.java)
+            startActivity(MenuRepartidor2)
+        }
+
+
+
         val PerfilRepartidor1 = findViewById<ImageView>(R.id.PerfilRepartidor1)
         PerfilRepartidor1.setOnClickListener {
 
