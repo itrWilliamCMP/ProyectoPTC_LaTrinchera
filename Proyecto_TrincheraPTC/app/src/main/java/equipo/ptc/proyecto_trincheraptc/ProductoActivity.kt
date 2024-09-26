@@ -48,7 +48,7 @@ class ProductoActivity : AppCompatActivity() {
         txtDescripcion.text = descripcion
         txtPrecio.text = precioventa.toString()
 
-        suspend fun obtenerCategorias(ID_Menu: Int): List<tbMenuConProductos> {
+        suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
             return withContext(Dispatchers.IO) {
                 val objConexion = ClaseConexion().cadenaConexion()
                 val traerCosas = objConexion?.prepareStatement("""
@@ -66,9 +66,9 @@ FROM
 INNER JOIN
     Menus_PTC c ON dp.ID_Menu = c.ID_Menu
 WHERE
-    c.ID_Menu = ?
+    dp.id_producto = ?
                     """)!!
-                traerCosas.setInt(1, ID_Menu)
+                traerCosas.setInt(1, id_producto)
                 val resultSet = traerCosas.executeQuery()
                 val datos = mutableListOf<tbMenuConProductos>()
                 if (resultSet != null) {
@@ -93,7 +93,7 @@ WHERE
             }
         categoria?.let {
             CoroutineScope(Dispatchers.IO).launch {
-                val centrosDB = obtenerCategorias(id_menu)
+                val centrosDB = obtenerCategorias(id_producto)
                 withContext(Dispatchers.Main) {
                 }
             }
