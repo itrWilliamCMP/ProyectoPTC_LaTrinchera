@@ -15,7 +15,7 @@ class ViewHolderCategoriaProducto(view: View): RecyclerView.ViewHolder(view) {
 
     fun render(Datos: dataClassComida){
         Glide.with(itemView.context).
-        load(Datos.Imagen_Producto).
+        load(Datos.imagen_comida).
         into(ivImagenProducto)
     }
 

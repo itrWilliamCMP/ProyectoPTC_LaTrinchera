@@ -1,10 +1,13 @@
 package RecyclerViewHelpers
 
 import Modelo.dataClassComida
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import equipo.ptc.proyecto_trincheraptc.MenuCategoriaActivity
+import equipo.ptc.proyecto_trincheraptc.ProductoActivity
 import equipo.ptc.proyecto_trincheraptc.R
 
 class AdaptadorComidas(var Datos: List<dataClassComida>) : RecyclerView.Adapter<ViewHolderCategoriaProducto>()
@@ -19,12 +22,17 @@ class AdaptadorComidas(var Datos: List<dataClassComida>) : RecyclerView.Adapter<
 
 
     override fun onBindViewHolder(holder: ViewHolderCategoriaProducto, position: Int) {
-        val item = Datos[position]
-        holder.tvNombreProducto.text = item.Producto
+        val dataClassComida = Datos[position]
+        holder.tvNombreProducto.text = dataClassComida.producto
 
-        holder.render(item)
-        Glide.with(holder.itemView)
-            .load(item.Imagen_Producto)
-            .into(holder.ivImagenProducto)
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val pantallaDetalle = Intent(context, ProductoActivity::class.java)
+            pantallaDetalle.putExtra("producto", dataClassComida.producto)
+            pantallaDetalle.putExtra("imagen_comida", dataClassComida.imagen_comida)
+            pantallaDetalle.putExtra("id_menu", dataClassComida.id_menu)
+            context.startActivity(pantallaDetalle)
+        }
+
     }
 }

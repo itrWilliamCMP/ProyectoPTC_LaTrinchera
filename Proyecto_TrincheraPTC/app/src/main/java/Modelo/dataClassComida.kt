@@ -1,7 +1,7 @@
 package Modelo
 
 data class dataClassComida (
-    val Producto : String,
-    val Imagen_Producto : String,
-    val ID_Menu : Int
+    val producto : String,
+    val imagen_comida : String,
+    val id_menu : Int
 )

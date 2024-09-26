@@ -31,8 +31,8 @@ class ProductoActivity : AppCompatActivity() {
 
         val txtProducto = findViewById<TextView>(R.id.txtProducto)
         val txtCantidad = findViewById<TextView>(R.id.txtCantidad)
-        val txtDescripcion = findViewById<TextView>(R.id.tvDescripcion)
-        val txtPrecio = findViewById<TextView>(R.id.TxtFalta)
+        val tvDescripcion = findViewById<TextView>(R.id.tvDescripcion)
+        val TxtFalta = findViewById<TextView>(R.id.TxtFalta)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
 
         val id_menu = intent.getIntExtra("id_menu", 0)
@@ -45,8 +45,8 @@ class ProductoActivity : AppCompatActivity() {
 
         txtProducto.text = producto
         txtCantidad.text = stock.toString()
-        txtDescripcion.text = descripcion
-        txtPrecio.text = precioventa.toString()
+        tvDescripcion.text = descripcion
+        TxtFalta.text = precioventa.toString()
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
             return withContext(Dispatchers.IO) {
