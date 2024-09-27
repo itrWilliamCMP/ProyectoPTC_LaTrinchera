@@ -4,6 +4,7 @@ import Modelo.ClaseConexion
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,14 @@ class Login_Repartidor : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val BackLog = findViewById<ImageView>(R.id.BackLog)
+        BackLog.setOnClickListener {
+            val Login = Intent(this, Login::class.java)
+            startActivity(Login)
+        }
+
+
 //Mandar a traer elementos a la vista2
         val btnEntrar2 = findViewById<Button>(R.id.btnEntrar2)
 
