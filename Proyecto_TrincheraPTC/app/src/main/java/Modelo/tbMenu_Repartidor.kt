@@ -1,10 +1,11 @@
 package Modelo
 
 data class tbMenu_Repartidor(
-    val uuid: String,
-    val nombreCliente: String,
-    val telefonoCliente: String,
+    val id_cliente: Int,
+    val nombre_clie: String,
+    val telefono_clie: String,
     val correoElectronico: String,
     val contrasena: String,
-    val direccionEntrega: String
+    val direccion_entrega: String,
+    val imagen_clientes: String
 )
