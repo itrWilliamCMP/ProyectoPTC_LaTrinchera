@@ -1,47 +1,47 @@
 package RecyclerViewHelpers
 
-import Modelo.tbMenu
 import Modelo.tbMenuConProductos
-import Modelo.tbProductos
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import equipo.ptc.proyecto_trincheraptc.MenuCategoriaActivity
 import equipo.ptc.proyecto_trincheraptc.R
 
-class AdaptadorMenu(private var Datos: List<tbMenuConProductos>) :
-    RecyclerView.Adapter<ViewHolderMenu>(){
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
-            ViewHolderMenu {
-        val vista = LayoutInflater.from(parent.context).inflate(R.layout.
-        activity_menu_principal_card, parent, false)
+class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
+    RecyclerView.Adapter<AdaptadorMenu.ViewHolderMenu>() {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMenu {
+        val vista = LayoutInflater.from(parent.context).inflate(R.layout.activity_menu_principal_card, parent, false)
         return ViewHolderMenu(vista)
     }
 
-    override fun getItemCount() = Datos.size
+    override fun getItemCount() = datos.size
 
     override fun onBindViewHolder(holder: ViewHolderMenu, position: Int) {
-        val tbMenuConProductos = Datos[position]
-        holder.tvNombreCategoria.text = tbMenuConProductos.categoria
+        val item = datos[position]
+        holder.tvNombreCategoria.text = item.categoria
 
-
-        holder.itemView.setOnClickListener {
-            val context = holder.itemView.context
-            val pantallaDetalle = Intent(context, MenuCategoriaActivity::class.java)
-           pantallaDetalle.putExtra("id_producto", tbMenuConProductos.id_producto)
-            pantallaDetalle.putExtra("id_menu", tbMenuConProductos.id_menu)
-            pantallaDetalle.putExtra("categoria", tbMenuConProductos.categoria)
-            pantallaDetalle.putExtra("producto", tbMenuConProductos.producto)
-           pantallaDetalle.putExtra("descripcion", tbMenuConProductos.descripcion)
-            pantallaDetalle.putExtra("precioventa", tbMenuConProductos.precioventa)
-            pantallaDetalle.putExtra("stock", tbMenuConProductos.stock)
-            pantallaDetalle.putExtra("imagen_categoria", tbMenuConProductos.imagen_categoria)
-            pantallaDetalle.putExtra("imagen_producto", tbMenuConProductos.imagen_comida)
-            context.startActivity(pantallaDetalle)
+        holder.itemView.setOnClickListener { view ->
+            val context = view.context
+            val intent = Intent(context, MenuCategoriaActivity::class.java).apply {
+                putExtra("id_producto", item.id_producto)
+                putExtra("id_menu", item.id_menu)
+                putExtra("categoria", item.categoria)
+                putExtra("producto", item.producto)
+                putExtra("descripcion", item.descripcion)
+                putExtra("precioventa", item.precioventa)
+                putExtra("stock", item.stock)
+                putExtra("imagen_categoria", item.imagen_categoria)
+                putExtra("imagen_producto", item.imagen_comida)
+            }
+            context.startActivity(intent)
         }
+    }
+
+    class ViewHolderMenu(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val tvNombreCategoria: TextView = itemView.findViewById(R.id.tvNombreCategoria)
     }
 }
