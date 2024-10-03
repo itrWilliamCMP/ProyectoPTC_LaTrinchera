@@ -53,16 +53,17 @@ class ProductoActivity : AppCompatActivity() {
         txtNombreP.text = producto
         txtCantidad.text = stock.toString()
         txtDescripcion.text = descripcion
-        txtPrecioTotal.text = precioventa.toString()
 
         imgAgregar.setOnClickListener{
             numero = txtCantidad.text.toString() + 1
             println("ESTE ES EL NUMERO HGJH $numero")
+            txtPrecioTotal.text = numero
         }
 
         imgQuitar.setOnClickListener{
             numero = (txtCantidad.text.toString().toInt() - 1).toString()
             println("ESTE ES EL NUMERO HGJH $numero")
+            txtPrecioTotal.text = numero
         }
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
