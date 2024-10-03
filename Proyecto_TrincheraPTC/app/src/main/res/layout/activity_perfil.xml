@@ -10,31 +10,32 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="298dp"
-        android:layout_height="299dp"
+        android:layout_width="364dp"
+        android:layout_height="338dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.013"
+        app:layout_constraintVertical_bias="0.059"
         app:srcCompat="@drawable/rectanguloperfil" />
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="181dp"
+        android:layout_height="174dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.066"
         app:srcCompat="@drawable/baseline_account_circle_24" />
 
     <TextView
         android:id="@+id/txtNomUsuarioPerfil"
-        android:layout_width="149dp"
-        android:layout_height="88dp"
+        android:layout_width="204dp"
+        android:layout_height="80dp"
         android:fontFamily="@font/source_sans_pro_bold"
         android:text="Nombre Ingresado"
         android:textAlignment="center"
@@ -45,21 +46,22 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.687" />
+        app:layout_constraintVertical_bias="0.754" />
 
     <TextView
         android:id="@+id/txtCorreoPerfil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/source_sans_pro_bold"
+        android:fontFamily="@font/source_sans_pro_semibold"
         android:text="Correo ingresado"
         android:textColor="#262626"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.841" />
+        app:layout_constraintVertical_bias="0.881" />
 
     <View
         android:id="@+id/view3"
@@ -121,39 +123,36 @@
         app:srcCompat="@drawable/menuoutline" />
 
     <ImageView
-        android:id="@+id/imgCambioDeContrasena"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imgInformacion_personal"
+        android:layout_width="359dp"
+        android:layout_height="117dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.637"
-        app:srcCompat="@mipmap/cambio_clave" />
+        app:layout_constraintVertical_bias="0.488"
+        app:srcCompat="@drawable/informacionpersonal" />
 
     <ImageView
         android:id="@+id/imgDireccion_entrega"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="359dp"
+        android:layout_height="117dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784"
-        app:srcCompat="@mipmap/direccion_entrega" />
+        app:layout_constraintVertical_bias="0.814"
+        app:srcCompat="@drawable/direccionentrega" />
 
     <ImageView
-        android:id="@+id/imgInformacion_personal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/imgCambioDeContrasena"
+        android:layout_width="359dp"
+        android:layout_height="117dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.484"
-        app:srcCompat="@mipmap/informacion_personal" />
+        app:layout_constraintVertical_bias="0.649"
+        app:srcCompat="@drawable/cambiocontrasena" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,89 +20,84 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Menu_PrincipalActivity : AppCompatActivity() {
+
+    private lateinit var rcvComida: RecyclerView
+
     @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?)  {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_principal)
+        setupWindowInsets()
+
+        setupNavigation()
+
+        rcvComida = findViewById(R.id.rvComidaCategoria)
+        rcvComida.layoutManager = GridLayoutManager(this, 2)
+
+        fetchData()
+    }
+
+    private fun setupWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
 
-
-        //Cambiar de pantalla entre vector
-        val imgCarrito = findViewById<ImageView>(R.id.imgCarritoOutline)
-        imgCarrito.setOnClickListener {
-            val pantallaLogin = Intent(this, CarroCompras::class.java)
-            startActivity(pantallaLogin)
+    private fun setupNavigation() {
+        findViewById<ImageView>(R.id.imgCarritoOutline).setOnClickListener {
+            startActivity(Intent(this, CarroCompras::class.java))
         }
-
-
-        val rcvComida = findViewById<RecyclerView>(R.id.rvComidaCategoria)
-        rcvComida.layoutManager = GridLayoutManager(this, 2)
-
-        val imgPrincipalOutline = findViewById<ImageView>(R.id.imgPrincipalOutline)
-        imgPrincipalOutline.setOnClickListener {
-            val pantallaLogin = Intent(this, MainActivity::class.java)
-            startActivity(pantallaLogin)
+        findViewById<ImageView>(R.id.imgPrincipalOutline).setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
         }
-
-        val imgPerfilOutline = findViewById<ImageView>(R.id.imgPerfilOutline)
-        imgPerfilOutline.setOnClickListener {
-            val pantallaLogin = Intent(this, Perfil::class.java)
-            startActivity(pantallaLogin)
+        findViewById<ImageView>(R.id.imgPerfilOutline).setOnClickListener {
+            startActivity(Intent(this, Perfil::class.java))
         }
+    }
 
-
-////////////////////////////////////////////////////////////////////////////////////////
-
-        fun obtenerCategoriasConProductos(): List<tbMenuConProductos> {
-            val objConexion = ClaseConexion().cadenaConexion()
-            val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
-
-            val datos = mutableListOf<tbMenuConProductos>()
-
-            // Manejo de nulos para resultSet
-            if (resultSet != null) {
-                while (resultSet.next()) {
-                    val id_menu = resultSet.getInt("id_menu")
-                    val categoria = resultSet.getString("categoria")
-                    val id_producto = resultSet.getInt("id_producto")
-                    val producto = resultSet.getString("producto")
-                    val descripcion = resultSet.getString("descripcion")
-                    val precioventa = resultSet.getDouble("precioventa")
-                    val stock = resultSet.getInt("stock")
-                    val imagen_categoria =resultSet.getString("imagen_categoria")
-                    val imagen_producto = resultSet.getString("imagen_comida")
-
-                    val valoresjuntos = tbMenuConProductos(
-                        id_menu, categoria, id_producto, producto, descripcion,
-                        precioventa, stock, imagen_categoria, imagen_producto
-                    )
-                    datos.add(valoresjuntos)
-                }
-            } else {
-                // Maneja el caso en que no hay resultados
-                println("La consulta no devolvió resultados.")
-            }
-
-            return datos
-        }
+    private fun fetchData() {
         CoroutineScope(Dispatchers.IO).launch {
-            val datos = obtenerCategoriasConProductos() // Obtener datos en un hilo de fondo
-            withContext(Dispatchers.Main) { // Volver al hilo principal para actualizar la UI
-                if (datos.isNotEmpty()) { // Verificar si hay datos antes de crear el adaptador
+            val datos = obtenerCategoriasConProductos()
+            withContext(Dispatchers.Main) {
+                if (datos.isNotEmpty()) {
                     val adapter = AdaptadorMenu(datos)
                     rcvComida.adapter = adapter
                 } else {
-                    // Manejar el caso en que no hay datos, por ejemplo, mostrando un mensaje al usuario
                     Toast.makeText(this@Menu_PrincipalActivity, "No se encontraron datos", Toast.LENGTH_SHORT).show()
-                    println("No se encontraron datos")
                 }
             }
         }
+    }
+
+    private fun obtenerCategoriasConProductos(): List<tbMenuConProductos> {
+        val objConexion = ClaseConexion().cadenaConexion()
+        val statement = objConexion?.createStatement()
+        val resultSet = statement?.executeQuery("SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
+
+        val datos = mutableListOf<tbMenuConProductos>()
+
+        resultSet?.let {
+            while (it.next()) {
+                val valoresjuntos = tbMenuConProductos(
+                    it.getInt("id_menu"),
+                    it.getString("categoria"),
+                    it.getInt("id_producto"),
+                    it.getString("producto"),
+                    it.getString("descripcion"),
+                    it.getDouble("precioventa"),
+                    it.getInt("stock"),
+                    it.getString("imagen_categoria"),
+                    it.getString("imagen_comida")
+                )
+                datos.add(valoresjuntos)
+            }
+        } ?: run {
+            println("La consulta no devolvió resultados.")
+        }
+
+        return datos
     }
 }
