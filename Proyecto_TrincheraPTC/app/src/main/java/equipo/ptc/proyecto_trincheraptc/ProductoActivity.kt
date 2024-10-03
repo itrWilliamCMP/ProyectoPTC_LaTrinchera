@@ -1,10 +1,8 @@
 package equipo.ptc.proyecto_trincheraptc
 
 import Modelo.ClaseConexion
-import Modelo.dataClassComida
 import Modelo.tbMenuConProductos
-import Modelo.tbProductos
-import RecyclerViewHelpers.AdaptadorComidas
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
@@ -19,6 +17,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ProductoActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
+
+    companion object variablesGlobales {
+        lateinit var numero : String
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,11 +33,14 @@ class ProductoActivity : AppCompatActivity() {
             insets
         }
 
+        val txtNombreP = findViewById<TextView>(R.id.txtNombreP)
         val txtProducto = findViewById<TextView>(R.id.txtProducto)
         val txtCantidad = findViewById<TextView>(R.id.txtCantidad)
-        val tvDescripcion = findViewById<TextView>(R.id.tvDescripcion)
-        val TxtFalta = findViewById<TextView>(R.id.TxtFalta)
+        val txtDescripcion = findViewById<TextView>(R.id.txtDescripcion)
+        val txtPrecioTotal = findViewById<TextView>(R.id.txtPrecioTotal)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
+        val imgAgregar = findViewById<ImageView>(R.id.ImgAgregar)
+        val imgQuitar = findViewById<ImageView>(R.id.ImgQuitar)
 
         val id_menu = intent.getIntExtra("id_menu", 0)
         val categoria = intent.getStringExtra("categoria")
@@ -43,10 +50,20 @@ class ProductoActivity : AppCompatActivity() {
         val precioventa = intent.getIntExtra("precioventa", 0)
         val stock = intent.getIntExtra("stock", 0)
 
-        txtProducto.text = producto
+        txtNombreP.text = producto
         txtCantidad.text = stock.toString()
-        tvDescripcion.text = descripcion
-        TxtFalta.text = precioventa.toString()
+        txtDescripcion.text = descripcion
+        txtPrecioTotal.text = precioventa.toString()
+
+        imgAgregar.setOnClickListener{
+            numero = txtCantidad.text.toString() + 1
+            println("ESTE ES EL NUMERO HGJH $numero")
+        }
+
+        imgQuitar.setOnClickListener{
+            numero = (txtCantidad.text.toString().toInt() - 1).toString()
+            println("ESTE ES EL NUMERO HGJH $numero")
+        }
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
             return withContext(Dispatchers.IO) {

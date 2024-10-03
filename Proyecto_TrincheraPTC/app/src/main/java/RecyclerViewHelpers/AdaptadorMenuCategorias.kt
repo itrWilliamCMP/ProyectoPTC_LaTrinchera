@@ -17,9 +17,9 @@ class AdaptadorMenuCategorias (
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombreProducto)
-        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
+        val tvDescripcion: TextView = itemView.findViewById(R.id.txtDescripcion)
         val ivImagen: ImageView = itemView.findViewById(R.id.ivImagenProducto)
-        val tvPrecio: TextView = itemView.findViewById(R.id.TxtFalta)
+        val tvPrecio: TextView = itemView.findViewById(R.id.txtPrecioTotal)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
