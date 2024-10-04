@@ -7,6 +7,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,12 +17,17 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Menu_PrincipalActivity : AppCompatActivity() {
 
     private lateinit var rcvComida: RecyclerView
+
+    lateinit var nombreTT:String
+
+   lateinit var tvNombreIngreso: TextView
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +42,11 @@ class Menu_PrincipalActivity : AppCompatActivity() {
         rcvComida.layoutManager = GridLayoutManager(this, 2)
 
         fetchData()
+        tvNombreIngreso = findViewById(R.id.tvNombreIngreso)
+
+        tvNombreIngreso.text = Login
+
+
     }
 
     private fun setupWindowInsets() {
@@ -60,7 +71,7 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
     private fun fetchData() {
         CoroutineScope(Dispatchers.IO).launch {
-            val datos = obtenerCategoriasConProductos()
+            val datos = obtenerMenusConClientes()
             withContext(Dispatchers.Main) {
                 if (datos.isNotEmpty()) {
                     val adapter = AdaptadorMenu(datos)
@@ -72,27 +83,27 @@ class Menu_PrincipalActivity : AppCompatActivity() {
         }
     }
 
-    private fun obtenerCategoriasConProductos(): List<tbMenuConProductos> {
+    private fun obtenerMenusConClientes(): List<tbMenuConProductos> {
         val objConexion = ClaseConexion().cadenaConexion()
         val statement = objConexion?.createStatement()
-        val resultSet = statement?.executeQuery("SELECT Menus_PTC.id_menu, Menus_PTC.categoria, Detalle_Productos_PTC.id_producto, Detalle_Productos_PTC.producto, Detalle_Productos_PTC.descripcion, Detalle_Productos_PTC.precioventa, Detalle_Productos_PTC.stock, Menus_PTC.imagen_categoria, Detalle_Productos_PTC.imagen_comida FROM Menus_PTC INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu")
+        val resultSet = statement?.executeQuery("SELECT id_menu, categoria, imagen_categoria FROM Menus_PTC")
 
         val datos = mutableListOf<tbMenuConProductos>()
 
         resultSet?.let {
             while (it.next()) {
-                val valoresjuntos = tbMenuConProductos(
+                val categoriaMenu = tbMenuConProductos(
                     it.getInt("id_menu"),
                     it.getString("categoria"),
-                    it.getInt("id_producto"),
-                    it.getString("producto"),
-                    it.getString("descripcion"),
-                    it.getDouble("precioventa"),
-                    it.getInt("stock"),
+                    0,  // id_producto (dummy value, since it's not in the query)
+                    "", // producto (dummy value)
+                    "", // descripcion (dummy value)
+                    0.0, // precioventa (dummy value)
+                    0,  // stock (dummy value)
                     it.getString("imagen_categoria"),
-                    it.getString("imagen_comida")
+                    ""  // imagen_comida (dummy value)
                 )
-                datos.add(valoresjuntos)
+                datos.add(categoriaMenu)
             }
         } ?: run {
             println("La consulta no devolvió resultados.")
@@ -100,4 +111,12 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
         return datos
     }
+
+
+
+}
+
+
+
+
 }

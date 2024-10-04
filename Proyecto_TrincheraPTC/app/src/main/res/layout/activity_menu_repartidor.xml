@@ -9,7 +9,7 @@
     android:background="@drawable/fondo">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgPerfilMenuPrincipal"
         android:layout_width="79dp"
         android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"

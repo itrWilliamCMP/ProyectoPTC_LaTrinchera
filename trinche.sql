@@ -7,7 +7,7 @@ CREATE TABLE Clientes_PTC(
     direccion_entrega VARCHAR2(300),
     imagen_clientes VARCHAR2(250)
 );
-
+ SELECT * FROM Menus_PTC;
 CREATE TABLE Empleados_PTC( 
     id_empleado NUMBER PRIMARY KEY, 
     nom_empleado VARCHAR2(20), 
@@ -21,6 +21,7 @@ CREATE TABLE Menus_PTC(
     categoria VARCHAR2(20),
     imagen_categoria VARCHAR2(250)
 );
+
 
 CREATE TABLE Permisos_PTC( 
     id_permiso NUMBER PRIMARY KEY, 
@@ -293,6 +294,19 @@ FROM Menus_PTC
 INNER JOIN Detalle_Productos_PTC
 ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu
 ;
+
+
+SELECT 
+    Menus_PTC.*,
+    Clientes_PTC.nombre_clie,
+    Clientes_PTC.imagen_clientes
+FROM 
+    Menus_PTC
+INNER JOIN 
+    Clientes_PTC
+ON 
+    Menus_PTC.id_menu = Clientes_PTC.id_cliente;
+    
 SELECT 
     Detalle_Productos_PTC.id_producto,
     Menus_PTC.categoria AS nombre_categoria,

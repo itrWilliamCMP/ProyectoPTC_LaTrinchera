@@ -21,6 +21,7 @@ import java.security.MessageDigest
 class Login : AppCompatActivity() {
     companion object variablesLogin {
         lateinit var idDelCliente: String
+        lateinit var correoDelCliente: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,6 +72,8 @@ class Login : AppCompatActivity() {
         }
 
         btnEntrar.setOnClickListener {
+
+            correoDelCliente = txtCorreo.text.toString()
             val txtCorreo = txtCorreo.text.toString()
             val txtContrasena = hashPassword(txtContrasena.text.toString())
 
@@ -94,13 +97,14 @@ class Login : AppCompatActivity() {
 
 
 
-            if (txtCorreo.isEmpty() || txtContrasena.isEmpty()){
+            if (txtCorreo.isEmpty() || txtContrasena.isEmpty()) {
                 Toast.makeText(this, "Campos incompletos", Toast.LENGTH_SHORT).show()
-            } else{
+            } else {
                 CoroutineScope(Dispatchers.IO).launch {
                     val objConexion = ClaseConexion().cadenaConexion()
 
-                    val addAcceder = "select * from clientes_PTC where correoElectronico = ? AND contrasena = ?"
+                    val addAcceder =
+                        "select * from clientes_PTC where correoElectronico = ? AND contrasena = ?"
                     val objAcceder = objConexion?.prepareStatement(addAcceder)
                     objAcceder?.setString(1, txtCorreo)
                     objAcceder?.setString(2, txtContrasena)
@@ -114,20 +118,52 @@ class Login : AppCompatActivity() {
                         }
                     } else {
                         withContext(Dispatchers.Main) {
-                            Toast.makeText(this@Login, "Contraseña o correo inválidos", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@Login,
+                                "Contraseña o correo inválidos",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
             }
         }
-    }
-}
 
-private fun hashPassword(password: String): String {
-    val bytes = password.toByteArray()
-    val md = MessageDigest.getInstance("SHA-256")
-    val digest = md.digest(bytes)
-    return digest.fold("", { str, it -> str + "%02x".format(it) })
+        suspend fun traerNombre(): String? {
+            return withContext(Dispatchers.IO) {
+                val objConexion = ClaseConexion().cadenaConexion()
+                val query =
+                    objConexion?.prepareStatement("SELECT nombre_clie FROM Clientes_PTC WHERE correoElectronico = ?")
+
+                query?.setString(1, correoDelCliente)
+
+                val resultSet = query?.executeQuery()
+
+                var nombre: String? = null
+
+                if (resultSet != null && resultSet.next()) {
+                    nombre = resultSet.getString("nombre_clie")
+                }
+
+                resultSet?.close()
+                query?.close()
+                objConexion?.close()
+
+                return@withContext nombre
+            }
+        }
+
+        val nombreTraido = CoroutineScope(Dispatchers.IO).launch {
+            var nombreTT = traerNombre().toString()
+        }
+    }
+
+    private fun hashPassword(password: String): String {
+        val bytes = password.toByteArray()
+        val md = MessageDigest.getInstance("SHA-256")
+        val digest = md.digest(bytes)
+        return digest.fold("", { str, it -> str + "%02x".format(it) })
+    }
 }
 
 
