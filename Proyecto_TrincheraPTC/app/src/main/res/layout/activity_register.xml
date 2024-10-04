@@ -195,7 +195,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageVie" />
 
             <TextView
-                android:id="@+id/tvEMail"
+                android:id="@+id/tvCorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_sans_pro_black"

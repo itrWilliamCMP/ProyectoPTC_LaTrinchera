@@ -29,28 +29,10 @@
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
-
-    <EditText
-        android:id="@+id/txtBuscarSopas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buscar2"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro_semibold"
-        android:textColorHint="#F2B66D"
-        android:hint="Buscar"
-        android:inputType="text"
-        android:textAlignment="center"
-        android:textColor="#262626"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <ImageView
         android:id="@+id/imageView13"
@@ -88,11 +70,14 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="412dp"
-        android:layout_height="252dp"
+        android:layout_width="414dp"
+        android:layout_height="424dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -106,7 +91,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textView9"
@@ -119,18 +105,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/txtBuscarSopas"
-        app:layout_constraintEnd_toEndOf="@+id/txtBuscarSopas"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="@+id/txtBuscarSopas"
-        app:layout_constraintTop_toTopOf="@+id/txtBuscarSopas"
-        app:layout_constraintVertical_bias="0.48000002"
-        app:srcCompat="@drawable/buscar" />
 
     <ImageView
         android:id="@+id/imgBack"
