@@ -17,7 +17,14 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
+
 class MenuRepartidor : AppCompatActivity() {
+
+    companion object {
+        lateinit var nombreRepartidor:String
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,6 +35,14 @@ class MenuRepartidor : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
+        //llenar la variable nombreRepartidor con un select
+        //fun select nombre from tbusuarios where correo = correoGlobalDelLogin
+        
+
+
+
 
         // Configura el RecyclerView
         val rcvRepartidor = findViewById<RecyclerView>(R.id.rcvRepartidor)
