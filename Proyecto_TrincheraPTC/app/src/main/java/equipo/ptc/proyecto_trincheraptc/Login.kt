@@ -129,33 +129,9 @@ class Login : AppCompatActivity() {
             }
         }
 
-        suspend fun traerNombre(): String? {
-            return withContext(Dispatchers.IO) {
-                val objConexion = ClaseConexion().cadenaConexion()
-                val query =
-                    objConexion?.prepareStatement("SELECT nombre_clie FROM Clientes_PTC WHERE correoElectronico = ?")
 
-                query?.setString(1, correoDelCliente)
 
-                val resultSet = query?.executeQuery()
 
-                var nombre: String? = null
-
-                if (resultSet != null && resultSet.next()) {
-                    nombre = resultSet.getString("nombre_clie")
-                }
-
-                resultSet?.close()
-                query?.close()
-                objConexion?.close()
-
-                return@withContext nombre
-            }
-        }
-
-        val nombreTraido = CoroutineScope(Dispatchers.IO).launch {
-            var nombreTT = traerNombre().toString()
-        }
     }
 
     private fun hashPassword(password: String): String {

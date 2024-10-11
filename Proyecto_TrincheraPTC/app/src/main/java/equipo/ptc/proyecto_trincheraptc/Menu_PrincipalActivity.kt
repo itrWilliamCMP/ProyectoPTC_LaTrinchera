@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -38,16 +39,47 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
         setupNavigation()
 
+        GlobalScope.launch(Dispatchers.Main) {
+       // traerNombre()
+            tvNombreIngreso.text = traerNombre()
+        }
+
         rcvComida = findViewById(R.id.rvComidaCategoria)
         rcvComida.layoutManager = GridLayoutManager(this, 2)
 
         fetchData()
         tvNombreIngreso = findViewById(R.id.tvNombreIngreso)
 
-        tvNombreIngreso.text = Login
-
 
     }
+
+    suspend fun traerNombre(): String? {
+        return withContext(Dispatchers.IO) {
+            val objConexion = ClaseConexion().cadenaConexion()
+            val query =
+                objConexion?.prepareStatement("SELECT nombre_clie FROM Clientes_PTC WHERE correoElectronico = ?")
+
+            query?.setString(1, Login.correoDelCliente)
+
+            val resultSet = query?.executeQuery()
+
+            var nombre: String? = null
+
+            if (resultSet != null && resultSet.next()) {
+                nombre = resultSet.getString("nombre_clie")
+            }
+
+            resultSet?.close()
+            query?.close()
+            objConexion?.close()
+
+
+
+            return@withContext nombre
+        }
+    }
+
+
 
     private fun setupWindowInsets() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -69,7 +101,10 @@ class Menu_PrincipalActivity : AppCompatActivity() {
         }
     }
 
+//fetch es para traer datos de la base de datos de manera asincrina
     private fun fetchData() {
+
+        // Realizar la consulta en un hilo de fondo
         CoroutineScope(Dispatchers.IO).launch {
             val datos = obtenerMenusConClientes()
             withContext(Dispatchers.Main) {
@@ -119,4 +154,3 @@ class Menu_PrincipalActivity : AppCompatActivity() {
 
 
 
-}

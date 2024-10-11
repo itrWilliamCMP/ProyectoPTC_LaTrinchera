@@ -28,6 +28,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MenuCategoriaActivity : AppCompatActivity() {
+
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,33 +52,37 @@ class MenuCategoriaActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.rvMenuCategoria)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val id_menu = intent.getIntExtra("id_menu", 0)
-        val categoria = intent.getStringExtra("categoria")
-        val id_producto = intent.getIntExtra("id_producto", 0)
+        /*
+         id_menu = intent.getIntExtra("id_menu", 0).toString()
+        println("este es el IDDD del taco $id_menu")
+         categoria = intent.getStringExtra("categoria").toString()
+         id_producto = intent.getIntExtra("id_producto", 0).toString()
         val producto = intent.getStringExtra("producto")
         val descripcion = intent.getStringExtra("descripcion")
         val precioventa = intent.getIntExtra("precioventa", 0)
         val stock = intent.getIntExtra("stock", 0)
-        val imagen_categoria = intent.getStringExtra("imagen_categoria")
-        val nombre_categoria = intent.getStringExtra("nombre_categoria")
+         imagen_categoria = intent.getStringExtra("imagen_categoria").toString()
+         nombre_categoria = intent.getStringExtra("nombre_categoria").toString()
+
+         */
 
         val tvNomCategoria = findViewById<TextView>(R.id.tvNomCategoria)
-        tvNomCategoria.text = nombre_categoria
+        tvNomCategoria.text = AdaptadorMenu.varGlobaAdap.categoria
 
         val imgCat = findViewById<ImageView>(R.id.imgCategoria)
         Glide.with(imgCat.context).
-        load(imagen_categoria).
+        load(AdaptadorMenu.imagen_categoria).
         into(imgCat)
 
-        val rvMenuCategoria = findViewById<RecyclerView>(R.id.rvMenuCategoria)
-        rvMenuCategoria.layoutManager = LinearLayoutManager(this)
+       // val rvMenuCategoria = findViewById<RecyclerView>(R.id.rvMenuCategoria)
+        //rvMenuCategoria.layoutManager = LinearLayoutManager(this)
         // Verifica que la categoría no sea nula antes de llamar a obtenerCategorias
-        categoria?.let {
+        AdaptadorMenu.categoria?.let {
             CoroutineScope(Dispatchers.IO).launch {
-                val centrosDB = obtenerCategorias(id_menu) // Pasar el valor de categoría
+                val centrosDB = obtenerCategorias(AdaptadorMenu.id_menu) // Pasar el valor de categoría
                 withContext(Dispatchers.Main) {
                     val miAdapter = AdaptadorComidas(centrosDB)
-                    rvMenuCategoria.adapter = miAdapter
+                    recyclerView.adapter = miAdapter
                 }
             }
         } ?: run {
@@ -84,7 +90,7 @@ class MenuCategoriaActivity : AppCompatActivity() {
         }
     }
 
-    suspend fun obtenerCategorias(ID_Menu: Int): List<dataClassComida> {
+    suspend fun obtenerCategorias(ID_Menu: String): List<dataClassComida> {
         return withContext(Dispatchers.IO) {
             val objConexion = ClaseConexion().cadenaConexion()
             val traerCosas = objConexion?.prepareStatement("""
@@ -100,14 +106,14 @@ INNER JOIN
 WHERE
     c.ID_Menu = ?
                     """)!!
-            traerCosas.setInt(1, ID_Menu) // Establecer el parámetro de categoría
+            traerCosas.setInt(1, ID_Menu.toString().toInt()) // Establecer el parámetro de categoría
             val resultSet = traerCosas.executeQuery()
             val datos = mutableListOf<dataClassComida>()
             if (resultSet != null) {
                 while (resultSet.next()) {
                     val producto = resultSet.getString("Producto")
                     val imagen_comida = resultSet.getString("Imagen_Comida")
-                    val valoresjuntos = dataClassComida(producto, imagen_comida, ID_Menu)
+                    val valoresjuntos = dataClassComida(producto, imagen_comida, ID_Menu.toString().toInt())
                     datos.add(valoresjuntos)
                 }
             } else {
