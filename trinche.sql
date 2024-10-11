@@ -408,5 +408,33 @@ BEGIN
 END;
 /
 
+SELECT
+    dp.id_producto,
+    dp.producto,
+    dp.descripcion,
+    dp.imagen_comida,
+    dp.precioventa,
+    dp.stock,
+    c.categoria
+FROM
+    Detalle_Productos_PTC dp
+INNER JOIN
+    Menus_PTC c ON dp.id_menu = c.id_menu
+WHERE
+    dp.id_producto = 1;
+
+SELECT
+    dp.id_producto,
+    dp.producto,
+    dp.descripcion,
+    dp.imagen_comida,
+    dp.precioventa,
+    dp.stock,
+    c.categoria
+FROM
+    Detalle_Productos_PTC dp
+INNER JOIN
+    Menus_PTC c ON dp.id_menu = c.id_menu;
+
 
    

@@ -53,17 +53,19 @@ class ProductoActivity : AppCompatActivity() {
         txtNombreP.text = producto
         txtCantidad.text = stock.toString()
         txtDescripcion.text = descripcion
+        txtPrecioTotal.text = precioventa.toString()
+
 
         imgAgregar.setOnClickListener{
-            numero = txtCantidad.text.toString() + 1
+            numero = (txtCantidad.text.toString().toInt() + 1).toString()
             println("ESTE ES EL NUMERO HGJH $numero")
-            txtPrecioTotal.text = numero
+            txtCantidad.text = numero
         }
 
         imgQuitar.setOnClickListener{
             numero = (txtCantidad.text.toString().toInt() - 1).toString()
             println("ESTE ES EL NUMERO HGJH $numero")
-            txtPrecioTotal.text = numero
+            txtCantidad.text = numero
         }
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
@@ -73,18 +75,15 @@ class ProductoActivity : AppCompatActivity() {
 SELECT
     dp.id_producto,
     dp.producto,
-    dp.imagen_Comida,
     dp.descripcion,
     dp.imagen_comida,
     dp.precioventa,
-    dp.stock
+    dp.stock,
     c.categoria
 FROM
     Detalle_Productos_PTC dp
 INNER JOIN
-    Menus_PTC c ON dp.ID_Menu = c.ID_Menu
-WHERE
-    dp.id_producto = ?
+    Menus_PTC c ON dp.id_menu = c.id_menu;
                     """)!!
                 traerCosas.setInt(1, id_producto)
                 val resultSet = traerCosas.executeQuery()
