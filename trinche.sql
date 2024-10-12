@@ -1,3 +1,7 @@
+-- ------------------------------------------------------------------------------
+-- ------------------------------- CREACIÓN DE TABLAS ----------------------------
+-- ------------------------------------------------------------------------------
+
 CREATE TABLE Clientes_PTC( 
     id_cliente NUMBER PRIMARY KEY, 
     nombre_clie VARCHAR2(20), 
@@ -7,7 +11,7 @@ CREATE TABLE Clientes_PTC(
     direccion_entrega VARCHAR2(300),
     imagen_clientes VARCHAR2(250)
 );
- SELECT * FROM Menus_PTC;
+
 CREATE TABLE Empleados_PTC( 
     id_empleado NUMBER PRIMARY KEY, 
     nom_empleado VARCHAR2(20), 
@@ -21,7 +25,6 @@ CREATE TABLE Menus_PTC(
     categoria VARCHAR2(20),
     imagen_categoria VARCHAR2(250)
 );
-
 
 CREATE TABLE Permisos_PTC( 
     id_permiso NUMBER PRIMARY KEY, 
@@ -101,26 +104,57 @@ CREATE TABLE Auditoria_Pedidos (
     CONSTRAINT FK_id_pedido FOREIGN KEY (id_pedido) REFERENCES PEDIDOS_PTC(id_pedido)
 );
 
+-- ------------------------------------------------------------------------------
+-- --------------------------- CREACIÓN DE SECUENCIAS ---------------------------
+-- ------------------------------------------------------------------------------
 
- 
-----------------------------------------------------------------------------------------------------------------------------------------------
---------------------------------------TRIGGER Y SECUENCIAS-----------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------------------------
- 
--- Creación de secuencias y triggers para todas las tablas
-
--- Secuencia y trigger para clientes_PTC
+-- Secuencia para Clientes_PTC
 CREATE SEQUENCE clientes_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para Empleados_PTC
+CREATE SEQUENCE empleados_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para Permisos_PTC
+CREATE SEQUENCE permisos_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para PEDIDOS_PTC
+CREATE SEQUENCE pedidos_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para DetallePedidos_PTC
+CREATE SEQUENCE detalle_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para PermisosEmpleado_PTC
+CREATE SEQUENCE permisosemp_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para Detalle_Productos_PTC
+CREATE SEQUENCE productos_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para DetaMovInventario_PTC
+CREATE SEQUENCE detamov_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para MovsInventario_PTC
+CREATE SEQUENCE inventario_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para Menus_PTC
+CREATE SEQUENCE Menus_seq START WITH 1 INCREMENT BY 1;
+
+-- Secuencia para Auditoria_Pedidos
+CREATE SEQUENCE Auditoria_Pedidos_SEQ START WITH 1 INCREMENT BY 1;
+
+-- ------------------------------------------------------------------------------
+-- --------------------------- CREACIÓN DE TRIGGERS ----------------------------
+-- ------------------------------------------------------------------------------
+
+-- Trigger para Clientes_PTC
 CREATE OR REPLACE TRIGGER TrigClientes
-BEFORE INSERT ON clientes_PTC
+BEFORE INSERT ON Clientes_PTC
 FOR EACH ROW
 BEGIN
     SELECT clientes_seq.NEXTVAL INTO :NEW.id_cliente FROM dual;
 END;
 /
-
--- Secuencia y trigger para Empleados_PTC
-CREATE SEQUENCE empleados_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para Empleados_PTC
 CREATE OR REPLACE TRIGGER TrigEmpleados
 BEFORE INSERT ON Empleados_PTC
 FOR EACH ROW
@@ -128,9 +162,8 @@ BEGIN
     SELECT empleados_seq.NEXTVAL INTO :NEW.id_empleado FROM dual;
 END;
 /
-
--- Secuencia y trigger para Permisos_PTC
-CREATE SEQUENCE permisos_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para Permisos_PTC
 CREATE OR REPLACE TRIGGER TrigPermisos
 BEFORE INSERT ON Permisos_PTC
 FOR EACH ROW
@@ -138,9 +171,8 @@ BEGIN
     SELECT permisos_seq.NEXTVAL INTO :NEW.id_permiso FROM dual;
 END;
 /
-
--- Secuencia y trigger para PEDIDOS_PTC
-CREATE SEQUENCE pedidos_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para PEDIDOS_PTC
 CREATE OR REPLACE TRIGGER TrigPedidos
 BEFORE INSERT ON PEDIDOS_PTC
 FOR EACH ROW
@@ -148,9 +180,8 @@ BEGIN
     SELECT pedidos_seq.NEXTVAL INTO :NEW.id_pedido FROM dual;
 END;
 /
-
--- Secuencia y trigger para DetallePedidos_PTC
-CREATE SEQUENCE detalle_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para DetallePedidos_PTC
 CREATE OR REPLACE TRIGGER TrigDetalle
 BEFORE INSERT ON DetallePedidos_PTC
 FOR EACH ROW
@@ -158,9 +189,8 @@ BEGIN
     SELECT detalle_seq.NEXTVAL INTO :NEW.id_detapedido FROM dual;
 END;
 /
-
--- Secuencia y trigger para PermisosEmpelado_PTC
-CREATE SEQUENCE permisosemp_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para PermisosEmpleado_PTC
 CREATE OR REPLACE TRIGGER TrigPermisosEmp
 BEFORE INSERT ON PermisosEmpleado_PTC
 FOR EACH ROW
@@ -168,9 +198,8 @@ BEGIN
     SELECT permisosemp_seq.NEXTVAL INTO :NEW.id_permisoempl FROM dual;
 END;
 /
-
--- Secuencia y trigger para Detalle_Productos_PTC
-CREATE SEQUENCE productos_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para Detalle_Productos_PTC
 CREATE OR REPLACE TRIGGER TrigProductos
 BEFORE INSERT ON Detalle_Productos_PTC
 FOR EACH ROW
@@ -178,9 +207,8 @@ BEGIN
     SELECT productos_seq.NEXTVAL INTO :NEW.id_producto FROM dual;
 END;
 /
-
--- Secuencia y trigger para DetaMovInventario_PTC
-CREATE SEQUENCE detamov_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para DetaMovInventario_PTC
 CREATE OR REPLACE TRIGGER TrigDetaMov
 BEFORE INSERT ON DetaMovInventario_PTC
 FOR EACH ROW
@@ -188,9 +216,8 @@ BEGIN
     SELECT detamov_seq.NEXTVAL INTO :NEW.id_detamov FROM dual;
 END;
 /
-
--- Secuencia y trigger para MovsInventario_PTC
-CREATE SEQUENCE inventario_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para MovsInventario_PTC
 CREATE OR REPLACE TRIGGER TrigMovinv
 BEFORE INSERT ON MovsInventario_PTC
 FOR EACH ROW
@@ -198,9 +225,8 @@ BEGIN
     SELECT inventario_seq.NEXTVAL INTO :NEW.id_movinv FROM dual;
 END;
 /
-
--- Secuencia y trigger para Menus_PTC
-CREATE SEQUENCE Menus_seq START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para Menus_PTC
 CREATE OR REPLACE TRIGGER TrigMenus
 BEFORE INSERT ON Menus_PTC
 FOR EACH ROW
@@ -208,8 +234,8 @@ BEGIN
     SELECT Menus_seq.NEXTVAL INTO :NEW.id_menu FROM dual;
 END;
 /
-
-CREATE SEQUENCE Auditoria_Pedidos_SEQ START WITH 1 INCREMENT BY 1;
+ 
+-- Trigger para Auditoria_Pedidos
 CREATE OR REPLACE TRIGGER Trigger_Auditoria_Pedidos
 AFTER UPDATE ON PEDIDOS_PTC
 FOR EACH ROW
@@ -242,35 +268,101 @@ BEGIN
     END IF;
 END;
 /
+ 
+-- ------------------------------------------------------------------------------
+-- --------------------------- INSERCIÓN DE DATOS -------------------------------
+-- ------------------------------------------------------------------------------
 
- 
- 
-select * from Menus_PTC ;
- 
-INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Tacos', 'antojitos.jpg');
-INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Tortas', 'platos_fuertes.jpg');
-INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Burritos', 'postres.jpg');
-INSERT INTO Menus_PTC ( categoria, imagen_categoria) VALUES ( 'Chiles', 'bebidas.jpg');
- 
- 
-INSERT INTO Detalle_Productos_PTC ( id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES (  (select id_menu from Menus_PTC where Categoria='Tacos' ),'Tacos al Pastor', 'Tacos de carne de cerdo adobada con pi?a y cebolla', 3.00, 50, 'tacos_al_pastor.jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ( (select id_menu from Menus_PTC where Categoria='Tacos' ),'Tacos de pollo', 'Tacos de pollo muy buenos', 2.50, 30, 'jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ( (select id_menu from Menus_PTC where Categoria='Tortas' ),'Torta de milanesa', 'Torta de pan rellena de milanesa de pollo o res, con aguacate y jitomate', 4.50, 20, 'torta_milanesa.jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES ( (select id_menu from Menus_PTC where Categoria='Tortas' ),'Torta de pollo', 'Torta de pollo, cubierto con salsa de nuez y granada', 10.00, 10, 'Torta.jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ((select id_menu from Menus_PTC where Categoria='Burritos'), 'Burritos', 'Burritos para el burro', 3.50, 25, 'burro.jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu,producto, descripcion, precioventa, stock, imagen_comida) VALUES ((select id_menu from Menus_PTC where Categoria='Burritos'), 'burrito de carne', 'Burrito de carne para el burro', 2.00, 40, 'b.jpg');
-INSERT INTO Detalle_Productos_PTC ( id_menu, producto, descripcion, precioventa, stock, imagen_comida) VALUES ((select id_menu from Menus_PTC where Categoria='Chile'),'Chile', 'Chile con jugo de limon y licor de naranja', 5.00, 15, 'chile.jpg');
- 
+-- Insertar datos en Menus_PTC
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tacos', 'antojitos.jpg');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tortas', 'platos_fuertes.jpg');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Burritos', 'postres.jpg');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Chiles', 'bebidas.jpg');
 
- 
-commit;
- 
- 
-Select id_menu from Menus_PTC;
--------------------------------------Inner---------------------------
+-- Insertar datos en Detalle_Productos_PTC
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Tacos'),
+    'Tacos al Pastor', 
+    'Tacos de carne de cerdo adobada con piña y cebolla', 
+    3.00, 
+    50, 
+    'tacos_al_pastor.jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Tacos'),
+    'Tacos de pollo', 
+    'Tacos de pollo muy buenos', 
+    2.50, 
+    30, 
+    'jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Tortas'),
+    'Torta de milanesa', 
+    'Torta de pan rellena de milanesa de pollo o res, con aguacate y jitomate', 
+    4.50, 
+    20, 
+    'torta_milanesa.jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Tortas'),
+    'Torta de pollo', 
+    'Torta de pollo, cubierto con salsa de nuez y granada', 
+    10.00, 
+    10, 
+    'Torta.jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Burritos'), 
+    'Burritos', 
+    'Burritos para el burro', 
+    3.50, 
+    25, 
+    'burro.jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Burritos'), 
+    'burrito de carne', 
+    'Burrito de carne para el burro', 
+    2.00, 
+    40, 
+    'b.jpg'
+);
+
+INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
+VALUES (
+    (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Chiles'), 
+    'Chile', 
+    'Chile con jugo de limon y licor de naranja', 
+    5.00, 
+    15, 
+    'chile.jpg'
+);
+
+COMMIT;
+
+-- ------------------------------------------------------------------------------
+-- ------------------------------- CONSULTAS SELECT -----------------------------
+-- ------------------------------------------------------------------------------
+
+-- Seleccionar todos los registros de Menus_PTC
+SELECT * FROM Menus_PTC;
+
+-- Inner Join entre PEDIDOS_PTC, Clientes_PTC y Empleados_PTC
 SELECT 
     PEDIDOS_PTC.id_pedido,
-    clientes_PTC.nombre_clie AS nombre_cliente,
+    Clientes_PTC.nombre_clie AS nombre_cliente,
     Empleados_PTC.nom_empleado || ' ' || Empleados_PTC.ape_empleado AS nombre_empleado,
     PEDIDOS_PTC.fecha_hora_pedido,
     PEDIDOS_PTC.total_pedido,
@@ -278,24 +370,24 @@ SELECT
     PEDIDOS_PTC.Tipo_Pago,
     PEDIDOS_PTC.Tipo_Pedido
 FROM PEDIDOS_PTC
-INNER JOIN clientes_PTC ON PEDIDOS_PTC.id_cliente = clientes_PTC.id_cliente
+INNER JOIN Clientes_PTC ON PEDIDOS_PTC.id_cliente = Clientes_PTC.id_cliente
 INNER JOIN Empleados_PTC ON PEDIDOS_PTC.id_empleado = Empleados_PTC.id_empleado;
 
-SELECT Menus_PTC.id_menu,
-Menus_PTC.categoria,
-Detalle_Productos_PTC.id_producto,
-Detalle_Productos_PTC.producto, 
-Detalle_Productos_PTC.descripcion, 
-Detalle_Productos_PTC.precioventa,
-Detalle_Productos_PTC.stock,
-Menus_PTC.imagen_categoria,
-Detalle_Productos_PTC.imagen_comida 
+-- Inner Join entre Menus_PTC y Detalle_Productos_PTC
+SELECT 
+    Menus_PTC.id_menu,
+    Menus_PTC.categoria,
+    Detalle_Productos_PTC.id_producto,
+    Detalle_Productos_PTC.producto, 
+    Detalle_Productos_PTC.descripcion, 
+    Detalle_Productos_PTC.precioventa,
+    Detalle_Productos_PTC.stock,
+    Menus_PTC.imagen_categoria,
+    Detalle_Productos_PTC.imagen_comida 
 FROM Menus_PTC
-INNER JOIN Detalle_Productos_PTC
-ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu
-;
+INNER JOIN Detalle_Productos_PTC ON Menus_PTC.id_menu = Detalle_Productos_PTC.id_menu;
 
-
+-- Inner Join entre Menus_PTC y Clientes_PTC (Nota: Parece haber una relación incorrecta aquí)
 SELECT 
     Menus_PTC.*,
     Clientes_PTC.nombre_clie,
@@ -303,10 +395,9 @@ SELECT
 FROM 
     Menus_PTC
 INNER JOIN 
-    Clientes_PTC
-ON 
-    Menus_PTC.id_menu = Clientes_PTC.id_cliente;
-    
+    Clientes_PTC ON Menus_PTC.id_menu = Clientes_PTC.id_cliente;
+
+-- Inner Join entre Detalle_Productos_PTC y Menus_PTC
 SELECT 
     Detalle_Productos_PTC.id_producto,
     Menus_PTC.categoria AS nombre_categoria,
@@ -318,6 +409,7 @@ SELECT
 FROM Detalle_Productos_PTC
 INNER JOIN Menus_PTC ON Detalle_Productos_PTC.id_menu = Menus_PTC.id_menu;
 
+-- Inner Join entre DetallePedidos_PTC, PEDIDOS_PTC y Detalle_Productos_PTC
 SELECT 
     DetallePedidos_PTC.id_detapedido,
     PEDIDOS_PTC.id_pedido,
@@ -328,16 +420,18 @@ FROM DetallePedidos_PTC
 INNER JOIN PEDIDOS_PTC ON DetallePedidos_PTC.id_pedido = PEDIDOS_PTC.id_pedido
 INNER JOIN Detalle_Productos_PTC ON DetallePedidos_PTC.id_producto = Detalle_Productos_PTC.id_producto;
 
+-- Inner Join entre PermisosEmpleado_PTC, Empleados_PTC y Permisos_PTC
 SELECT 
-    PermisosEmpelado_PTC.id_permisoempl,
+    PermisosEmpleado_PTC.id_permisoempl,
     Empleados_PTC.nom_empleado || ' ' || Empleados_PTC.ape_empleado AS nombre_empleado,
     Permisos_PTC.permiso AS codigo_permiso,
     Permisos_PTC.motivopermiso,
-    PermisosEmpelado_PTC.habilitado
-FROM PermisosEmpelado_PTC
-INNER JOIN Empleados_PTC ON PermisosEmpelado_PTC.id_empleado = Empleados_PTC.id_empleado
-INNER JOIN Permisos_PTC ON PermisosEmpelado_PTC.id_permiso = Permisos_PTC.id_permiso;
+    PermisosEmpleado_PTC.habilitado
+FROM PermisosEmpleado_PTC
+INNER JOIN Empleados_PTC ON PermisosEmpleado_PTC.id_empleado = Empleados_PTC.id_empleado
+INNER JOIN Permisos_PTC ON PermisosEmpleado_PTC.id_permiso = Permisos_PTC.id_permiso;
 
+-- Inner Join entre DetaMovInventario_PTC, MovsInventario_PTC y Detalle_Productos_PTC
 SELECT 
     DetaMovInventario_PTC.id_detamov,
     MovsInventario_PTC.mov_no,
@@ -349,7 +443,11 @@ FROM DetaMovInventario_PTC
 INNER JOIN MovsInventario_PTC ON DetaMovInventario_PTC.id_movinv = MovsInventario_PTC.id_movinv
 INNER JOIN Detalle_Productos_PTC ON DetaMovInventario_PTC.id_producto = Detalle_Productos_PTC.id_producto;
 
----------------------Procedures--------------------------------------
+-- ------------------------------------------------------------------------------
+-- ------------------------------- CREACIÓN DE PROCEDURES ----------------------
+-- ------------------------------------------------------------------------------
+
+-- Procedimiento para Insertar Pedido
 CREATE OR REPLACE PROCEDURE InsertarPedido(
     p_id_cliente NUMBER,
     p_id_empleado NUMBER,
@@ -360,12 +458,32 @@ CREATE OR REPLACE PROCEDURE InsertarPedido(
     p_tipo_pedido VARCHAR2
 ) AS
 BEGIN
-    INSERT INTO PEDIDOS_PTC (id_pedido, id_cliente, id_empleado, fecha_hora_pedido, total_pedido, Estado, Tipo_Pago, Tipo_Pedido)
-    VALUES (pedidos_seq.NEXTVAL, p_id_cliente, p_id_empleado, p_fecha_hora_pedido, p_total_pedido, p_estado, p_tipo_pago, p_tipo_pedido);
+    INSERT INTO PEDIDOS_PTC (
+        id_pedido, 
+        id_cliente, 
+        id_empleado, 
+        fecha_hora_pedido, 
+        total_pedido, 
+        Estado, 
+        Tipo_Pago, 
+        Tipo_Pedido
+    )
+    VALUES (
+        pedidos_seq.NEXTVAL, 
+        p_id_cliente, 
+        p_id_empleado, 
+        p_fecha_hora_pedido, 
+        p_total_pedido, 
+        p_estado, 
+        p_tipo_pago, 
+        p_tipo_pedido
+    );
     
     COMMIT;
 END;
 /
+ 
+-- Procedimiento para Eliminar Pedido
 CREATE OR REPLACE PROCEDURE EliminarPedido(
     p_id_pedido NUMBER
 ) AS
@@ -378,7 +496,8 @@ EXCEPTION
         DBMS_OUTPUT.PUT_LINE('Error eliminando el pedido: ' || SQLERRM);
 END;
 /
-
+ 
+-- Procedimiento para Consultar Pedidos
 CREATE OR REPLACE PROCEDURE ConsultarPedidos IS
 BEGIN
     FOR r IN (
@@ -392,7 +511,7 @@ BEGIN
             p.Tipo_Pago,
             p.Tipo_Pedido
         FROM PEDIDOS_PTC p
-        INNER JOIN clientes_PTC c ON p.id_cliente = c.id_cliente
+        INNER JOIN Clientes_PTC c ON p.id_cliente = c.id_cliente
         INNER JOIN Empleados_PTC e ON p.id_empleado = e.id_empleado
     ) LOOP
         DBMS_OUTPUT.PUT_LINE('Pedido ID: ' || r.id_pedido || ', Cliente: ' || r.Cliente || ', Empleado: ' || r.Empleado);
@@ -402,6 +521,8 @@ BEGIN
     END LOOP;
 END;
 /
+ 
+-- Procedimiento para Registrar Cambio en Auditoría
 CREATE OR REPLACE PROCEDURE RegistrarCambioAuditoria(
     p_id_pedido NUMBER,
     p_usuario_modificacion VARCHAR2,
@@ -411,16 +532,30 @@ CREATE OR REPLACE PROCEDURE RegistrarCambioAuditoria(
 ) AS
 BEGIN
     INSERT INTO Auditoria_Pedidos (
-        id_auditoria, id_pedido, usuario_modificacion, fecha_modificacion, 
-        campo_modificado, valor_anterior, valor_nuevo
+        id_auditoria, 
+        id_pedido, 
+        usuario_modificacion, 
+        fecha_modificacion, 
+        campo_modificado, 
+        valor_anterior, 
+        valor_nuevo
     ) VALUES (
-        Auditoria_Pedidos_SEQ.NEXTVAL, p_id_pedido, p_usuario_modificacion, SYSDATE, 
-        p_campo_modificado, p_valor_anterior, p_valor_nuevo
+        Auditoria_Pedidos_SEQ.NEXTVAL, 
+        p_id_pedido, 
+        p_usuario_modificacion, 
+        SYSDATE, 
+        p_campo_modificado, 
+        p_valor_anterior, 
+        p_valor_nuevo
     );
     
     COMMIT;
 END;
 /
 
+-- ------------------------------------------------------------------------------
+-- ------------------------------- CONSULTA FINAL -------------------------------
+-- ------------------------------------------------------------------------------
 
-   
+-- Seleccionar todos los id_menu de Menus_PTC
+SELECT id_menu FROM Menus_PTC;
