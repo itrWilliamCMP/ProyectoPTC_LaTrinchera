@@ -43,9 +43,10 @@ class Login_Repartidor : AppCompatActivity() {
             validarCredenciales(nombreUsuario, contrasena)
         }
     }
-
+//Nombre Trincherito
+    //Contraseña trincheritos14
     private fun validarCredenciales(nombreUsuario: String, contrasena: String) {
-        if (nombreUsuario == "Trincherito" && contrasena == "Trincheritos14") {
+        if (nombreUsuario == "Trincherito" && contrasena == "trincheritos14") {
             // Credenciales correctas, iniciar la actividad MenuRepartidor
             val intent = Intent(this@Login_Repartidor, MenuRepartidor::class.java)
             startActivity(intent)
