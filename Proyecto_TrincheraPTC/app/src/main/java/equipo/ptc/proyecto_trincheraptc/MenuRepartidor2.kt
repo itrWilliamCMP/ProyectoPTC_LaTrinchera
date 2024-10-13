@@ -2,6 +2,7 @@ package equipo.ptc.proyecto_trincheraptc
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,10 @@ class MenuRepartidor2 : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        findViewById<Button>(R.id.btnRecupContinuar).setOnClickListener {
+            val pantallaPagoIntent = Intent(this, Pantalla_pago::class.java)
+            startActivity(pantallaPagoIntent)
         }
 
         val Regresar1 = findViewById<ImageView>(R.id.Regresar1)

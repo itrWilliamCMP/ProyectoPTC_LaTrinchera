@@ -17,7 +17,7 @@ class Adaptador_Menu_Repartidor(private val clientes: List<tbMenu_Repartidor>) :
         val txtNombreCliente: TextView = itemView.findViewById(R.id.TxtNombre_Cliente)
         val txtUbicacion: TextView = itemView.findViewById(R.id.TxtUbicacion)
         val ivImagenClientes: ImageView = itemView.findViewById(R.id.ivImagenClientes)
-        val txtPedidos: TextView = itemView.findViewById(R.id.TxtNombre_Cliente)
+        val txtPedidos: TextView = itemView.findViewById(R.id.TxtPedidos)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,15 +30,18 @@ class Adaptador_Menu_Repartidor(private val clientes: List<tbMenu_Repartidor>) :
         val cliente = clientes[position]
         holder.txtNombreCliente.text = cliente.nombre_clie
         holder.txtUbicacion.text = cliente.direccion_entrega
+        holder.txtPedidos.text = "Pedido de ${cliente.nombre_clie}"
 
-        Glide.with(holder.itemView.context)
-            .load(cliente.imagen_clientes)
-            .into(holder.ivImagenClientes)
-
-        val pedidosString = cliente.pedidos.joinToString("\n") { pedido ->
-            "ID Pedido: ${pedido.id_pedido}, Fecha: ${pedido.fechaPedido}, Total: $${pedido.totalPedido}"
+        // Cargar imagen del cliente o usar un placeholder
+        if (cliente.imagen_clientes.isNotEmpty()) {
+            Glide.with(holder.itemView.context)
+                .load(cliente.imagen_clientes)
+                .placeholder(android.R.drawable.ic_menu_gallery)
+                .error(android.R.drawable.ic_menu_gallery)
+                .into(holder.ivImagenClientes)
+        } else {
+            holder.ivImagenClientes.setImageResource(android.R.drawable.ic_menu_gallery)
         }
-        holder.txtPedidos.text = if (pedidosString.isEmpty()) "Sin pedidos" else pedidosString
     }
 
     override fun getItemCount(): Int {

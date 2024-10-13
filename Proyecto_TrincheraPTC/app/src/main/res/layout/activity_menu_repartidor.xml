@@ -75,30 +75,6 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/PerfilRepartidor1"
-        android:layout_width="34dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.686"
-        app:srcCompat="@drawable/fsiguiente" />
-
-    <ImageView
-        android:id="@+id/PerfilRepartidor4"
-        android:layout_width="34dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.88"
-        app:srcCompat="@drawable/fsiguiente" />
-
-    <ImageView
         android:id="@+id/PerfilRepartidor3"
         android:layout_width="34dp"
         android:layout_height="46dp"
@@ -108,18 +84,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.324"
-        app:srcCompat="@drawable/fsiguiente" />
-
-    <ImageView
-        android:id="@+id/PerfilRepartidor2"
-        android:layout_width="34dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.513"
         app:srcCompat="@drawable/fsiguiente" />
 
     <ImageView
