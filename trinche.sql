@@ -12,6 +12,7 @@ CREATE TABLE Clientes_PTC(
     imagen_clientes VARCHAR2(250)
 );
 
+
 CREATE TABLE Empleados_PTC( 
     id_empleado NUMBER PRIMARY KEY, 
     nom_empleado VARCHAR2(20), 
@@ -19,6 +20,11 @@ CREATE TABLE Empleados_PTC(
     usu_empleado VARCHAR2(15), 
     contrasena VARCHAR2(128) 
 );
+SELECT contrasena FROM Empleados_PTC WHERE nom_empleado = 'Trincherito';
+
+UPDATE Empleados_PTC 
+SET contrasena = '438c001b149c37269e78710c2c298248eb9b5b7e10f2826b2c57dd98c35e400f'
+WHERE nom_empleado = 'Trincherito';
 
 CREATE TABLE Menus_PTC( 
     id_menu NUMBER PRIMARY KEY, 

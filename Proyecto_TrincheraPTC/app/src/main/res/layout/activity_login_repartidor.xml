@@ -9,58 +9,58 @@
     android:background="@drawable/imagenlogin">
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661"
-        app:srcCompat="@drawable/camponombre" />
-
-    <ImageView
         android:id="@+id/imageVie"
         android:layout_width="107dp"
         android:layout_height="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.129"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.767"
+        app:layout_constraintVertical_bias="0.775"
         app:srcCompat="@drawable/camponombre" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="90dp"
-        android:layout_height="24dp"
+        android:layout_width="159dp"
+        android:layout_height="20dp"
         android:fontFamily="@font/source_sans_pro_black"
-        android:text="Contraseña"
+        android:text="¡Ingresa tu contraseña!"
         android:textColor="#262626"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageVie"
         app:layout_constraintEnd_toEndOf="@+id/imageVie"
-        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/imageVie"
         app:layout_constraintTop_toTopOf="@+id/imageVie"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.661"
+        app:srcCompat="@drawable/camponombre" />
 
     <TextView
         android:id="@+id/tvEMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_black"
-        android:text="E-Mail"
+        android:text="¡Ingresa tu nombre!"
         android:textColor="#262626"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
-        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintHorizontal_bias="0.288"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/txtBienvenidaRepartidor"
@@ -139,9 +139,10 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintVertical_bias="0.957" />
 
     <ImageView
         android:id="@+id/BackLog"

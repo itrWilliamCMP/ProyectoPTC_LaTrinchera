@@ -29,20 +29,6 @@ class Login : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-
-        val btn: Button = findViewById(R.id.btngoogle)
-        btn.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        //1- Mandamos a traer a todos los elementos de la vista
         val txtCorreo = findViewById<EditText>(R.id.txtCorreo)
         val txtContrasena = findViewById<EditText>(R.id.txtContrasena)
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
@@ -51,34 +37,38 @@ class Login : AppCompatActivity() {
         val btnLogin_Repartidor = findViewById<Button>(R.id.btn_repartidor)
         val tvRecuperacionContrasena = findViewById<TextView>(R.id.tvRecuperacionContrasena)
 
+        // Redireccionar al activity de recuperación de contraseña
         tvRecuperacionContrasena.setOnClickListener {
             val intent = Intent(this, RecuperacionContrasena::class.java)
             startActivity(intent)
         }
 
+        // Redireccionar a MainActivity con login por Google
         btnGoogle.setOnClickListener {
             val pantallamenu = Intent(this, MainActivity::class.java)
             startActivity(pantallamenu)
         }
 
+        // Redireccionar a la pantalla de Login para repartidores
         btnLogin_Repartidor.setOnClickListener {
-            val Intent = Intent(this, Login_Repartidor::class.java)
-            startActivity(Intent)
+            val intent = Intent(this, Login_Repartidor::class.java)
+            startActivity(intent)
         }
 
+        // Redireccionar a la pantalla de registro
         btnRegistrarse.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
 
+        // Funcionalidad del botón Entrar (login)
         btnEntrar.setOnClickListener {
 
             correoDelCliente = txtCorreo.text.toString()
             val txtCorreo = txtCorreo.text.toString()
             val txtContrasena = hashPassword(txtContrasena.text.toString())
 
-            //traer el id cuando inicia sesion
-            //Hago un select para ver guardar el rol del usuario
+            // Traer el id del cliente al iniciar sesión
             GlobalScope.launch(Dispatchers.IO) {
                 val objConexion = ClaseConexion().cadenaConexion()
                 val resulSet =
@@ -86,16 +76,12 @@ class Login : AppCompatActivity() {
                 resulSet.setString(1, txtCorreo)
                 val resultado = resulSet.executeQuery()
                 if (resultado.next()) {
-                    //Lleno la variable global con el rol del usuario (dependiendo del correo)
                     idDelCliente = resultado.getString("id_cliente")
-                    println("ESTE ES EL ROL DEL USUARIO: $idDelCliente")
+                    println("ID del cliente: $idDelCliente")
                 }
             }
 
-
             val pantallaprincipal = Intent(this, MainActivity::class.java)
-
-
 
             if (txtCorreo.isEmpty() || txtContrasena.isEmpty()) {
                 Toast.makeText(this, "Campos incompletos", Toast.LENGTH_SHORT).show()
@@ -113,7 +99,6 @@ class Login : AppCompatActivity() {
 
                     if (resultado?.next() == true) {
                         withContext(Dispatchers.IO) {
-
                             startActivity(pantallaprincipal)
                         }
                     } else {
@@ -128,12 +113,9 @@ class Login : AppCompatActivity() {
                 }
             }
         }
-
-
-
-
     }
 
+    // Función para hashear la contraseña
     private fun hashPassword(password: String): String {
         val bytes = password.toByteArray()
         val md = MessageDigest.getInstance("SHA-256")
@@ -141,8 +123,3 @@ class Login : AppCompatActivity() {
         return digest.fold("", { str, it -> str + "%02x".format(it) })
     }
 }
-
-
-
-
-
