@@ -22,8 +22,8 @@
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="159dp"
-        android:layout_height="20dp"
+        android:layout_width="154dp"
+        android:layout_height="18dp"
         android:fontFamily="@font/source_sans_pro_black"
         android:text="¡Ingresa tu contraseña!"
         android:textColor="#262626"
