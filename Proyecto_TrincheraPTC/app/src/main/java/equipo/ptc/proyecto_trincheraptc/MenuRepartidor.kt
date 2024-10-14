@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView // <-- Importar TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -18,17 +19,22 @@ import kotlinx.coroutines.*
 
 class MenuRepartidor : AppCompatActivity() {
 
-    companion object {
-        lateinit var nombreRepartidor: String
-    }
-
+    private lateinit var tvNombreIngreso: TextView // <-- Declarar el TextView
     private lateinit var rcvRepartidor: RecyclerView
     private lateinit var adaptador: Adaptador_Menu_Repartidor
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_repartidor)
+
+        tvNombreIngreso = findViewById(R.id.tvNombreIngreso) // <-- Inicializar el TextView
+
+        // Obtener el nombre del repartidor del Intent
+        val nombreRepartidor = intent.getStringExtra("nombreRepartidor") ?: ""
+
+        tvNombreIngreso.text = nombreRepartidor  // <-- Mostrar el nombre
 
         setupViews()
         setupEdgeToEdge()

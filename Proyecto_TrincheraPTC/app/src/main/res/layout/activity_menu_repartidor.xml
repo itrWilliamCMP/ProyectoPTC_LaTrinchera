@@ -41,7 +41,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/source_sans_pro_black"
-        android:text="Hola,"
+        android:text="Hola, Repartidor"
         android:textColor="#F2B66D"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -39,8 +39,8 @@ class Login_Repartidor : AppCompatActivity() {
         }
 
         val btnEntrar2 = findViewById<Button>(R.id.btnEntrar2)
-        etNombreUsuario = findViewById(R.id.txtCorreo2) // Inicializamos aquí
-        etContrasena = findViewById(R.id.txtContrasena2)     // Inicializamos aquí
+        etNombreUsuario = findViewById(R.id.txtCorreo2)
+        etContrasena = findViewById(R.id.txtContrasena2)
 
         btnEntrar2.setOnClickListener {
             val nombreUsuario = etNombreUsuario.text.toString()
@@ -60,8 +60,9 @@ class Login_Repartidor : AppCompatActivity() {
     }
 
     private fun validarCredenciales(nombreUsuario: String, contrasena: String) {
-        if (nombreUsuario == "Trincherito" && contrasena == "trincherito14") {
+        if (nombreUsuario == "Trincherito" && contrasena == "trincherito14") {  // <--  Considera eliminar este hardcoding en producción
             val intent = Intent(this@Login_Repartidor, MenuRepartidor::class.java)
+            intent.putExtra("nombreRepartidor", nombreUsuario) // <-- Pasar el nombre de usuario
             startActivity(intent)
             return
         }
