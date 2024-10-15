@@ -28,6 +28,7 @@ class AdaptadorDetalleMenu(private var Datos: List<tbMenuConProductos> ): Recycl
             val context = holder.itemView.context
             val pantallaDetalle = Intent(context, ProductoActivity::class.java)
             pantallaDetalle.putExtra("id_producto", tbMenuConProductos.id_producto)
+            println("este es el id del producto que se selecciono ${tbMenuConProductos.id_producto}")
             pantallaDetalle.putExtra("id_menu", tbMenuConProductos.id_menu)
             pantallaDetalle.putExtra("categoria", tbMenuConProductos.categoria)
             pantallaDetalle.putExtra("producto", tbMenuConProductos.producto)

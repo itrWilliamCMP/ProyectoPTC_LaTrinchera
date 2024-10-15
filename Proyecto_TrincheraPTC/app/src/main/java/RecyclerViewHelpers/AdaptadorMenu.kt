@@ -16,6 +16,21 @@ import equipo.ptc.proyecto_trincheraptc.R
 class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
     RecyclerView.Adapter<AdaptadorMenu.ViewHolderMenu>() {
 
+    companion object varGlobaAdap {
+        lateinit var id_menu: String
+        lateinit var categoria: String
+        lateinit var id_producto: String
+        lateinit var producto: String
+        lateinit var descripcion: String
+        lateinit var precioventa: String
+        lateinit var stock: String
+        lateinit var imagen_categoria: String
+        lateinit var imagen_producto: String
+
+    }
+
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMenu {
         val vista = LayoutInflater.from(parent.context).inflate(R.layout.activity_menu_principal_card, parent, false)
         return ViewHolderMenu(vista)
@@ -36,7 +51,11 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
 
         holder.itemView.setOnClickListener { view ->
             val context = view.context
-            val intent = Intent(context, MenuCategoriaActivity::class.java).apply {
+            val intent = Intent(context, MenuCategoriaActivity::class.java)
+
+
+                /*.apply {
+
                 putExtra("id_producto", item.id_producto)
                 putExtra("id_menu", item.id_menu)
                 putExtra("categoria", item.categoria)
@@ -46,7 +65,17 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
                 putExtra("stock", item.stock)
                 putExtra("imagen_categoria", item.imagen_categoria)
                 putExtra("imagen_producto", item.imagen_comida)
-            }
+            }*/
+            id_producto = item.id_producto.toString()
+            id_menu = item.id_menu.toString()
+            categoria = item.categoria
+            producto = item.producto
+            descripcion = item.descripcion
+            precioventa = item.precioventa.toString()
+            stock = item.stock.toString()
+            imagen_categoria = item.imagen_categoria
+            imagen_producto = item.imagen_comida
+
             context.startActivity(intent)
         }
     }

@@ -8,56 +8,6 @@
     tools:context=".Login"
     android:background="@drawable/imagenlogin">
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="70dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="28dp"
-        android:src="@drawable/baseline_moped_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_repartidor"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
-
-    <Button
-        android:id="@+id/btnEntrar"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#FFC072"
-        android:fontFamily="@font/source_sans_pro_semibold"
-        android:shadowColor="#000000"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:text="Continuar"
-        android:textColor="#262626"
-        android:textSize="22sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
-
-    <Button
-        android:id="@+id/btnRegistrarse"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#FFC072"
-        android:fontFamily="@font/source_sans_pro_semibold"
-        android:text="Registrarse"
-        android:textColor="#262626"
-        android:textSize="22sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.966" />
-
     <EditText
         android:id="@+id/txtContrasena"
         android:layout_width="354dp"
@@ -71,25 +21,49 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54" />
+        app:layout_constraintVertical_bias="0.607" />
 
-    <TextView
-        android:id="@+id/tvRecuperacionContrasena"
+    <ImageView
+        android:id="@+id/imageView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/source_sans_pro_bold"
-        android:text="¿Olvidaste tu contraseña?"
-        android:textColor="#EA986A"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.592" />
+        app:layout_constraintVertical_bias="0.481"
+        app:srcCompat="@drawable/camponombre" />
+
+    <ImageView
+        android:id="@+id/imageVie"
+        android:layout_width="107dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.098"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563"
+        app:srcCompat="@drawable/camponombre" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="90dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="Contraseña"
+        android:textColor="#262626"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageVie"
+        app:layout_constraintEnd_toEndOf="@+id/imageVie"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="@+id/imageVie"
+        app:layout_constraintTop_toTopOf="@+id/imageVie"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/txtCorreo"
@@ -104,83 +78,43 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.429"
-        app:srcCompat="@drawable/camponombre" />
-
-    <ImageView
-        android:id="@+id/imageVie"
-        android:layout_width="128dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.511"
-        app:srcCompat="@drawable/camponombre" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="89dp"
-        android:layout_height="17dp"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="Contraseña"
-        android:textAlignment="center"
-        android:textColor="#262626"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageVie"
-        app:layout_constraintEnd_toEndOf="@+id/imageVie"
-        app:layout_constraintStart_toStartOf="@+id/imageVie"
-        app:layout_constraintTop_toTopOf="@+id/imageVie" />
-
-    <TextView
-        android:id="@+id/tvCorreo"
+        android:id="@+id/tvEMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/source_sans_pro_black"
-        android:text="Correo"
+        android:text="E-Mail"
         android:textColor="#262626"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView9"
         app:layout_constraintEnd_toEndOf="@+id/imageView9"
+        app:layout_constraintHorizontal_bias="0.323"
         app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9" />
+        app:layout_constraintTop_toTopOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/btngoogle"
-        android:layout_width="355dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#FFC072"
-        android:fontFamily="@font/source_sans_pro_semibold"
-        android:text="Continuar con google"
-        android:textColor="#262626"
-        android:textSize="22sp"
-        app:cornerRadius="10dp"
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="¡Inicia sesion aqui!"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.786" />
+        app:layout_constraintVertical_bias="0.449" />
 
     <Button
         android:id="@+id/btn_repartidor"
-        android:layout_width="270dp"
-        android:layout_height="49dp"
+        android:layout_width="335dp"
+        android:layout_height="65dp"
         android:backgroundTint="#FFC072"
         android:text="Repartidor"
         android:textColor="#262626"
@@ -188,9 +122,100 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.865" />
+        app:layout_constraintVertical_bias="0.941" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="¿No tienes una cuenta?"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761" />
+
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="335dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#FFC072"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:text="¡Registrate aqui!"
+        android:textColor="#262626"
+        android:textSize="22sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.539"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.825" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="¿Trabajas con nosotros?"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="335dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#FFC072"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:shadowColor="#000000"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:text="Continuar"
+        android:textColor="#262626"
+        android:textSize="22sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.703" />
+
+    <TextView
+        android:id="@+id/tvRecuperacionContrasena"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_bold"
+        android:text="¿Olvidaste tu contraseña?"
+        android:textColor="#EA986A"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.644" />
+
+    <TextView
+        android:id="@+id/txtBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_black"
+        android:text="¡BIENVENIDOS A NUESTRA FAMILIA!"
+        android:textColor="#262626"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.41000003" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,101 +5,111 @@ import Modelo.tbMenu_Repartidor
 import RecyclerViewHelpers.Adaptador_Menu_Repartidor
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView // <-- Importar TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class MenuRepartidor : AppCompatActivity() {
+
+    private lateinit var tvNombreIngreso: TextView // <-- Declarar el TextView
+    private lateinit var rcvRepartidor: RecyclerView
+    private lateinit var adaptador: Adaptador_Menu_Repartidor
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_menu_repartidor)
 
+        tvNombreIngreso = findViewById(R.id.tvNombreIngreso) // <-- Inicializar el TextView
+
+        // Obtener el nombre del repartidor del Intent
+        val nombreRepartidor = intent.getStringExtra("nombreRepartidor") ?: ""
+
+        tvNombreIngreso.text = nombreRepartidor  // <-- Mostrar el nombre
+
+        setupViews()
+        setupEdgeToEdge()
+        obtenerClientes()
+        setupClickListeners()
+    }
+
+    private fun setupViews() {
+        rcvRepartidor = findViewById(R.id.rcvRepartidor)
+        rcvRepartidor.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun setupEdgeToEdge() {
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
 
-        // Configura el RecyclerView
-        val rcvRepartidor = findViewById<RecyclerView>(R.id.rcvRepartidor)
-        rcvRepartidor.layoutManager = LinearLayoutManager(this)
+    private fun obtenerClientes() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val objConexion = ClaseConexion().cadenaConexion()
+                val statement = objConexion?.createStatement()
+                val resultSet = statement?.executeQuery(
+                    """
+                    SELECT 
+                        c.id_cliente, c.nombre_clie, c.telefono_clie, c.correoElectronico, 
+                        c.contrasena, c.direccion_entrega, c.imagen_clientes
+                    FROM 
+                        Clientes_PTC c
+                    """
+                )
 
-        // Llama a la función para obtener los clientes
-        obtenerClientes { clientes ->
-            // Asigna el adaptador al RecyclerView
-            val adapter = Adaptador_Menu_Repartidor(clientes)
-            rcvRepartidor.adapter = adapter
+                val listaClientes = mutableListOf<tbMenu_Repartidor>()
+
+                while (resultSet?.next() == true) {
+                    val cliente = tbMenu_Repartidor(
+                        resultSet.getInt("id_cliente"),
+                        resultSet.getString("nombre_clie") ?: "",
+                        resultSet.getString("telefono_clie") ?: "",
+                        resultSet.getString("correoElectronico") ?: "",
+                        resultSet.getString("contrasena") ?: "",
+                        resultSet.getString("direccion_entrega") ?: "",
+                        resultSet.getString("imagen_clientes") ?: "",
+                        emptyList() // Lista de pedidos vacía por defecto
+                    )
+                    listaClientes.add(cliente)
+                }
+
+                withContext(Dispatchers.Main) {
+                    adaptador = Adaptador_Menu_Repartidor(listaClientes)
+                    rcvRepartidor.adapter = adaptador
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    showError(e.message)
+                }
+            }
         }
-
-        // Configura los clics para otras imágenes
-        setupClickListeners()
     }
 
     private fun setupClickListeners() {
-        val imgBackR = findViewById<ImageView>(R.id.imgBackR)
-        imgBackR.setOnClickListener {
-            val loginRepartidor = Intent(this, Login_Repartidor::class.java)
-            startActivity(loginRepartidor)
+        findViewById<ImageView>(R.id.imgBackR).setOnClickListener {
+            startActivity(Intent(this, Login_Repartidor::class.java))
         }
 
-        val perfilRepartidorButtons = listOf(
-            R.id.PerfilRepartidor1,
-            R.id.PerfilRepartidor2,
-            R.id.PerfilRepartidor3,
-            R.id.PerfilRepartidor4
-        )
-
-        perfilRepartidorButtons.forEach { id ->
-            findViewById<ImageView>(id).setOnClickListener {
-                val menuRepartidor2 = Intent(this, MenuRepartidor2::class.java)
-                startActivity(menuRepartidor2)
-            }
+        findViewById<ImageView>(R.id.PerfilRepartidor3).setOnClickListener {
+            startActivity(Intent(this, MenuRepartidor2::class.java))
         }
     }
 
-    // Aquí es donde debes incluir la función obtenerClientes
-    private fun obtenerClientes(callback: (List<tbMenu_Repartidor>) -> Unit) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val objConexion = ClaseConexion().cadenaConexion()
-            val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT * FROM Clientes_PTC")
-
-            val listaClientes = mutableListOf<tbMenu_Repartidor>()
-
-            while (resultSet?.next() == true) {
-                val id_cliente = resultSet.getInt("id_cliente")
-                val nombre_clie = resultSet.getString("nombre_clie")
-                val telefono_clie = resultSet.getString("telefono_clie")
-                val correoElectronico = resultSet.getString("correoElectronico")
-                val contrasena = resultSet.getString("contrasena")
-                val direccion_entrega = resultSet.getString("direccion_entrega")
-                val imagen_clientes = resultSet.getString("imagen_clientes") // Obtener imagen
-
-                val cliente = tbMenu_Repartidor(
-                    id_cliente,
-                    nombre_clie,
-                    telefono_clie,
-                    correoElectronico,
-                    contrasena,
-                    direccion_entrega,
-                    imagen_clientes // Pasar imagen al objeto
-                )
-                listaClientes.add(cliente)
-            }
-
-            // Llama al callback en el hilo principal
-            withContext(Dispatchers.Main) {
-                callback(listaClientes)
-            }
-        }
+    private fun showError(error: String?) {
+        Toast.makeText(this, "Error al obtener datos: $error", Toast.LENGTH_LONG).show()
+        Log.e("MenuRepartidor", "Error: $error")
     }
 }
