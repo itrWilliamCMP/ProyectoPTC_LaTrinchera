@@ -280,10 +280,10 @@ END;
 -- ------------------------------------------------------------------------------
 
 -- Insertar datos en Menus_PTC
-INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tacos', 'antojitos.jpg');
-INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tortas', 'platos_fuertes.jpg');
-INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Burritos', 'postres.jpg');
-INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Chiles', 'bebidas.jpg');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tacos', 'https://png.pngtree.com/png-clipart/20230429/original/pngtree-mexican-taco-crepes-with-lemon-sauce-psd-transparent-png-image_9121918.png');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Tortas', 'https://www.tortaslacastellana.com/imagenes/menu/milanesa.png');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Burritos', 'https://www.pngplay.com/wp-content/uploads/14/Burrito-PNG-Photos-2.png');
+INSERT INTO Menus_PTC (categoria, imagen_categoria) VALUES ('Chiles', 'https://tienda.lahuerta.com.mx/cdn/shop/files/ICEHR0865ChilePoblanoRelleno_370Gr-2Pz_CHproducto.png?v=1695911835&width=1445');
 
 -- Insertar datos en Detalle_Productos_PTC
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -293,7 +293,7 @@ VALUES (
     'Tacos de carne de cerdo adobada con piña y cebolla', 
     3.00, 
     50, 
-    'tacos_al_pastor.jpg'
+    'https://static.vecteezy.com/system/resources/previews/036/498/004/non_2x/ai-generated-delicious-tacos-al-pastor-placed-on-transparent-background-free-png.png'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -303,7 +303,7 @@ VALUES (
     'Tacos de pollo muy buenos', 
     2.50, 
     30, 
-    'jpg'
+    'https://png.pngtree.com/png-clipart/20230423/original/pngtree-chicken-tacos-png-image_9088370.png'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -313,7 +313,7 @@ VALUES (
     'Torta de pan rellena de milanesa de pollo o res, con aguacate y jitomate', 
     4.50, 
     20, 
-    'torta_milanesa.jpg'
+    'https://www.tortaslacastellana.com/imagenes/menu/la_castellana.png'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -323,7 +323,7 @@ VALUES (
     'Torta de pollo, cubierto con salsa de nuez y granada', 
     10.00, 
     10, 
-    'Torta.jpg'
+    'https://store.loscorrales.com.mx/cdn/shop/products/TORTAPECHUGA150px-01_1200x1200.png?v=1590855998'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -333,7 +333,7 @@ VALUES (
     'Burritos para el burro', 
     3.50, 
     25, 
-    'burro.jpg'
+    'https://png.pngtree.com/png-clipart/20211010/original/pngtree-taco-food-still-life-vegetable-diet-png-image_6850789.png'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
@@ -343,17 +343,17 @@ VALUES (
     'Burrito de carne para el burro', 
     2.00, 
     40, 
-    'b.jpg'
+    'https://static.vecteezy.com/system/resources/previews/042/404/108/non_2x/ai-generated-a-large-burrito-filled-with-meat-and-vegetables-free-png.png'
 );
 
 INSERT INTO Detalle_Productos_PTC (id_menu, producto, descripcion, precioventa, stock, imagen_comida) 
 VALUES (
     (SELECT id_menu FROM Menus_PTC WHERE categoria = 'Chiles'), 
-    'Chile', 
+    'Chile en Nogada', 
     'Chile con jugo de limon y licor de naranja', 
     5.00, 
     15, 
-    'chile.jpg'
+    'https://entodomx.com.mx/wp-content/uploads/2019/09/Chile-Nogada-min.png'
 );
 
 COMMIT;
