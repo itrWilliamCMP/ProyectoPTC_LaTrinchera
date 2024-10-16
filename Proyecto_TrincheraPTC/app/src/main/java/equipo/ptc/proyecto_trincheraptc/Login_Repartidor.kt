@@ -3,6 +3,7 @@ package equipo.ptc.proyecto_trincheraptc
 import Modelo.ClaseConexion
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -17,6 +18,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class Login_Repartidor : AppCompatActivity() {
+
+    private lateinit var etNombreUsuario: EditText
+    private lateinit var etContrasena: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,29 +39,34 @@ class Login_Repartidor : AppCompatActivity() {
         }
 
         val btnEntrar2 = findViewById<Button>(R.id.btnEntrar2)
-        val etNombreUsuario = findViewById<EditText>(R.id.txtCorreo2)
-        val etContrasena = findViewById<EditText>(R.id.txtContrasena2)
+        etNombreUsuario = findViewById(R.id.txtCorreo2)
+        etContrasena = findViewById(R.id.txtContrasena2)
 
         btnEntrar2.setOnClickListener {
             val nombreUsuario = etNombreUsuario.text.toString()
             val contrasena = etContrasena.text.toString()
+
+            if (TextUtils.isEmpty(nombreUsuario)) {
+                etNombreUsuario.error = "Ingrese el nombre de usuario"
+                return@setOnClickListener
+            }
+            if (TextUtils.isEmpty(contrasena)) {
+                etContrasena.error = "Ingrese la contraseña"
+                return@setOnClickListener
+            }
+
             validarCredenciales(nombreUsuario, contrasena)
         }
     }
-//Nombre Trincherito
-    //Contraseña trincheritos14
-    private fun validarCredenciales(nombreUsuario: String, contrasena: String) {
-        if (nombreUsuario == "Trincherito" && contrasena == "trincheritos14") {
-            // Credenciales correctas, iniciar la actividad MenuRepartidor
-            val intent = Intent(this@Login_Repartidor, MenuRepartidor::class.java)
-            startActivity(intent)
-        } else {
-            // Validar con la base de datos si las credenciales no coinciden con las predefinidas
-            validarCredencialesEnBD(nombreUsuario, contrasena)
-        }
-    }
 
-    private fun validarCredencialesEnBD(nombreUsuario: String, contrasena: String) {
+    private fun validarCredenciales(nombreUsuario: String, contrasena: String) {
+        if (nombreUsuario == "Trincherito" && contrasena == "trincherito14") {  // <--  Considera eliminar este hardcoding en producción
+            val intent = Intent(this@Login_Repartidor, MenuRepartidor::class.java)
+            intent.putExtra("nombreRepartidor", nombreUsuario) // <-- Pasar el nombre de usuario
+            startActivity(intent)
+            return
+        }
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val objConexion = ClaseConexion().cadenaConexion()
@@ -76,13 +86,20 @@ class Login_Repartidor : AppCompatActivity() {
                     } else {
                         withContext(Dispatchers.Main) {
                             Toast.makeText(this@Login_Repartidor, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                            etContrasena.error = "Contraseña incorrecta"
                         }
                     }
                 } else {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(this@Login_Repartidor, "Repartidor no encontrado", Toast.LENGTH_SHORT).show()
+                        etNombreUsuario.error = "Repartidor no encontrado"
                     }
                 }
+
+                resultSet?.close()
+                statement?.close()
+                objConexion?.close()
+
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@Login_Repartidor, "Error al validar credenciales: ${e.message}", Toast.LENGTH_LONG).show()

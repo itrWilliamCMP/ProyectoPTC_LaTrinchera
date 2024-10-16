@@ -34,7 +34,6 @@ class informacion_perfil : AppCompatActivity() {
         textViewNombre = findViewById(R.id.txtnombre_perfil)
         textViewTelefono = findViewById(R.id.txttelefono)
         textViewCorreo = findViewById(R.id.txtCorreo_perfil)
-        textViewID = findViewById(R.id.txtID)
         btnEditarPerfil = findViewById(R.id.btn_editarperfil)
 
         // Obtener el ID del cliente del intent

@@ -33,7 +33,6 @@ class Login : AppCompatActivity() {
         val txtContrasena = findViewById<EditText>(R.id.txtContrasena)
         val btnEntrar = findViewById<Button>(R.id.btnEntrar)
         val btnRegistrarse = findViewById<Button>(R.id.btnRegistrarse)
-        val btnGoogle = findViewById<Button>(R.id.btngoogle)
         val btnLogin_Repartidor = findViewById<Button>(R.id.btn_repartidor)
         val tvRecuperacionContrasena = findViewById<TextView>(R.id.tvRecuperacionContrasena)
 
@@ -43,11 +42,7 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // Redireccionar a MainActivity con login por Google
-        btnGoogle.setOnClickListener {
-            val pantallamenu = Intent(this, MainActivity::class.java)
-            startActivity(pantallamenu)
-        }
+
 
         // Redireccionar a la pantalla de Login para repartidores
         btnLogin_Repartidor.setOnClickListener {

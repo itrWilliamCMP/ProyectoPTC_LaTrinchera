@@ -2,11 +2,14 @@ package RecyclerViewHelpers
 
 import Modelo.tbMenuConProductos
 import android.content.Intent
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import equipo.ptc.proyecto_trincheraptc.MenuCategoriaActivity
 import equipo.ptc.proyecto_trincheraptc.R
 
@@ -38,6 +41,13 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
     override fun onBindViewHolder(holder: ViewHolderMenu, position: Int) {
         val item = datos[position]
         holder.tvNombreCategoria.text = item.categoria
+
+        Glide.with(holder.itemView.context)
+            .load(item.imagen_categoria)
+            .into(holder.imgComida)
+
+        println("este es la url ${item.imagen_comida}")
+
 
         holder.itemView.setOnClickListener { view ->
             val context = view.context
@@ -72,5 +82,6 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
 
     class ViewHolderMenu(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombreCategoria: TextView = itemView.findViewById(R.id.tvNombreCategoria)
+        val imgComida : ImageView = itemView.findViewById(R.id.ivImagenProductoCard)
     }
 }

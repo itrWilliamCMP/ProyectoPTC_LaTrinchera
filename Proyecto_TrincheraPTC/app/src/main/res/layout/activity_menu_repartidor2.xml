@@ -65,10 +65,10 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgCategoria"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.019" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <ImageView
         android:id="@+id/Regresar1"
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="4"
-        android:textColor="#262626"
+        android:textColor="@color/design_default_color_error"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -297,7 +297,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calle las Margaritas, El Salvador"
-        android:textColor="#262626"
+        android:textColor="@color/design_default_color_error"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -311,7 +311,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="25.99"
-        android:textColor="#262626"
+        android:textColor="@color/design_default_color_error"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -338,7 +338,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Efectivo"
-        android:textColor="#262626"
+        android:textColor="@color/design_default_color_error"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

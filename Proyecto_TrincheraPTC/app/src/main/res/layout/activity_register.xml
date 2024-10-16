@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/imgAtras"
-        android:layout_width="22dp"
-        android:layout_height="37dp"
+        android:layout_width="28dp"
+        android:layout_height="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -124,7 +124,7 @@
                 android:fontFamily="@font/source_sans_pro_bold"
                 android:text="¿Ya tienes una cuenta?"
                 android:textColor="#EA986A"
-                android:textSize="12sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -195,7 +195,7 @@
                 app:layout_constraintTop_toTopOf="@+id/imageVie" />
 
             <TextView
-                android:id="@+id/tvEMail"
+                android:id="@+id/tvCorreo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/source_sans_pro_black"

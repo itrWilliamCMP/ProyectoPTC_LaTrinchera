@@ -50,6 +50,7 @@
                 android:textColor="#262626"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toStartOf="@+id/flecha"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/ivImagenClientes"
                 app:layout_constraintTop_toTopOf="@+id/ivImagenClientes" />
 
@@ -57,11 +58,12 @@
                 android:id="@+id/TxtUbicacion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:text="Calle las Margaritas, El Salvador"
                 android:textColor="#262626"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/TxtNombre_Cliente"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/TxtNombre_Cliente"
                 app:layout_constraintTop_toBottomOf="@+id/TxtNombre_Cliente" />
 
@@ -74,6 +76,7 @@
                 android:textColor="#262626"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@+id/TxtNombre_Cliente"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/TxtNombre_Cliente"
                 app:layout_constraintTop_toBottomOf="@+id/TxtUbicacion" />
 
