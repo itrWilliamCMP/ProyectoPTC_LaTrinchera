@@ -103,9 +103,6 @@ class MenuRepartidor : AppCompatActivity() {
             startActivity(Intent(this, Login_Repartidor::class.java))
         }
 
-        findViewById<ImageView>(R.id.PerfilRepartidor3).setOnClickListener {
-            startActivity(Intent(this, MenuRepartidor2::class.java))
-        }
     }
 
     private fun showError(error: String?) {

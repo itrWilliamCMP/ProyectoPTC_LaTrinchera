@@ -82,6 +82,6 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
 
     class ViewHolderMenu(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvNombreCategoria: TextView = itemView.findViewById(R.id.tvNombreCategoria)
-        val imgComida : ImageView = itemView.findViewById(R.id.ivImagenProductoCard)
+        val imgComida : ImageView = itemView.findViewById(R.id.ivImagenProducto)
     }
 }

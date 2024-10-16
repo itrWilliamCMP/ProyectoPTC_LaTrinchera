@@ -34,6 +34,8 @@ class ProductoActivity : AppCompatActivity() {
         val tvDescripcion = findViewById<TextView>(R.id.tvDescripcion)
         val TxtFalta = findViewById<TextView>(R.id.TxtFalta)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
+        val nombre = findViewById<TextView>(R.id.NombreCliente)
+        val IMG = findViewById<ImageView>(R.id.imageView19)
 
         val id_menu = intent.getIntExtra("id_menu", 0)
         val categoria = intent.getStringExtra("categoria")
@@ -43,30 +45,32 @@ class ProductoActivity : AppCompatActivity() {
         val precioventa = intent.getIntExtra("precioventa", 0)
         val stock = intent.getIntExtra("stock", 0)
 
-        txtProducto.text = producto
+       // txtProducto.text = producto
         txtCantidad.text = stock.toString()
         tvDescripcion.text = descripcion
         TxtFalta.text = precioventa.toString()
+        nombre.text = producto
+
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
             return withContext(Dispatchers.IO) {
                 val objConexion = ClaseConexion().cadenaConexion()
                 val traerCosas = objConexion?.prepareStatement("""
-SELECT
-    dp.id_producto,
-    dp.producto,
-    dp.imagen_Comida,
-    dp.descripcion,
-    dp.imagen_comida,
-    dp.precioventa,
-    dp.stock
-    c.categoria
-FROM
-    Detalle_Productos_PTC dp
-INNER JOIN
-    Menus_PTC c ON dp.ID_Menu = c.ID_Menu
-WHERE
-    dp.id_producto = ?
+        SELECT
+            dp.id_producto,
+            dp.producto,
+            dp.imagen_Comida,
+            dp.descripcion,
+            dp.imagen_comida,
+            dp.precioventa,
+            dp.stock,
+            c.categoria
+        FROM
+            Detalle_Productos_PTC dp
+        INNER JOIN
+            Menus_PTC c ON dp.ID_Menu = c.ID_Menu
+        WHERE
+            dp.id_producto = ?
                     """)!!
                 traerCosas.setInt(1, id_producto)
                 val resultSet = traerCosas.executeQuery()
@@ -91,12 +95,21 @@ WHERE
                 return@withContext datos;
             }
             }
-        categoria?.let {
+
+
+
             CoroutineScope(Dispatchers.IO).launch {
                 val centrosDB = obtenerCategorias(id_producto)
+
+                val descripcion = centrosDB[0].descripcion
                 withContext(Dispatchers.Main) {
+
+                        tvDescripcion.text = descripcion
+                        println("ahhhhhhhhhhhhhhhhhhhhhhhhhhhh $descripcion")
+
+
                 }
-            }
+
         } ?: run {
             println("No se recibió el producto en el intent.")
         }
@@ -105,5 +118,9 @@ WHERE
             val pantallaDetalleMenus = Intent(this, MenuCategoriaActivity::class.java)
             startActivity(pantallaDetalleMenus)
         }
+
+
+
+
     }
 }

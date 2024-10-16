@@ -39,31 +39,31 @@ class MainActivity : AppCompatActivity() {
 
         val imgSopas = findViewById<ImageView>(R.id.imgSopas)
         imgSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 
         val imgBaseSopas = findViewById<ImageView>(R.id.imgBaseSopas)
         imgBaseSopas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 
         val imgBaseBurritos = findViewById<ImageView>(R.id.imgBaseBurritos)
         imgBaseBurritos.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 
         val imgBaseTortas = findViewById<ImageView>(R.id.imgBaseTortas)
         imgBaseTortas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 
         val imgBaseQuesadillas = findViewById<ImageView>(R.id.imgBaseQuesadillas)
         imgBaseQuesadillas.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 

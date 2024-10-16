@@ -8,25 +8,6 @@
     tools:context=".MenuRepartidor"
     android:background="@drawable/fondo">
 
-    <Button
-        android:id="@+id/btnFondoCreativo"
-        android:layout_width="170dp"
-        android:layout_height="58dp"
-        android:backgroundTint="#b00b18"
-        android:shadowDx="4"
-        android:shadowDy="4"
-        android:textAllCaps="false"
-        android:textColor="#b00b18"
-        android:textColorHighlight="#b00b18"
-        android:textColorHint="#b00b18"
-        android:textColorLink="#b00b18"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.110000014" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -42,6 +23,25 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.050000012" />
 
+    <Button
+        android:id="@+id/btnFondoCreativo"
+        android:layout_width="170dp"
+        android:layout_height="58dp"
+        android:backgroundTint="#b00b18"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:textAllCaps="false"
+        android:textColor="#b00b18"
+        android:textColorHighlight="#b00b18"
+        android:textColorHint="#b00b18"
+        android:textColorLink="#b00b18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121" />
+
     <TextView
         android:id="@+id/tvNombreIngreso"
         android:layout_width="wrap_content"
@@ -53,10 +53,10 @@
         android:textSize="29sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.120000005" />
+        app:layout_constraintVertical_bias="0.131" />
 
     <TextView
         android:id="@+id/textView5"
@@ -83,19 +83,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <ImageView
-        android:id="@+id/PerfilRepartidor3"
-        android:layout_width="34dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.917"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.324"
-        app:srcCompat="@drawable/fsiguiente" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imgBackR"
@@ -108,17 +96,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.110000014"
         app:srcCompat="@drawable/back1" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="100dp"
-        android:layout_height="106dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.79"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095"
-        app:srcCompat="@drawable/baseline_account_circle_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
