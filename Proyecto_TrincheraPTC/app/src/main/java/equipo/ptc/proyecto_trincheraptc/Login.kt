@@ -58,8 +58,9 @@ class Login : AppCompatActivity() {
 
         // Funcionalidad del botón Entrar (login)
         btnEntrar.setOnClickListener {
-
+    println("se dio clic a entrarAAA ")
             correoDelCliente = txtCorreo.text.toString()
+            println("correo del cliente: $correoDelCliente")
             val txtCorreo = txtCorreo.text.toString()
             val txtContrasena = hashPassword(txtContrasena.text.toString())
 

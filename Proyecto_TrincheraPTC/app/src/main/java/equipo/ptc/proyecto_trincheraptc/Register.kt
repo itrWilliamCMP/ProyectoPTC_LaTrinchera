@@ -160,6 +160,8 @@ class Register : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+
         //1- Mando a llamar a todos los elementos de la vista
         imgRegistrarPFP = findViewById(R.id.imgRegistrarPFP)
         val btnGaleria = findViewById<Button>(R.id.btnSubirImagen)
@@ -173,6 +175,22 @@ class Register : AppCompatActivity() {
         val btnRegresar = findViewById<Button>(R.id.btnRegresar)
         val txtRegistrarTelefono = findViewById<EditText>(R.id.txtRegistrarTelefono)
         val txtRegistrarDireccion = findViewById<EditText>(R.id.txtRegistrarDireccion)
+
+        txtRegistrarTelefono.filters = arrayOf(android.text.InputFilter.LengthFilter(9)) // Limitar a 9 dígitos
+
+        txtRegistrarTelefono.addTextChangedListener(object : android.text.TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val textoFiltrado = s?.replace(Regex("[^0-9]"), "") // Remueve cualquier carácter que no sea número
+                if (textoFiltrado != s.toString()) {
+                    txtRegistrarTelefono.setText(textoFiltrado)
+                    txtRegistrarTelefono.setSelection(textoFiltrado?.length ?: 0) // Mueve el cursor al final del texto
+                }
+            }
+
+            override fun afterTextChanged(s: android.text.Editable?) {}
+        })
 
         btnGaleria.setOnClickListener {
             checkStoragePermission()
@@ -195,6 +213,7 @@ class Register : AppCompatActivity() {
             val correo = txtRegistrarCorreo.text.toString()
             val contrasena = txtRegistrarContrasena.text.toString()
             val confirmacionContrasena = txtConfirmacionContrasena.text.toString()
+            val telefono = txtRegistrarTelefono.text.toString()
 
             //Validaciones
             // Validación: Que no quede ningun campo vacío.
@@ -202,6 +221,7 @@ class Register : AppCompatActivity() {
                 Toast.makeText(this, "Campo Vacio", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
             // Validación: Que el correo electrónico tenga una @ obligatoriamente.
             if (!correo.matches(".*@.*".toRegex())) {
                 Toast.makeText(this, "Ingrese correo valido", Toast.LENGTH_SHORT).show()
@@ -215,6 +235,11 @@ class Register : AppCompatActivity() {
             // Validación: Que las contraseña sean las mismas.
             if (contrasena != confirmacionContrasena) {
                 Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            // Validación: Que el teléfono solo tenga números y sea de 9 dígitos
+            if (!telefono.matches("\\d{9}".toRegex())) {
+                Toast.makeText(this, "Ingrese un número de teléfono válido de 9 dígitos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

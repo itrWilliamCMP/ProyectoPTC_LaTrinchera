@@ -58,21 +58,6 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/txtProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="TextView"
-        android:textColor="#262626"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55777" />
-
-    <TextView
         android:id="@+id/NombreCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,10 +67,10 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.519" />
+        app:layout_constraintVertical_bias="0.505" />
 
     <ImageView
         android:id="@+id/imageView18"
@@ -93,8 +78,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtCantidad"
-        app:layout_constraintHorizontal_bias="0.965"
-        app:layout_constraintStart_toEndOf="@+id/txtProducto"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517"
         app:srcCompat="@drawable/reducir" />
