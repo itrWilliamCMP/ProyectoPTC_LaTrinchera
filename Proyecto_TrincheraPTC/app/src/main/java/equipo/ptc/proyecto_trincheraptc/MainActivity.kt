@@ -49,6 +49,30 @@ class MainActivity : AppCompatActivity() {
             startActivity(pantallaLogin)
         }
 
+        val imgBaseBurritos = findViewById<ImageView>(R.id.imgBaseBurritos)
+        imgBaseBurritos.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgBaseTortas = findViewById<ImageView>(R.id.imgBaseTortas)
+        imgBaseTortas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgBaseQuesadillas = findViewById<ImageView>(R.id.imgBaseQuesadillas)
+        imgBaseQuesadillas.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
+        val imgBaseTacos = findViewById<ImageView>(R.id.imgBaseTacos)
+        imgBaseTacos.setOnClickListener {
+            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            startActivity(pantallaLogin)
+        }
+
     }
 
 
