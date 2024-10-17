@@ -94,7 +94,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvComidaCategoria"
             android:layout_width="400dp"
-            android:layout_height="634dp"
+            android:layout_height="550dp"
             tools:listitem="@layout/activity_menu_principal_card" />
     </LinearLayout>
     </ScrollView>

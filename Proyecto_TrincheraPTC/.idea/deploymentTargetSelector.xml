@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="C">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-13T17:54:09.043671900Z">
+        <DropdownSelection timestamp="2024-10-16T18:23:38.653393800Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\AlexG\.android\avd\Mas_RAM.avd" />
+              <DeviceId pluginId="PhysicalDevice" identifier="serial=R5CR20RPKHB" />
             </handle>
           </Target>
         </DropdownSelection>

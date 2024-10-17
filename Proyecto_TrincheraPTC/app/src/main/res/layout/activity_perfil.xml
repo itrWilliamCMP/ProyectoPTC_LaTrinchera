@@ -21,9 +21,9 @@
         app:srcCompat="@drawable/rectanguloperfil" />
 
     <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="181dp"
-        android:layout_height="174dp"
+        android:id="@+id/fotoperfiiil"
+        android:layout_width="170dp"
+        android:layout_height="150dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintHorizontal_bias="0.503"

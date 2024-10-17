@@ -66,6 +66,7 @@ class MenuCategoriaActivity : AppCompatActivity() {
 
          */
 
+
         val tvNomCategoria = findViewById<TextView>(R.id.tvNomCategoria)
         tvNomCategoria.text = AdaptadorMenu.varGlobaAdap.categoria
 

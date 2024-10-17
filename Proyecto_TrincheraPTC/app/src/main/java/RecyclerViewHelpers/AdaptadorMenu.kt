@@ -68,6 +68,7 @@ class AdaptadorMenu(private var datos: List<tbMenuConProductos>) :
             }*/
             id_producto = item.id_producto.toString()
             id_menu = item.id_menu.toString()
+            println("ESTE ES EL ID ${item.id_menu}")
             categoria = item.categoria
             producto = item.producto
             descripcion = item.descripcion

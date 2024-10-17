@@ -1,6 +1,7 @@
 package equipo.ptc.proyecto_trincheraptc
 
 import ClasesPerfil.GetDatosClientes
+import Modelo.ClaseConexion
 import Modelo.Perfil_info
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -14,7 +15,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -23,6 +27,7 @@ class Perfil : AppCompatActivity() {
     // Declaración de variables
     private lateinit var txtNomUsuarioPerfil: TextView
     private lateinit var txtCorreoPerfil: TextView
+    lateinit var imgPerfilMenuPrincipal: ImageView
 
     // Variable para almacenar el ID del cliente actual
 
@@ -42,6 +47,13 @@ class Perfil : AppCompatActivity() {
 
         // Obtener el ID del cliente del intent
         val id_cliente = intent.getIntExtra("id_cliente", idtraido.toString().toInt())
+
+        imgPerfilMenuPrincipal = findViewById(R.id.fotoperfiiil)
+
+        GlobalScope.launch(Dispatchers.Main) {
+            val imageUrl = traerImagen()
+            cargarImagenPerfil(imageUrl)
+        }
 
 
 
@@ -111,6 +123,51 @@ class Perfil : AppCompatActivity() {
         }
         //-------------------------------------------------------------------------------------------
     }
+
+    suspend fun traerImagen(): String? {
+        return withContext(Dispatchers.IO) {
+            val objConexion = ClaseConexion().cadenaConexion()
+            val query = objConexion?.prepareStatement(
+                "SELECT imagen_clientes FROM Clientes_PTC WHERE correoElectronico = ?"
+            )
+            query?.setString(1, Login.correoDelCliente)
+            val resultSet = query?.executeQuery()
+
+            var imagenUrl: String? = null
+            if (resultSet != null && resultSet.next()) {
+                imagenUrl = resultSet.getString("imagen_clientes") // URL de la imagen guardada en Firebase
+            }
+
+            resultSet?.close()
+            query?.close()
+            objConexion?.close()
+
+            return@withContext imagenUrl
+        }
+    }
+
+    private fun cargarImagenPerfil(imagenUrl: String?) {
+        if (!imagenUrl.isNullOrEmpty()) {
+            // Obtener la referencia de Firebase Storage
+            val storageReference = FirebaseStorage.getInstance().getReferenceFromUrl(imagenUrl)
+
+            // Obtener la URL de descarga y cargarla en el ImageView usando Glide
+            storageReference.downloadUrl.addOnSuccessListener { uri ->
+                Glide.with(this)
+                    .load(uri)
+                    .into(imgPerfilMenuPrincipal)
+            }.addOnFailureListener {
+                Toast.makeText(this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            Toast.makeText(this, "No se encontró la URL de la imagen", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
+
+
+
 
     // Manejar el resultado de la actividad editar perfil
     //registra un lanzador de actividad que se utiliza para iniciar otra actividad y recibir un resultado de vuelta.
