@@ -176,13 +176,13 @@ class Register : AppCompatActivity() {
         val txtRegistrarTelefono = findViewById<EditText>(R.id.txtRegistrarTelefono)
         val txtRegistrarDireccion = findViewById<EditText>(R.id.txtRegistrarDireccion)
 
-        txtRegistrarTelefono.filters = arrayOf(android.text.InputFilter.LengthFilter(9)) // Limitar a 9 dígitos
+        txtRegistrarTelefono.filters = arrayOf(android.text.InputFilter.LengthFilter(8)) // Limitar a 9 dígitos
 
         txtRegistrarTelefono.addTextChangedListener(object : android.text.TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val textoFiltrado = s?.replace(Regex("[^0-9]"), "") // Remueve cualquier carácter que no sea número
+                val textoFiltrado = s?.replace(Regex("[^0-8]"), "") // Remueve cualquier carácter que no sea número
                 if (textoFiltrado != s.toString()) {
                     txtRegistrarTelefono.setText(textoFiltrado)
                     txtRegistrarTelefono.setSelection(textoFiltrado?.length ?: 0) // Mueve el cursor al final del texto
@@ -238,7 +238,7 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             }
             // Validación: Que el teléfono solo tenga números y sea de 9 dígitos
-            if (!telefono.matches("\\d{9}".toRegex())) {
+            if (!telefono.matches("\\d{8}".toRegex())) {
                 Toast.makeText(this, "Ingrese un número de teléfono válido de 9 dígitos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

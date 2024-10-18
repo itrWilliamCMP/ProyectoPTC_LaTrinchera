@@ -20,8 +20,8 @@ import java.security.MessageDigest
 
 class Login : AppCompatActivity() {
     companion object variablesLogin {
-        lateinit var idDelCliente: String
-        lateinit var correoDelCliente: String
+        var idDelCliente: String? = null
+        var correoDelCliente: String? = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +58,16 @@ class Login : AppCompatActivity() {
 
         // Funcionalidad del botón Entrar (login)
         btnEntrar.setOnClickListener {
+
+            val correo = txtCorreo.text.toString()
+
+            if (correo.isEmpty()) {
+                Toast.makeText(this, "El correo no puede estar vacío", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            correoDelCliente = correo // Inicializamos la variable
+            println("Correo del cliente: $correoDelCliente")
     println("se dio clic a entrarAAA ")
             correoDelCliente = txtCorreo.text.toString()
             println("correo del cliente: $correoDelCliente")

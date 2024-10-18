@@ -30,8 +30,8 @@ class direccion_entrega : AppCompatActivity() {
         setContentView(R.layout.activity_direccion_entrega)
 
         //Mandar a llamar los datos de la pantalla
-       txtDireccion = findViewById(R.id.txtDireccion)
-       btnGuardarDir = findViewById(R.id.btnGuardarDir)
+        txtDireccion = findViewById(R.id.txtDireccion)
+        btnGuardarDir = findViewById(R.id.btnGuardarDir)
 
         // Obtener el ID del cliente del intent
         val id_cliente = intent.getIntExtra("id_cliente", -1)

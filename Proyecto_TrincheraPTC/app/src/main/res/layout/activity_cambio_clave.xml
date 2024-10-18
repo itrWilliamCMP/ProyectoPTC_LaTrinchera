@@ -6,154 +6,141 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E7D7D0"
-    tools:context=".informacion_perfil">
-
+    tools:context=".cambio_clave">
 
     <View
-        android:id="@+id/view4"
-        android:layout_width="416dp"
-        android:layout_height="184dp"
-        android:background="@drawable/header15"
+        android:id="@+id/Texview32"
+        android:layout_width="367dp"
+        android:layout_height="89dp"
+        android:background="#FFC072"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.331" />
 
-    <TextView
-        android:id="@+id/txtClave2"
-        android:layout_width="354dp"
-        android:layout_height="41dp"
-        android:background="@drawable/campooutline"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:inputType="text"
-        android:textColor="#262626"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
+    <View
+        android:id="@+id/Texview22"
+        android:layout_width="367dp"
+        android:layout_height="89dp"
+        android:background="#FFC072"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
-
-    <TextView
-        android:id="@+id/txtClave1"
-        android:layout_width="354dp"
-        android:layout_height="41dp"
-        android:background="@drawable/campooutline"
-        android:ems="10"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:inputType="text"
-        android:textColor="#262626"
-        android:textColorHint="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.438" />
-
-    <ImageView
-        android:id="@+id/imageView98"
-        android:layout_width="130dp"
-        android:layout_height="59dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
-        app:srcCompat="@drawable/camponombre" />
-
-    <ImageView
-        android:id="@+id/imageView97"
-        android:layout_width="161dp"
-        android:layout_height="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.536"
-        app:srcCompat="@drawable/camponombre" />
-
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="233dp"
-        android:layout_height="99dp"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="Cambio de contraseña"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.06" />
-
-    <Button
-        android:id="@+id/btnGuardarClave"
-        android:layout_width="355dp"
-        android:layout_height="92dp"
-        android:backgroundTint="#1E5D19"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="Continuar"
-        android:textColor="#F0BFAA"
-        android:textSize="24sp"
-        app:cornerRadius="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
-
-    <ImageView
-        android:id="@+id/imgAtrasCambioClave"
-        android:layout_width="35dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/atrasverde" />
+        app:layout_constraintVertical_bias="0.549" />
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="Nueva contraseña"
-        android:textColor="#80000000"
-        android:textSize="14sp"
+        android:text="Nueva Contraseña"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.186"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.415" />
+        app:layout_constraintVertical_bias="0.32" />
+
 
     <TextView
-        android:id="@+id/textView30"
+        android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/source_sans_pro_black"
-        android:text="Confirmar contraseña"
-        android:textColor="#80000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView97"
-        app:layout_constraintEnd_toEndOf="@+id/imageView97"
-        app:layout_constraintHorizontal_bias="0.318"
-        app:layout_constraintStart_toStartOf="@+id/imageView97"
-        app:layout_constraintTop_toTopOf="@+id/imageView97"
-        app:layout_constraintVertical_bias="0.53" />
+        android:text="Confirmar Contraseña"
+        android:textColor="#0E0E0E"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.512" />
 
+    <View
+        android:id="@+id/view4"
+        android:layout_width="424dp"
+        android:layout_height="179dp"
+        android:background="@mipmap/encabezado_perfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="312dp"
+        android:layout_height="61dp"
+        android:text="Cambio de Contraseña"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.595"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.086" />
+
+    <EditText
+        android:id="@+id/txtClave1"
+        android:layout_width="345dp"
+        android:layout_height="40dp"
+        android:background="#F2A343"
+        android:textColorHint="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.37" />
+
+    <EditText
+        android:id="@+id/txtClave2"
+        android:layout_width="345dp"
+        android:layout_height="40dp"
+        android:background="#F2A343"
+        android:inputType="text"
+        android:textColorHint="@color/black"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.564" />
+
+    <Button
+        android:id="@+id/btnGuardarClave"
+        android:layout_width="202dp"
+        android:layout_height="74dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Guardar"
+        android:textColor="#F28E13"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.733" />
+
+    <ImageView
+        android:id="@+id/imgAtrasCambioClave"
+        android:layout_width="53dp"
+        android:layout_height="49dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.085"
+        app:srcCompat="@drawable/ic_atras" />
 </androidx.constraintlayout.widget.ConstraintLayout>

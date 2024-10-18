@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="C">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-10-16T18:23:38.653393800Z">
+        <DropdownSelection timestamp="2024-10-18T04:08:45.830400900Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=R5CR20RPKHB" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\danie\.android\avd\trinche.avd" />
             </handle>
           </Target>
         </DropdownSelection>

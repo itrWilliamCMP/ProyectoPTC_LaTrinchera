@@ -29,13 +29,14 @@ class ProductoActivity : AppCompatActivity() {
             insets
         }
 
-        val txtProducto = findViewById<TextView>(R.id.txtProducto)
+
         val txtCantidad = findViewById<TextView>(R.id.txtCantidad)
         val tvDescripcion = findViewById<TextView>(R.id.tvDescripcion)
         val TxtFalta = findViewById<TextView>(R.id.TxtFalta)
         val imgRegresar = findViewById<ImageView>(R.id.imgRegresar)
         val nombre = findViewById<TextView>(R.id.NombreCliente)
-        val IMG = findViewById<ImageView>(R.id.imageView19)
+        val IMG = findViewById<ImageView>(R.id.ivImagenProducto)
+
 
         val id_menu = intent.getIntExtra("id_menu", 0)
         val categoria = intent.getStringExtra("categoria")
@@ -44,71 +45,70 @@ class ProductoActivity : AppCompatActivity() {
         val descripcion = intent.getStringExtra("descripcion")
         val precioventa = intent.getIntExtra("precioventa", 0)
         val stock = intent.getIntExtra("stock", 0)
+        val imagen_comida = intent.getStringExtra("imagen_comida")
 
-       // txtProducto.text = producto
+        // txtProducto.text = producto
         txtCantidad.text = stock.toString()
         tvDescripcion.text = descripcion
         TxtFalta.text = precioventa.toString()
         nombre.text = producto
+        IMG.setImageResource(resources.getIdentifier(imagen_comida, "drawable", packageName))
 
 
         suspend fun obtenerCategorias(id_producto: Int): List<tbMenuConProductos> {
             return withContext(Dispatchers.IO) {
                 val objConexion = ClaseConexion().cadenaConexion()
-                val traerCosas = objConexion?.prepareStatement("""
-        SELECT
-            dp.id_producto,
-            dp.producto,
-            dp.imagen_Comida,
-            dp.descripcion,
-            dp.imagen_comida,
-            dp.precioventa,
-            dp.stock,
-            c.categoria
-        FROM
-            Detalle_Productos_PTC dp
-        INNER JOIN
-            Menus_PTC c ON dp.ID_Menu = c.ID_Menu
-        WHERE
-            dp.id_producto = ?
-                    """)!!
+                if (objConexion == null) {
+                    println("Error al establecer la conexión a la base de datos.")
+                    return@withContext emptyList() // Devuelve una lista vacía si no hay conexión
+                }
+
+                val traerCosas = objConexion.prepareStatement("""
+            SELECT
+                dp.id_producto,
+                dp.producto,
+                dp.descripcion,
+                dp.imagen_comida,
+                dp.precioventa,
+                dp.stock,
+                c.categoria
+            FROM
+                Detalle_Productos_PTC dp
+            INNER JOIN
+                Menus_PTC c ON dp.ID_Menu = c.ID_Menu
+            WHERE
+                dp.id_producto = ?
+        """)!!
+
                 traerCosas.setInt(1, id_producto)
                 val resultSet = traerCosas.executeQuery()
                 val datos = mutableListOf<tbMenuConProductos>()
-                if (resultSet != null) {
-                    while (resultSet.next()) {
-                        val id_menu = resultSet.getInt("id_menu")
-                        val categoria = resultSet.getString("categoria")
-                        val id_producto = resultSet.getInt("id_producto")
-                        val producto = resultSet.getString("producto")
-                        val descripcion = resultSet.getString("descripcion")
-                        val precioventa = resultSet.getInt("precioventa")
-                        val stock = resultSet.getInt("stock")
-                        val imagen_categoria = resultSet.getString("imagen_categoria")
-                        val imagen_comida = resultSet.getString("imagen_comida")
-                        val valoresjuntos = tbMenuConProductos(id_menu, categoria, id_producto, producto, descripcion, precioventa, stock, imagen_categoria, imagen_comida)
-                        datos.add(valoresjuntos)
-                    }
+
+                while (resultSet.next()) {
+                    // Extraer datos de resultSet
+                }
+
+                return@withContext datos
+            }
+        }
+
+
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val centrosDB = obtenerCategorias(id_producto)
+
+            withContext(Dispatchers.Main) {
+                if (centrosDB.isNotEmpty()) {
+                    val descripcion = centrosDB[0].descripcion
+                    tvDescripcion.text = descripcion
+                    println("ahhhhhhhhhhhhhhhhhhhhhhhhhhhh $descripcion")
                 } else {
-                    println("La consulta no devolvió resultados.")
+                    // Manejo de caso cuando no se encuentran categorías
+                    println("No se encontraron categorías para el producto.")
+                    tvDescripcion.text = "Descripción no disponible"
                 }
-                return@withContext datos;
-            }
             }
 
-
-
-            CoroutineScope(Dispatchers.IO).launch {
-                val centrosDB = obtenerCategorias(id_producto)
-
-                val descripcion = centrosDB[0].descripcion
-                withContext(Dispatchers.Main) {
-
-                        tvDescripcion.text = descripcion
-                        println("ahhhhhhhhhhhhhhhhhhhhhhhhhhhh $descripcion")
-
-
-                }
 
         } ?: run {
             println("No se recibió el producto en el intent.")

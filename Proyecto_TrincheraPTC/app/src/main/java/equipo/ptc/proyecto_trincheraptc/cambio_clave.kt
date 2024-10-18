@@ -57,6 +57,8 @@ class cambio_clave : AppCompatActivity() {
         imgAtrasCambioClave.setOnClickListener {
            finish()
         }
+
+
     }
 
 

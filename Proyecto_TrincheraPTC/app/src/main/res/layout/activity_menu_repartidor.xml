@@ -75,8 +75,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvRepartidor"
-        android:layout_width="406dp"
-        android:layout_height="685dp"
+        android:layout_width="380dp"
+        android:layout_height="585dp"
         android:layout_marginBottom="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

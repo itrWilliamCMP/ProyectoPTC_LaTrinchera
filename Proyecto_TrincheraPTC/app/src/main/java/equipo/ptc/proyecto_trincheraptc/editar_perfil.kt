@@ -34,7 +34,9 @@ class editar_perfil : AppCompatActivity() {
 
         //Mandar a llamar los datos de la pantalla
         textViewNombre = findViewById(R.id.txtnombre_perfil_editar)
+        textViewTelefono = findViewById(R.id.txttelefono_editar)
         textViewCorreo = findViewById(R.id.txtCorreo_perfil_editar)
+        textViewID = findViewById(R.id.txtID_editar)
         btnGuardarPerfil = findViewById(R.id.btn_guardar_perfil)
 
         // Obtener el ID del cliente del intent

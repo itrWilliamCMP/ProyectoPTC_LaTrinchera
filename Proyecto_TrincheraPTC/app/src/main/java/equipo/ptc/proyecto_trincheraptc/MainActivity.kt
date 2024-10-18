@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
         val imgBaseTacos = findViewById<ImageView>(R.id.imgBaseTacos)
         imgBaseTacos.setOnClickListener {
-            val pantallaLogin = Intent(this, MenuCategoriaActivity::class.java)
+            val pantallaLogin = Intent(this, Menu_PrincipalActivity::class.java)
             startActivity(pantallaLogin)
         }
 

@@ -72,10 +72,17 @@ class Perfil : AppCompatActivity() {
         val imgCambioDeContrasena = findViewById<ImageView>(R.id.imgCambioDeContrasena)
         val imgInformacionPersonal = findViewById<ImageView>(R.id.imgInformacion_personal)
         val imgDireccionEntrega = findViewById<ImageView>(R.id.imgDireccion_entrega)
+        val SalirLogin = findViewById<ImageView>(R.id.SalirLogin)
 
         // Mandar a llamar los valores de los textview
         txtNomUsuarioPerfil = findViewById<TextView>(R.id.txtNomUsuarioPerfil)
         txtCorreoPerfil = findViewById<TextView>(R.id.txtCorreoPerfil)
+
+        val BackLog = findViewById<ImageView>(R.id.SalirLogin)
+        BackLog.setOnClickListener {
+            val Login = Intent(this, Login::class.java)
+            startActivity(Login)
+        }
 
         // Manejar clic en Información Personal
         imgInformacionPersonal.setOnClickListener {
@@ -85,6 +92,8 @@ class Perfil : AppCompatActivity() {
             editarPerfilLauncher.launch(intent) // Lanzar actividad y esperar resultado
         }
 
+
+
         // Manejar clic en Cambio de Contraseña
         imgCambioDeContrasena.setOnClickListener {
             val intent = Intent(this, cambio_clave::class.java)
@@ -92,6 +101,8 @@ class Perfil : AppCompatActivity() {
             intent.putExtra("id_cliente", id_cliente)
             startActivity(intent) // Iniciar actividad
         }
+
+
 
         // Manejar clic en Dirección de Entrega
         imgDireccionEntrega.setOnClickListener {
